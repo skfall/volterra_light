@@ -144,10 +144,10 @@ var app = {
 
 
 				if (index == 1) {
-					$('header').addClass('z-depth-4 filled');
+					$('header').addClass('z-depth-2 filled');
 				}else{
 					if (nextIndex == 1) {
-						$('header').removeClass('z-depth-4 filled');
+						$('header').removeClass('z-depth-2 filled');
 					}
 				}
 

@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'RS' => '/volterra/',
+    'RS' => '/volt/',
     'multilang' => false,
     'locale' => 'ru',
     'routeLang' => '',

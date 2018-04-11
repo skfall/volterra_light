@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col xl4 l4 m3 s3">
 				<a href="{{ PAGE == 'home' ? '#start' : RS.LANG }}" class="logo">
-					<img src="{{ IMG.'logo.svg' }}" alt="Logo" class="responsive-img" />
+					<img src="{{ IMG.'logo_white.svg' }}" alt="Logo" class="responsive-img" />
 				</a>
 			</div>
 

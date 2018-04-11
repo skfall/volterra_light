@@ -178,7 +178,7 @@
 				<div class="row projects_wrapper">
 					@forelse($projects as $project)
 						<div class="col xl4 l4 m12 s12 project_home_item">
-							<div class="card z-depth-5 hoverable">
+							<div class="card z-depth-2 hoverable">
 								<div class="card-image waves-effect">
 									@if($project->preview)
 										<a href="{{ RS.LANG.'projects/'.$project->id.'/' }}"><img src="{{ UPLOAD.'projects/crop/600x308_'.$project->preview }}" alt="Project"></a>
