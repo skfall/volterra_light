@@ -1,0 +1,14 @@
+<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 33">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>Phone_icon</title>
+  <g>
+    <rect class="cls-1" x="9" y="28" width="3" height="2"/>
+    <path class="cls-1" d="M24,15H21V0H0V33H21V17h3ZM2,2H19V5H2ZM19,31H2V27H19Zm0-5H2V6H19v9H15V10H14v1H13v1H12v1H11v1H10v1H9v2h1v1h1v1h1v1h1v1h1v1h1V17h4Z"/>
+  </g>
+</svg>
