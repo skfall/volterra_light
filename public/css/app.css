@@ -235,24 +235,31 @@ h3 {color: #575656;}
 .mobile_header {display: none;}
 .mob_menu_btn {display: none;}
 
-.sidenav {background: #282828;}
+.sidenav {background: #fff;}
 .sidenav li.first {display: block; height: 65px; width: 100%;}
 .sidenav li {display: block; width: 100%;}
 .sidenav li.active {background-color: rgba(150, 70, 149, 0.5);}
-.sidenav li a {color: #fff; font: 16px 'RobotoR', Tahoma; padding-top: 13px;}
-.sidenav-overlay {background-color: rgba(0,0,0,0.3);}
+.sidenav li a {color: #575656; font: 16px 'RobotoR', Tahoma; padding-top: 13px;}
+.sidenav-overlay {background-color: rgba(0,0,0,0.2);}
+
+.recall_dark {display: none;}
 
 @media(max-width: 768px){
 	.home_slider_holder, .home_slider_sect {height: 60%; max-height: 60vh;}
+	.parent_home_slider_sect {padding-top: 65px;}
+	.home_slider_holder, .home_slider_sect {margin-top: 65px;}
+	.recall_white {display: none;}
+	.recall_dark {display: block;}
 
-
+	#menu_toogle_btn span {background: #575656;}
 	.desktop_header {display: none;}
 	.mobile_header {display: block;}
 	.mobile_menu_controls {text-align: right;}
 	.mobile_menu_controls li {display: inline-block;}
 	.mob_recall_btn {position: fixed; right: 125px; top: 20px; width: 21px; height: 33px; cursor: pointer; z-index: 1100; display: block;}
 	.mob_menu_btn {position: fixed; right: 75px; top: 22px; width: 25px; height: 25px; cursor: pointer; z-index: 1100; display: block;}
-	header {z-index: 1100;}
+	header {z-index: 1100; background: #fff; -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+		box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3)}
 	.mobile_header .logo img {position: relative; z-index: 1100;}
 }
 

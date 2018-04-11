@@ -21,7 +21,7 @@
 							<li class="{{ $active }} waves-effect waves-nav not_anchor"><a href="{{ $path }}" class="valign-wrapper">{{$nav_item->name}}</a></li>
 						@endif						
 					@endforeach
-					<li class="recall_btn not_anchor"><a href="javascript:void(0);"><img src="{{ IMG.'phone_icon.svg' }}" alt="Recall"></a></li>	
+					<li class="recall_btn not_anchor"><a href="javascript:void(0);"><img src="{{ IMG.'phone_icon.svg' }}" alt="Recall" class="recall_white"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark"></a></li>	
 				</ul>
 			</div>
 		</div>
@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col m6 s6">
 				<a href="{{ PAGE == 'home' ? '#start' : RS.LANG }}" class="logo">
-					<img src="{{ IMG.'logo.svg' }}" alt="Logo" class="responsive-img" />
+					<img src="{{ IMG.'logo_white.svg' }}" alt="Logo" class="responsive-img" />
 				</a>
 			</div>
 			<div class="col m6 s6 tar">
@@ -41,7 +41,7 @@
 	</div>
 </header>
 
-<div class="recall_btn mob_recall_btn"><a href="javascript:void(0);"><img src="{{ IMG.'phone_icon.svg' }}" alt="Recall"></a></div>	
+<div class="recall_btn mob_recall_btn"><a href="javascript:void(0);"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark_mob"></a></div>	
 <div class="mob_menu_btn">
 	<div id="menu_toogle_btn" onclick="app.open_mobile_nav(this);">
 		<span></span>

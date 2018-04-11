@@ -145,9 +145,13 @@ var app = {
 
 				if (index == 1) {
 					$('header').addClass('z-depth-2 filled');
+					$('.recall_dark').fadeIn(400);
+					$('.recall_white').fadeOut(0);
 				}else{
 					if (nextIndex == 1) {
 						$('header').removeClass('z-depth-2 filled');
+						$('.recall_dark').fadeOut(0);
+						$('.recall_white').fadeIn(400);
 					}
 				}
 
