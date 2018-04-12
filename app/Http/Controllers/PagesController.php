@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use Config;
 use \App\Models\Project;
 use \App\Models\Nav;
-use \App\Models\HomePage;
+use \App\Models\HomeSection1;
+use \App\Models\HomeSection2;
+use \App\Models\HomeSection3;
+use \App\Models\HomeSection4;
 use \App\Models\Service;
 
 class PagesController extends AppController {
@@ -16,10 +19,22 @@ class PagesController extends AppController {
     }
 
     public function home(){
-        $page_content = $this->core->getPage(HomePage::class);
+        $entities = [
+            '1' => HomeSection1::class,
+            '2' => HomeSection2::class,
+            '3' => HomeSection3::class,
+            '4' => HomeSection4::class,
+        ];
+        $page_content = $this->core->getHomePageSections($entities);
+
+        $section_1 = $page_content[0];
+        $section_2 = $page_content[1];
+        $section_3 = $page_content[2];
+        $section_4 = $page_content[3];
+
         $services = $this->core->getServices([], 'home_services');
         $projects = $this->core->getProjects(['block' => 0], 0, 3);
-        $viewmodel = compact('page_content', 'services', 'projects');
+        $viewmodel = compact('services', 'projects', 'section_1', 'section_2', 'section_3', 'section_4');
     	return view('pages.home', $viewmodel);
     }
 

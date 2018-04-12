@@ -548,9 +548,10 @@ function loadPage(parent,alias,id,item_id,action_type,params)
 				}// end of card view
 				
 				// Card Edit
-				
-				if(action_type=='cardEdit' || action_type=='cardCreate' || (action_type=='landingPage' && (parent=='allpages' || parent=='homepage' || parent=='townhouses' || parent=='cottages' || parent=='articles' || parent=='settings')) )
+
+				if(action_type=='cardEdit' || action_type=='cardCreate' || (action_type=='landingPage' && (parent=='all_pages' || parent=='home' || parent=='settings')) )
 				{
+
 					if(action_type=='landingPage' && (parent=='allpages' || parent=='homepage'))
 					{
 						$('#landCluster').addClass('fadeInDown');

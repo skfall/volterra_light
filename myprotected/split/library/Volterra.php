@@ -124,6 +124,28 @@ class Volterra extends BasicHelp {
 			}
 		}
 
+		public function getHomeThirdSection(){
+			$q = "
+				SELECT M.* 
+				FROM `osc_page_home_3` AS M 
+				WHERE M.id = 1 
+				LIMIT 1
+			";
+			$result = $this->rs($q, 1);
+			return $result;
+		}
+
+		public function getHomeFourthSection(){
+			$q = "
+				SELECT M.* 
+				FROM `osc_page_home_4` AS M 
+				WHERE M.id = 1 
+				LIMIT 1
+			";
+			$result = $this->rs($q, 1);
+			return $result;
+		}
+
 		public function getServiceItem($id) {
 			$query = "
 				SELECT M.* 

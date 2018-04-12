@@ -291,7 +291,28 @@ var app = {
 		var slide = $(self).data('slide') || 0;
 		this.home_owl.trigger('to.owl.carousel', slide -1);
 	},
-	changeHomeSlide2: function(self){
+	changeHomeSlide2: function(self, caption_id, sub_caption_id, content_id){
+		var caption_target = $('.home_about .section_name .caption');
+		var subcaption_target = $('.home_about .section_name .sub_caption');
+		var content_target = $('.home_about .content_target');
+		var caption = "";
+		var sub_caption = "";
+		var content = "";
+		if ($('#'+caption_id).length) {
+			caption = $('#'+caption_id).val();
+			caption_target.html(caption);
+		}
+
+		if ($('#'+sub_caption_id).length) {
+			sub_caption = $('#'+sub_caption_id).val();
+			subcaption_target.html(sub_caption);
+		}
+
+		if ($('#'+content_id).length) {
+			content = $('#'+content_id).val();
+			content_target.html(content);
+		}
+
 		var self = self || {};
 		var slide = $(self).data('slide') || 0;
 		this.home_owl2.trigger('to.owl.carousel', slide -1);

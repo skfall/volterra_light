@@ -155,12 +155,17 @@ class Core extends Helper {
 		return $project;
 	}
 
-	public function getPage($instance, $filter = []){
-		// $filter ~ ['id' => 2] || [['id', '>', 1], ['id', '<=', 5]]
-		return $instance::where($filter)->get() ?: [];
+	public function getHomePageSections($instances){
+		return [
+			$instances['1']::get() ?: [],
+			$instances['2']::get() ?: [],
+			$instances['3']::get() ?: [],
+			$instances['4']::get() ?: [],
+		];
 	}
 
 	public function getServices($filter = [], ...$params){
+		// $filter ~ ['id' => 2] || [['id', '>', 1], ['id', '<=', 5]]
 		$instance = \App\Models\Service::where($filter);
 		if ($params && $params[0] == 'home_services') {
 			$instance = $instance->orderBy('id', 'desc')->skip(0)->take(4);
