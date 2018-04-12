@@ -1,9 +1,9 @@
 <?php 
-	$headParams = array( 'parent'=>$parent, 'alias'=>$alias, 'id'=>$id, 'appTable'=>$appTable, 'type' => 'home_sections' );
+	$headParams = array( 'parent'=>$parent, 'alias'=>$alias, 'id'=>$id, 'appTable'=>$appTable );
 	$data['headContent'] = $zh->getLandingHeader($headParams);
 
-	$itemsList = $zh->getHomeSections($params);
-	$totalItems = $zh->getHomeSections($params,true);
+	$itemsList = $zh->getHomeFirstSectionItems($params);
+	$totalItems = $zh->getHomeFirstSectionItems($params,true);
 	foreach ($itemsList as $key => &$section) {
 		$section['section_caption'] = strip_tags($section['section_caption']);
 	}
@@ -23,12 +23,12 @@
 	if(isset($_COOKIE['filter-2']) && $_COOKIE['filter-2']) $data['filter']['f2'] = 1;
 	if(isset($_COOKIE['filter-3']) && $_COOKIE['filter-3']) $data['filter']['f3'] = 1;
 
-	$filter1_options = array( 'By ID'=>'M.id', 'By Name'=>'M.name' );
+	$filter1_options = array( 'By ID'=>'M.id', 'By Name'=>'M.section_caption' );
 	$filter2_options = array( 
-							'Публикация'	=> array( 'fieldName'=>'M.block', 'params' => array('Yes'=>'0', 'No'=>'1') )
+							
 							);
 	$filter3_options = array( 
-							'sort' => array( 'ID'=>'id', 'Вопросу'=>'question', 'Порядковому номеру'=>'order_id' ),
+							'sort' => array( 'ID'=>'id' ),
 							'order' => array( 'По возрастанию'=>'', 'По убыванию'=>' DESC' ) 
 							);
 	$filterFormParams = array(	'params'=>$params, 

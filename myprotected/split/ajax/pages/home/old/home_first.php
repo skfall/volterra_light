@@ -2,10 +2,9 @@
 	require_once "../../../../require.base.php";
 	require_once "../../../library/Volterra.php";
 	
-	$zh = new Volterra($dbh);
+	$zh = new NKZ($dbh);
 	
 	$data = array('status'=>"error",'message'=>"Tech error",'headContent'=>"",'bodyContent'=>"",'filter'=>array('f1'=>0,'f2'=>0,'f3'=>0));
-
 	$parent		= str_replace(" ","",$_POST['parent']);
 	$alias		= str_replace(" ","",$_POST['alias']);
 	$id			= (int)$_POST['id'];
@@ -27,7 +26,9 @@
 	}
 	$params['filtr'] = $prmFiltr;
 	
-	$appTable = "page_home"; // Main table
+	$pageTable = "osc_page_home_2"; // Page table
+	
+	$appTable = "slides"; // Main table
 	
 	$moduleFile = $alias.".".$actionType.".php";
 	

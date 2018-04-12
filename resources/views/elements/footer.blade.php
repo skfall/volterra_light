@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col xl3 l3 m3 s12 footer_logo_wrapper">
         <a href="{{ PAGE == 'home' ? '#start' : RS.LANG }}" class="footer_logo">
-          <img src="{{ IMG.'logo.svg' }}" alt="Logo" class="responsive-img" />
+          <img src="{{ IMG.'logo_grey.svg' }}" alt="Logo" class="responsive-img" />
         </a>
       </div>
       <div class="col xl9 l9 m9 s12 footer_nav_wrapper">
@@ -23,7 +23,6 @@
           <li class="copyright">{{ $config->copyright }}</li>
           <li class="dev"><a href="https://kaminskiy-design.com.ua/" rel="me" target="_blank" title="Создание сайтов в Киеве - веб студия KAM STUDIO">Создание сайтов в Киеве</a></li>
         </ul>
-
       </div>
     </div>
   </div>

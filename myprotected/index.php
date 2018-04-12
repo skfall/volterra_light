@@ -26,7 +26,7 @@ if ($root) {
 <meta content="KAM STUDIO" name="author"	/>
 <meta content="noindex,nofollow" name="robots"	/>
 <link href="favicon.png" rel="shortcut icon" />
-<title>Админ-панель | n-k-z</title>
+<title>Админ-панель | Volterra</title>
 <link rel="stylesheet" type="text/css" href="webroot/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="webroot/css/style.css" />
 <link rel="stylesheet" type="text/css" href="webroot/css/animate.css" />
