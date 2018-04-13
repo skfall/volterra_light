@@ -10,13 +10,14 @@ define("WP_LOGIN",$helper->checkAdminLogin());
 $path = str_replace('\\', '/', realpath(__DIR__ . '/..'));
 
 $exploded = explode('/', $path);
-$root = end($exploded);
-$root = str_replace('public_html/', '');
+$root = $exploded[count($exploded) - 1];
+$root = str_replace('public_html/', '', $root);
 if ($root) {
   define('RS', '/'.$root.'/');
 }else{
   define('RS', '/');
 }
+
 
 ?>
 <!DOCTYPE html>

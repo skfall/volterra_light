@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'RS' => '/volt/',
+    'RS' => '/volterra_light/',
     'multilang' => false,
     'locale' => 'ru',
     'routeLang' => '',

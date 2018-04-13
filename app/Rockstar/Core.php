@@ -168,7 +168,7 @@ class Core extends Helper {
 		// $filter ~ ['id' => 2] || [['id', '>', 1], ['id', '<=', 5]]
 		$instance = \App\Models\Service::where($filter);
 		if ($params && $params[0] == 'home_services') {
-			$instance = $instance->orderBy('id', 'desc')->skip(0)->take(4);
+			$instance = $instance->orderBy('id', 'desc')->skip(0)->take(6);
 		}
 		return $instance->get() ?: [];
 	}

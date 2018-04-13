@@ -100,6 +100,7 @@ var app = {
 		if (document.getElementById('home_slider_wrap_bg2')) {
 			document.getElementById('home_slider_wrap_bg2').ondragstart = function() { return false; };
 		}
+
 		this.reinit();
 		this.bind();
 		$('#preloader').addClass('animated fadeOut');
@@ -194,6 +195,13 @@ var app = {
 			//normalScrollElements: '#home_footer',
 
 		});
+
+
+		$('#about_content_wrapper, .service_description').hover(function(){
+			$.fn.fullpage.setAllowScrolling(false);
+		}, function(){
+			$.fn.fullpage.setAllowScrolling(true);
+		});
 		this.home_owl = $('.home_slider').owlCarousel({
 		    animateOut: 'fadeOut',
 		    animateIn: 'fadeIn',
@@ -201,7 +209,7 @@ var app = {
 		    margin:0,
 		    stagePadding:0,
 		    smartSpeed:450,
-		    autoplay: true,
+		    autoplay: false,
 		    mouseDrag: false,
 		    touchDrag: false,
 		    pullDrag: false,
@@ -220,7 +228,7 @@ var app = {
 		    margin:0,
 		    stagePadding:0,
 		    smartSpeed:450,
-		    autoplay: true,
+		    autoplay: false,
 		    mouseDrag: false,
 		    touchDrag: false,
 		    pullDrag: false,
@@ -231,6 +239,7 @@ var app = {
 				$('.about_slider_trigger .dot[data-slide="' + (index + 1) + '"]').addClass('active');		   	
 		    }
 		});
+
 
 		$(".mask").mask("+380 (99) 999-99-99");
 
@@ -313,6 +322,9 @@ var app = {
 			content_target.html(content);
 		}
 
+		var el = new SimpleBar(document.getElementById('about_content_wrapper'));
+		el.recalculate();
+		$('#about_content_wrapper').scrollTop(0);
 		var self = self || {};
 		var slide = $(self).data('slide') || 0;
 		this.home_owl2.trigger('to.owl.carousel', slide -1);
@@ -332,6 +344,22 @@ var app = {
 		}
 
 	}
+};
+
+var gmaps = {
+	project_map: function(){
+		//var lat = parseFloat(storage.home_map_selector.data('lat')) || 0;
+		//var lng = parseFloat(storage.home_map_selector.data('lng')) || 0;
+		console.log(google);
+        var map = new google.maps.Map($('#project_map'), {
+          zoom: 16,
+          center: {lat:48.244, lng:30.876}
+        });
+   //      var marker = new google.maps.Marker({
+			// position: {lat:lat, lng:lng},
+			// map: map
+   //      });
+	},
 };
 
 (function($){
