@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Квт 13 2018 р., 02:26
+-- Час створення: Квт 15 2018 р., 13:52
 -- Версія сервера: 10.1.26-MariaDB
 -- Версія PHP: 7.1.8
 
@@ -91,6 +91,23 @@ INSERT INTO `osc_admin_menu` (`id`, `type`, `parent`, `table`, `additional_field
 (52, 1, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Все страницы', 'all_pages', 'materials-icon-slider.png', 6, 'Управление страницами', 0, '#', '2013-11-15 03:01:26', '2015-04-20 16:39:41', 1),
 (53, 1, 47, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Секция 3', 'home3', 'fa-bars', 6, 'Управление главной', 0, '#', '2013-11-15 03:01:26', '2015-04-20 16:39:41', 1),
 (54, 1, 47, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Секция 4', 'home4', 'fa-bars', 6, 'Управление главной', 0, '#', '2013-11-15 03:01:26', '2015-04-20 16:39:41', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `osc_contact_form`
+--
+
+CREATE TABLE `osc_contact_form` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `message` text,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `seen` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -319,7 +336,8 @@ INSERT INTO `osc_logs` (`id`, `date`, `type`, `description`, `userid`, `ip`) VAL
 (3, '2018-04-10 16:04:21', 1, 'Admin login: Success login.', 1, '::1'),
 (4, '2018-04-11 21:47:00', 1, 'Admin login: Success login.', 1, '::1'),
 (5, '2018-04-12 15:30:03', 1, 'Admin login: Success login.', 1, '::1'),
-(6, '2018-04-13 01:44:00', 1, 'Admin login: Success login.', 1, '::1');
+(6, '2018-04-13 01:44:00', 1, 'Admin login: Success login.', 1, '::1'),
+(7, '2018-04-13 18:27:39', 1, 'Admin login: Success login.', 1, '::1');
 
 -- --------------------------------------------------------
 
@@ -566,9 +584,7 @@ CREATE TABLE `osc_projects` (
 --
 
 INSERT INTO `osc_projects` (`id`, `alias`, `name`, `details`, `preview`, `location`, `area`, `capacity`, `pos`, `type`, `block`, `meta_title`, `meta_keys`, `meta_desc`, `created`, `modified`) VALUES
-(1, 'proj1', 'ФЕС Вiльшанка', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ipsam odio beatae repellat assumenda incidunt.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ipsam odio beatae repellat assumenda incidunt.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ipsam odio beatae repellat assumenda incidunt.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ipsam odio beatae repellat assumenda incidunt.', 'si_20180410183005428.jpg', 'Кiровоградська обл.', '21 Га', '12.8 МВт', 0, 1, 0, '', '', '', '2018-04-08 00:00:00', '2018-04-10 18:30:05'),
-(2, 'proj2', 'ФЕС Вiльшанка', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ipsam odio beatae repellat assumenda incidunt.', 'si_20180410182943127.jpg', 'Кiровоградська обл.', '21 Га', '12.8 МВт', 0, 1, 0, '', '', '', '2018-04-08 00:00:00', '2018-04-10 18:29:43'),
-(3, 'fes-vilshanka', 'ФЕС Вiльшанка', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi ipsam odio beatae repellat assumenda incidunt.', 'si_20180410182918749.jpg', 'Кiровоградська обл.', '21 Га', '12.8 МВт', 0, 1, 0, '', '', '', '2018-04-08 00:00:00', '2018-04-10 18:32:41');
+(3, 'fes-vilshanka', 'FES Vilshanka', '', 'si_20180410182918749.jpg', 'Кiровоградська обл.', '21 Га', '12.8 МВт', 0, 1, 0, '', '', '', '2018-04-08 00:00:00', '2018-04-13 19:36:28');
 
 -- --------------------------------------------------------
 
@@ -1376,6 +1392,12 @@ ALTER TABLE `osc_admin_menu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Індекси таблиці `osc_contact_form`
+--
+ALTER TABLE `osc_contact_form`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Індекси таблиці `osc_countries`
 --
 ALTER TABLE `osc_countries`
@@ -1547,6 +1569,11 @@ ALTER TABLE `osc_user_type_access`
 ALTER TABLE `osc_admin_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
+-- AUTO_INCREMENT для таблиці `osc_contact_form`
+--
+ALTER TABLE `osc_contact_form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT для таблиці `osc_countries`
 --
 ALTER TABLE `osc_countries`
@@ -1570,7 +1597,7 @@ ALTER TABLE `osc_languages`
 -- AUTO_INCREMENT для таблиці `osc_logs`
 --
 ALTER TABLE `osc_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT для таблиці `osc_log_types`
 --
