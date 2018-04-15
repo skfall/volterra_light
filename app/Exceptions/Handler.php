@@ -53,15 +53,16 @@ class Handler extends ExceptionHandler
 
         if($this->isHttpException($exception)){
             if ($exception->getStatusCode() !== 200) {
-                return response()->make(view('errors.404', [
-                    'config' => Models\Config::first(), 
-                    'nav' => Models\Nav::where('block', '!=', 1)->get(),
-                    'meta' => collect(array(
-                        'meta_title' => '',
-                        'meta_keys' => '',
-                        'meta_desc' => ''
-                    ))]
-                ), 404);
+                return response('404', 404);
+                // return response()->make(view('errors.404', [
+                //     'config' => Models\Config::first(), 
+                //     'nav' => Models\Nav::where('block', '!=', 1)->get(),
+                //     'meta' => collect(array(
+                //         'meta_title' => '',
+                //         'meta_keys' => '',
+                //         'meta_desc' => ''
+                //     ))]
+                // ), 404);
                 //return redirect()->route('404');
             }
         }

@@ -9,9 +9,9 @@
 
 			<div class="col xl8 l8 m9 s9 tar">
 				<ul class="top_nav">
-					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}" class="valign-wrapper">О компании</a></li>
-					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}" class="valign-wrapper">Услуги</a></li>
-					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}" class="valign-wrapper">Проекты</a></li>
+					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}" class="valign-wrapper">About</a></li>
+					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}" class="valign-wrapper">Services</a></li>
+					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}" class="valign-wrapper">Projects</a></li>
 					@foreach($top_nav as $nav_item)
 						@if($nav_item->alias != 'home')
 							<?php 
@@ -21,7 +21,7 @@
 							<li class="{{ $active }} waves-effect waves-nav not_anchor"><a href="{{ $path }}" class="valign-wrapper">{{$nav_item->name}}</a></li>
 						@endif						
 					@endforeach
-					<li class="recall_btn not_anchor"><a href="javascript:void(0);"><img src="{{ IMG.'phone_icon.svg' }}" alt="Recall" class="recall_white"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark"></a></li>	
+					<li class="recall_btn not_anchor"><a href="javascript:void(0);" onclick="app.openRecall()" ><img src="{{ IMG.'phone_icon.svg' }}" alt="Recall" class="recall_white"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark"></a></li>	
 				</ul>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 	</div>
 </header>
 
-<div class="recall_btn mob_recall_btn"><a href="javascript:void(0);"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark_mob"></a></div>	
+<div class="recall_btn mob_recall_btn"><a href="javascript:void(0);" onclick="app.openRecall()"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark_mob"></a></div>	
 <div class="mob_menu_btn">
 	<div id="menu_toogle_btn" onclick="app.open_mobile_nav(this);">
 		<span></span>

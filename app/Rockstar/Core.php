@@ -144,6 +144,72 @@ class Core extends Helper {
 		return $response;
 	}
 
+	public function contact_form(){
+		$response = array('status' => 'failed', 'reason' => '', 'message' => '');
+		$email = $this->post('email');
+		$name = $this->post('name');
+		$phone = $this->post('phone');
+		$message = $this->post('message');
+
+		if ($name && mb_strlen($name) > 2) {
+			if ($this->check_email_valid($email)) {
+				if ($this->check_phone($phone)) {
+					if ($name && mb_strlen($name) > 10) {
+						$contact_item = new App\Models\ContactForm();
+						$contact_item->name = $name;
+						$contact_item->email = $email;
+						$contact_item->phone = $phone;
+						$contact_item->message = $message;
+
+						if ($contact_item->save()) {
+							$response['status'] = "success";
+							$response['message'] = "Message have been sent.";
+						}
+
+					}else{
+						$response["reason"] = 'message';
+						$response["name"] = 'Message is too short.';
+					}
+				}else{
+					$response["reason"] = 'phone';
+					$response["name"] = 'Enter correct phone.';
+				}
+			}else{
+				$response["reason"] = 'email';
+				$response["name"] = 'Enter correct email.';
+			}
+		}else{
+			$response["reason"] = 'name';
+			$response["name"] = 'Enter correct name.';
+		}
+		
+		if ($this->check_email_valid($email)) {
+			$user = App\Models\User::where('login', $email)->first();
+			if ($user) {
+				if ($user->password == md5($password)) {
+					$card = $user->card()->first();
+					$card->last_visit_ip = $_SERVER["REMOTE_ADDR"];
+					$card->last_visit_date = $this->now;
+					$card->save();
+
+					session()->put('online', $user->id);
+					$response["status"] = "success";
+				}else{
+					$response["reason"] = 'password';
+					$response["message"] = 'Wrong password.';
+				}	
+			}else{
+				$response["reason"] = 'user_not_found';
+				$response["message"] = 'User with this email was not found.';
+			}
+		}else{
+			$response["reason"] = 'email';
+			$response["message"] = 'Email is not valid.';
+		}
+
+		return $response;
+	}
+
 	public function getProjects($filter, $start = 0, $per_page = 9){
 		$projects = \App\Models\Project::where($filter)->orderBy('pos', 'desc')->skip($start)->take($per_page)->get();
 		return $projects;

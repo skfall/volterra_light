@@ -43,7 +43,7 @@
 					</div>
 
 					<a class="next_home_section" href="#about">
-						<p class="rotate">о компании</p>
+						<p class="rotate">about</p>
 					</a>
 				</div>
 
@@ -77,7 +77,7 @@
 					<div class="caption animated usn" data-a="fade-in">{!! $section_2[0]->section_caption !!}</div>
 
 					<a class="next_home_section" href="#services">
-						<p class="rotate">услуги компании</p>
+						<p class="rotate">services</p>
 					</a>
 				</div>
 
@@ -134,7 +134,7 @@
 					<div class="caption animated usn" data-a="fade-in">{!! $section_3[0]->section_caption !!}</div>
 
 					<a class="next_home_section" href="#projects">
-						<p class="rotate">наши проекты</p>
+						<p class="rotate">projects</p>
 					</a>
 				</div>
 			</div>
@@ -214,8 +214,9 @@
 										<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">{{ $project->location }}</li>
 										<li style="background-image: url('{{ IMG.'area_ico.png' }}');">{{ $project->area }}</li>
 										<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">{{ $project->capacity }}</li>
+										<li style="background-image: url('{{ IMG.'wind_ico.png' }}');">Wind</li>
 									</ul>
-									<a href="{{ RS.LANG.'projects/'.$project->id.'/' }}" class="hoverable waves-effect waves-light prog_link valign-wrapper waves-nav">Подробнее</a>
+									<a href="{{ RS.LANG.'projects/'.$project->id.'/' }}" class="hoverable waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
 								</div>
 							</div>
 						</div>

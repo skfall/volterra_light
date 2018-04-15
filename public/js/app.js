@@ -89,10 +89,60 @@ var network = {
 			}
 		}, "json");
 		btn_wrapper.html(btn);
+	},
+	contactForm: function(){
+		// var post_data = $('#contact_form').serialize();
+		// this.post(RS + "ajax/", post_data, function(response){
+		// 	if (response.status == "success") {
+		// 		$('.contact_response').text(response.message);
+		// 		$('#contact_form')[0].reset();
+		// 	}
+		// }, "json");0
+		var name = $('#contact_form input[name=name]').val();
+		var email = $('#contact_form input[name=email]').val();
+		var phone = $('#contact_form input[name=phone]').val();
+		var msg = $('#contact_form textarea[name=message]').val();
+
+		if (name && email && phone && msg) {
+			$('.contact_response').text("Message have been sent.");
+			$('#contact_form')[0].reset();
+		}else{
+			$('.contact_response').text("Enter correct data.");
+		}
+	},
+	modalForm: function(){
+		// var post_data = $('#contact_form').serialize();
+		// this.post(RS + "ajax/", post_data, function(response){
+		// 	if (response.status == "success") {
+		// 		$('.contact_response').text(response.message);
+		// 		$('#contact_form')[0].reset();
+		// 	}
+		// }, "json");0
+		var name = $('#recall_form input[name=name]').val();
+		var email = $('#recall_form input[name=email]').val();
+		var phone = $('#recall_form input[name=phone]').val();
+		var msg = $('#recall_form textarea[name=message]').val();
+
+		if (name && email && phone && msg) {
+
+			$('.recall_response').text("Message have been sent.");
+			$('#recall_form')[0].reset();
+		}else{
+			$('.recall_response').text("Enter correct data.");
+		}
 	}
 };
 
 var app = {
+	openRecall: function(){
+		var inst = $('[data-remodal-id=recall_modal]').remodal();
+		inst.open();
+	},
+	fake_login: function(){
+		var msg = "Login is not available now. Please contact support.";
+		$('.ir_response').text(msg);
+		
+	},
 	start: function(){
 		if (document.getElementById('home_slider_wrap_bg')) {
 			document.getElementById('home_slider_wrap_bg').ondragstart = function() { return false; };
@@ -101,12 +151,27 @@ var app = {
 			document.getElementById('home_slider_wrap_bg2').ondragstart = function() { return false; };
 		}
 
+		if (PAGE == 'home') {	
+			$(document).on('opened', '.remodal', function () {
+			  $.fn.fullpage.setAllowScrolling(false);
+			});
+
+			$(document).on('closed', '.remodal', function () {
+			  $.fn.fullpage.setAllowScrolling(true);
+			});
+		}
+
+
 		this.reinit();
 		this.bind();
 		$('#preloader').addClass('animated fadeOut');
 		setTimeout(function(){
 			$('#preloader').hide(0);
 		}, 1000);
+
+		$('.modal-close').click(function(){
+			$.fn.fullpage.setAllowScrolling(true);
+		});
 	},
 	sidebar: document.querySelector('.sidenav'),
 	sidebar_instance: {},

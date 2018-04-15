@@ -267,6 +267,15 @@ h3 {color: #575656;}
 
 .recall_dark {display: none;}
 
+.contacts .recall_white {display: none;}
+.contacts .recall_dark {display: block;}
+
+.invest-relations .recall_white {display: none;}
+.invest-relations .recall_dark {display: block;}
+
+.projects .recall_white {display: none;}
+.projects .recall_dark {display: block;}
+
 @media(max-width: 768px){
 	.home_slider_holder, .home_slider_sect {height: 100%; max-height: 100vh;}
 	.parent_home_slider_sect {padding-top: 65px;}
@@ -563,3 +572,147 @@ footer .container {width: 90%;}
   .project_card {width: 100%;}
   .project_item_wrapper .content_target img  {margin-right: 10px; width: 100% !important; float: none;}
 }
+
+.contacts_wrapper {background: #fff url('../img/contscts_image.png') left top no-repeat; padding-top: 115px; padding-bottom: 50px;}
+.constacts_list {margin-bottom: 60px;}
+.constacts_list span {display: block;}
+
+.contacts header {background: #fff}
+.contacts header li a {color: #575656;}
+
+.contacts_header {font: 46px 'RobotoBL', Tahoma; color: #565656; margin-bottom: 15px;}
+.cont_sep {width: 40%; background: #565656; height: 4px; margin-left: -20px; margin-bottom: 40px;}
+.right_contacts_part {padding-top: 49px;}
+.constacts_list .address {font: 22px 'RobotoBL', Tahoma; color: #676666; background: url('../img/pin.png') left 5px no-repeat; padding-left: 40px; margin-bottom: 20px;}
+.constacts_list .phones span {font: 18px 'RobotoBL', Tahoma; color: #676666;}
+.constacts_list .phones {background: url('../img/phone.png') left 5px no-repeat; padding-left: 40px; margin-bottom: 20px;}
+.constacts_list .email a {font: 18px 'RobotoBL', Tahoma; color: #676666;}
+.constacts_list .email {background: url('../img/cont_loc.png') left 5px no-repeat; padding-left: 40px; margin-bottom: 20px;}
+
+.volterra_form input {border: 2px solid #676666 !important; font: : 14px 'RobotoR', Tahoma; color: #676666; padding-left: 20px !important; width: calc(100% - 24px) !important; margin-bottom: 0 !important;}
+.volterra_form textarea {border: 2px solid #676666 !important; font: : 14px 'RobotoR', Tahoma; color: #676666; padding-left: 20px !important; min-height: 95px; margin-bottom: 0 !important;}
+.volterra_form .input-field {padding-left: 0 !important; margin-bottom: 25px; margin-top: 0;}
+
+.volterra_form .input-field.col label {left: 20px !important;}
+.volterra_form .input-field.col label.active {top: -5px !important; color: #676666 !important;}
+
+.volterra_form input:focus {border-color: #676666 !important; box-shadow: 0 0px 0 0 #676666 !important;}
+.volterra_form textarea:focus {border-color: #676666 !important; box-shadow: 0 0px 0 0 #676666 !important;}
+
+.volterra_form a.prog_link {display: block; width: 100%; background: #676666; color: #fff; text-align: center; font: 14px 'RobotoB', Tahoma; padding: 13px 5px; text-transform: none; transition-duration: 0.3s;} 
+.volterra_form a.prog_link.active {background: rgba(150, 70, 149, 1);}
+
+.c_first {position: relative;}
+
+.contact_lines {position: absolute; left: 0; bottom: 0; z-index: 20;}
+
+#contacts_map {height: 510px;}
+
+@media(max-width: 1570px){
+  .contacts_wrapper {background-position: -200px 0;}
+}
+
+@media(max-width: 1180px){
+  .contacts_wrapper {background-position: -250px 0;}
+}
+
+@media(max-width: 1100px){
+  .contacts_wrapper {background-position: -300px 0;}
+}
+
+@media(max-width: 993px){
+  .contacts_wrapper {background-position: -400px 0; padding-top: 90px;}
+  .contacts_header {font-size: 40px; line-height: 40px;}
+  .cont_sep {margin-bottom: 20px;}
+  .constacts_list .address {font-size: 20px; margin-bottom: 15px;}
+  .constacts_list .phones span {font: 16px 'RobotoBL', Tahoma;}
+  .constacts_list .phones {margin-bottom: 15px;}
+  .constacts_list .email {margin-bottom: 15px;}
+  .constacts_list .email a {font-size: 16px;}
+  .constacts_list {margin-bottom: 40px;}
+  #contacts_map {height: 400px;}
+  .invest_relations {padding-bottom: 50px;}
+}
+
+@media(max-width: 780px){
+  .contacts_wrapper {background-position: -400px -100px;}
+  .contact_lines {display: none;}
+}
+
+@media(max-width: 650px){
+  .contacts_wrapper {background-position: -400px -200px;}
+}
+@media(max-width: 600px){
+  .contacts_wrapper {background-position: -400px -200px;}
+  #contacts_map {height: 300px;}
+  .contacts_header {text-align: right;}
+  .constacts_list * {text-align: right;}
+  .constacts_list li {background: none !important;}
+  .cont_sep {float: right; clear: both;}
+  .contacts_wrapper {padding-top: 190px;}
+}
+
+@media(max-width: 480px){
+  .contacts_wrapper {background-position: -400px -300px;}
+}
+
+@media(max-width: 450px){
+  .contacts_wrapper {background: none !important; padding-top: 100px;}
+  .right_contacts_part {width: 100% !important; left: 0 !important;}
+}
+
+.invest_relations {background: url('../img/services_bg.jpg') right top no-repeat; padding-top: 180px; padding-bottom: 200px;}
+
+.invest_header {font: 46px 'RobotoBL', Tahoma; color: #565656; margin-bottom: 15px;}
+
+.invest-relations header {background: #fff}
+.invest-relations header li a {color: #575656;}
+
+
+.i_first {position: relative;}
+
+.ir_lines {position: absolute; left: 0; bottom: 0; z-index: 20;}
+
+.ir_desc {font: 18px 'RobotoB', Tahoma; color: #676666; margin-bottom: 30px;}
+
+.ir_response {font: 18px 'RobotoL', Tahoma; color: #676666; margin-bottom: 30px; text-align: center;}
+
+@media(max-width: 993px){
+  .ir_lines {display: none;}
+  .invest_relations {background-size: 40%; -webkit-background-size: 40%; -moz-background-size: 40%; -o-background-size: 40%; -ms-background-size: 40%;}
+  .invest_header {font-size: 40px; line-height: 40px;}
+
+}
+
+@media(max-width: 600px){
+ 
+  .invest_relations {background-size: 40%; -webkit-background-size: 40%; -moz-background-size: 40%; -o-background-size: 40%; -ms-background-size: 40%; background-position: right -50px;}
+  .invest_relations .cont_sep {float: left; clear: both;}
+
+}
+
+
+.recall_modal {padding-left: 243px; background: #fff url('../img/modal_bg.jpg') left top no-repeat; position: relative; padding-top: 80px; max-width: 770px; width: 100%; top: 10%; left: 50%;
+    margin-left: -385px; position: absolute; padding-right: 125px; padding-bottom: 60px;}
+.close_recall {width: 67px; height: 67px; position: absolute; top: 0; right: 0; background: #676666 url('../img/close.png') center no-repeat; z-index: 20; cursor: pointer; transition-duration: 0.3s;}
+.close_recall:hover {background: #954695 url('../img/close.png') center no-repeat;}
+
+.modal_header {font: 46px 'RobotoBL', Tahoma; color: #565656; margin-bottom: 15px;}
+.modal_sub_title {background: url('../img/link_line.png') left center no-repeat; padding-left: 70px; font: 14px 'RobotoR', Tahoma; color: #565656; margin-left: 85px;}
+
+.remodal-overlay {background: rgba(0,0,0,0.5);}
+
+@media(max-width: 1200px){
+  .recall_modal {padding-left: 200px; padding-right: 70px;}
+}
+
+@media(max-width: 993px){
+  .recall_modal {width: 95%; left: 2.5%; margin-left: 0; padding-bottom: 20px;}
+}
+
+@media(max-width: 600px){
+  .recall_modal {padding-left: 30px; padding-right: 30px; background: #fff none;}
+}
+
+.dev_l {font: 11px 'RobotoL', Tahoma; color: #8b8b8b !important;}
+.dev_l:hover {color: #8b8b8b; opacity: 1;}
