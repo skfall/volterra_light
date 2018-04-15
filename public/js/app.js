@@ -97,7 +97,7 @@ var network = {
 		// 		$('.contact_response').text(response.message);
 		// 		$('#contact_form')[0].reset();
 		// 	}
-		// }, "json");0
+		// }, "json");
 		var name = $('#contact_form input[name=name]').val();
 		var email = $('#contact_form input[name=email]').val();
 		var phone = $('#contact_form input[name=phone]').val();
@@ -117,7 +117,7 @@ var network = {
 		// 		$('.contact_response').text(response.message);
 		// 		$('#contact_form')[0].reset();
 		// 	}
-		// }, "json");0
+		// }, "json");
 		var name = $('#recall_form input[name=name]').val();
 		var email = $('#recall_form input[name=email]').val();
 		var phone = $('#recall_form input[name=phone]').val();

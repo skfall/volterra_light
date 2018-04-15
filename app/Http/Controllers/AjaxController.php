@@ -7,7 +7,7 @@ use App\Rockstar\Core as Core;
 
 class AjaxController extends BaseController {
     public function reception(Request $request){
-    	$action = $request->input('action');
+        $action = $request->input('action');
     	$core = new Core();
     	$response = array('status' => 'failed');
     	switch ($action) {

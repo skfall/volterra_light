@@ -22,5 +22,5 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => Config::get('app.rout
 });
 
 Route::group(['middleware' => ['ajax']], function () {
-	Route::post('/ajax/', 'AjaxController@reception');
+	Route::post('/ajax/', 'AjaxController@reception');	
 });
