@@ -144,6 +144,8 @@ class Core extends Helper {
 		return $response;
 	}
 
+
+		// test
 	public function contact_form(){
 		$response = array('status' => 'failed', 'reason' => '', 'message' => '');
 		$email = $this->post('email');
