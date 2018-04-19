@@ -69,6 +69,12 @@ class BasicHelp extends BasicPrinter
 						$result .= "";
 						break;
 					}
+					case 'cf': {
+						$result .= "
+						<button class='rzh r-z-h-s-delete nonactive first-actives' alt='r-z-h-s-delete' type='button' title='$nonactiveMsg' 
+						id='delete-checked-button' onclick=\"show_is_delete_items('$appTable');\"></button>";
+						break;
+					}
 					case 'tasks':
 					{
 						$result .= "

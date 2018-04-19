@@ -113,13 +113,13 @@ var network = {
 		// }
 	},
 	modalForm: function(){
-		var post_data = $('#contact_form').serialize();
+		var post_data = $('#recall_form').serialize();
 		this.post(RS + "ajax", post_data, function(response){
 			if (response.status == "success") {
-				$('.contact_response').text(response.message);
-				$('#contact_form')[0].reset();
+				$('.recall_response').text(response.message);
+				$('#recall_form')[0].reset();
 			}else{
-				$('.contact_response').text(response.message);
+				$('.recall_response').text(response.message);
 			}
 		}, "json");
 		// var name = $('#recall_form input[name=name]').val();

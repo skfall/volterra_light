@@ -54,7 +54,32 @@ class PagesController extends AppController {
     public function project_item($project_id = 0){
         $project = $this->core->getProject($project_id);
         if (!$project) return $this->return404();
-        $viewmodel = compact('project');
+        $page = "project_item";
+
+        $meta_array = array(
+            'meta_title' => "Volterra | ".$this->prefix.$project->name,
+            'meta_keys' => "",
+            'meta_desc' => ""
+        );
+        $curr_nav = $this->nav->where('alias', 'projects')->first();
+        if ($curr_nav) {
+            $meta = $curr_nav->meta()->first();
+            if ($meta){
+                $meta = $meta->toArray();
+                $meta_array = array(
+                    'meta_title' => $meta[$this->prefix.'meta_title'],
+                    'meta_keys' => $meta[$this->prefix.'meta_keys'],
+                    'meta_desc' => $meta[$this->prefix.'meta_desc']
+                );
+            }
+        }
+
+        if($project->meta_title) $meta_array['meta_title'] = $this->prefix.$project->meta_title;
+        if($project->meta_keys) $meta_array['meta_keys'] = $this->prefix.$project->meta_keys;
+        if($project->meta_desc) $meta_array['meta_desc'] = $this->prefix.$project->meta_desc;
+        $meta = collect($meta_array);
+
+        $viewmodel = compact('project', 'meta', 'page');
         return view('pages.project_item', $viewmodel);
     }
 

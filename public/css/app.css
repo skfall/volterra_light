@@ -410,6 +410,7 @@ h3 {color: #575656;}
 
 .project_home_item ul {margin-bottom: 20px;}
 .project_home_item a.prog_link {display: block; width: 100%; background: #282828; color: #fff; text-align: center; font: 14px 'RobotoB', Tahoma; padding: 13px 5px; text-transform: none; transition-duration: 0.3s;} 
+.project_home_item a.prog_link:hover {background: #8b459a;}
 .project_home_item a.prog_link.active {background: rgba(150, 70, 149, 1);}
 .project_home_item {margin-bottom: 20px;}
 
@@ -500,7 +501,7 @@ footer .container {width: 90%;}
 
 /* project card */
 
-.project_card {background: url('../img/project_card_bg.jpg') left 115px no-repeat; width: 85%; background-size: 100% 80%; -webkit-background-size: 100% 80%; -moz-background-size: 100% 80%; -o-background-size: 100% 80%; -ms-background-size: 100% 80%; padding-top: 115px;}
+.project_card {background-position: left 115px; background-repeat: no-repeat; width: 85%; background-size: 100% 80%; -webkit-background-size: 100% 80%; -moz-background-size: 100% 80%; -o-background-size: 100% 80%; -ms-background-size: 100% 80%; padding-top: 115px;}
 .project_card .container {float: right;}
 
 .project_card .project_description {background: #fff; float: right; margin-top: 65px; padding-left: 80px; padding-top: 60px; padding-right: 80px; padding-bottom: 60px; position: relative; border: 1px solid #eee; border-right: 0; margin-right: -80px;}

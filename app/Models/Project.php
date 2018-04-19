@@ -9,4 +9,7 @@ class Project extends Model {
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 
+    public function type() {
+    	return $this->hasOne('App\Models\ProjectTypes', 'id', 'type');
+  	}
 }

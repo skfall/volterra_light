@@ -8,7 +8,14 @@
 	// Start body content
 	
 	$cardItem = $zh->getProjectItem($item_id);
-
+	$projectTypes = $zh->getProjectTypes();
+	$empty_type = array(
+		"id" => 0,
+		"name" => 'No type',
+		"block" => 0,
+		"icon" => ""
+	);
+	array_push($projectTypes, $empty_type);
 	$rootPath = ROOT_PATH;
 	
 	$cardTmp = array(
@@ -23,10 +30,23 @@
 					 'Местоположение'				=>	array( 'type'=>'input', 		'field'=>'location', 		'params'=>array( 'size'=>50, 'hold'=>'Местоположение' ) ),
 					 'Площадь'				=>	array( 'type'=>'input', 		'field'=>'area', 		'params'=>array( 'size'=>50, 'hold'=>'Площадь' ) ),
 					 'Мощность'				=>	array( 'type'=>'input', 		'field'=>'capacity', 		'params'=>array( 'size'=>50, 'hold'=>'Мощность' ) ),
+					 'Тип'					=>	array( 'type'=>'select', 		'field'=>'type', 			'params'=>array( 'list'=>$projectTypes, 
+					 																									 'fieldValue'=>'id', 
+																														 'fieldTitle'=>'name', 
+																														 'currValue'=>$cardItem['type_id'], 
+																														 'onChange'=>"" 
+																														 ) ),
 					 
 					 'clear-4'				=>	array( 'type'=>'clear' ),
+					 'Lat'					=>	array( 'type'=>'input', 		'field'=>'lat', 		'params'=>array( 'size'=>50, 'hold'=>'Lat' ) ),
+					 'Lng'					=>	array( 'type'=>'input', 		'field'=>'lng', 		'params'=>array( 'size'=>50, 'hold'=>'Lng' ) ),
+					 'clear-5'				=>	array( 'type'=>'clear' ),
+
+					 'Контент'				=>	array( 'type'=>'summernote', 		'field'=>'content', 		'params'=>array( 'size'=>100, 'hold'=>'Контент' ) ),
+					 'clear-6'				=>	array( 'type'=>'clear' ),
 
 					 'Изображение превью'			=>	array( 'type'=>'image_mono','field'=>'preview', 		'params'=>array( 'path'=>RSF."/split/files/projects/", 'appTable'=>$appTable, 'id'=>$item_id ) ),
+					 'Изображение карточки'			=>	array( 'type'=>'image_mono','field'=>'card_image', 		'params'=>array( 'path'=>RSF."/split/files/projects/", 'appTable'=>$appTable, 'id'=>$item_id ) ),
 
 					 'Meta data'	=>	array( 'type'=>'header'),
 					 'Meta title'				=>	array( 'type'=>'input', 		'field'=>'meta_title', 		'params'=>array( 'size'=>50, 'hold'=>'Meta title' ) ),

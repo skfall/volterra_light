@@ -17,7 +17,8 @@
 	@endif
 	
 	<meta name="author" content="Positive Business" />
-	
+	<link rel="shortcut icon" href="{{ RS.'android-icon-48x48.png'}}">
+
 	<?php /* STYLES */ ?>
 	<link rel="stylesheet" type="text/css" href="{{ CSS.'materialize.min.css' }}">
 	<link rel="stylesheet" type="text/css" href="{{ CSS.'jquery.fancybox.min.css' }}">
@@ -31,6 +32,11 @@
 	<link rel="stylesheet" type="text/css" href="{{ CSS.'flag-icon.min.css' }}">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
 	
+	@if ($config->top_script)
+		<script type="text/javascript">
+			<?= $config->top_script; ?>
+		</script>
+	@endif
 </head>
 <body class="{{ $body_class }}">
 	<script type="text/javascript">
@@ -61,33 +67,64 @@
 	<script type="text/javascript" src="{{ JS.'app.js' }}"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
-
-
-	<script>
-      function initMap() {
-        if (document.getElementById('project_map')) {
-        	var uluru = {lat:48.244, lng:30.876};
-	        var map = new google.maps.Map(document.getElementById('project_map'), {
-	          zoom: 13,
-	          center: uluru,
-	          styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
-	        });
-        }
-
-        if (document.getElementById('contacts_map')) {
-        	var uluru = {lat:48.244, lng:30.876};
-	        var map = new google.maps.Map(document.getElementById('contacts_map'), {
-	          zoom: 13,
-	          center: uluru,
-	          styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
-	        });
-        }
-
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpBcrsYo9HedgYUSAfhAkR1RpXQRdrusQ&callback=initMap">
-    </script>
-
+	<script type="text/javascript">
+		initMap = function(){
+			console.log('...');
+		}
+	</script>
+	@if (isset($project) && $project->lat && $project->lng)
+		<script>
+			var initProjMap = function() {
+				if (document.getElementById('project_map')) {
+					var uluru = {lat: <?= $project->lat; ?>, lng:<?= $project->lng; ?>};
+					var map = new google.maps.Map(document.getElementById('project_map'), {
+						zoom: 13,
+						center: uluru,
+						styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+					});
+					var marker = new google.maps.Marker({
+						map: map,
+						position: {lat: uluru.lat, lng: uluru.lng}
+					});
+				}
+		
+			}
+		</script>
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpBcrsYo9HedgYUSAfhAkR1RpXQRdrusQ&callback=initProjMap">
+		</script>
+	@else
+		@if($config->lat && $config->lng)
+		<script>
+				var initContMap = function() {
+					if (document.getElementById('contacts_map')) {
+						var uluru = {lat:<?= $config->lat ?>, lng:<?= $config->lng ?>};
+						var map = new google.maps.Map(document.getElementById('contacts_map'), {
+						zoom: 13,
+						center: uluru,
+						styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
+						});
+						var marker = new google.maps.Marker({
+							map: map,
+							position: {lat: uluru.lat, lng: uluru.lng}
+						});
+					}
+			
+				}
+			</script>
+			<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpBcrsYo9HedgYUSAfhAkR1RpXQRdrusQ&callback=initContMap">
+			</script>
+		@endif
+	@endif
+	
+	
+	
+    
+	@if ($config->bot_script)
+		<script type="text/javascript">
+			<?= $config->bot_script; ?>
+		</script>
+	@endif
 </body>
 </html>

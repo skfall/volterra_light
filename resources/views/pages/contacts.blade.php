@@ -11,12 +11,22 @@
 				<div class="cont_sep"></div>
 				<div class="clear"></div>
 				<ul class="constacts_list">
-					<li class="address">Ukraine, Kiev <br>Str. Bolshaya Vasilkovskaya, 100 <br>BC Toronto</li>
+					<?php
+						$addr = ""; 
+						if ($config->address) {
+							$addr = str_replace("\n", '<br>', $config->address);
+						} 
+					?>
+				<li class="address">{!! $addr !!}</li>
 					<li class="phones">
-						<span>+38 / 044 /78...</span>
-						<span>+38 / 044 /78...</span>
+						<?php $phones = explode("\n", $config->phone); ?>
+							@forelse ($phones as $key => $p)
+								<span>{{ $p }}</span>
+							@empty
+								<span></span>
+							@endforelse
 					</li>
-					<li class="email"><a href="#">info@volterra.energy</a></li>
+				<li class="email"><a href="mailto:{{$config->email}}">{{$config->email}}</a></li>
 				</ul>
 				<div class="clear"></div>
 				<div class="contacts_header">

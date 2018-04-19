@@ -7,6 +7,7 @@
   <div class="cont_sep"></div>
   <div class="clear space15"></div>
   <form action="#" id="recall_form" class="volterra_form" method="POST">
+    <input type="hidden" name="action" value="contact_form">
     <div class="input-field col s12">
       <input id="c_name" type="text" name="name">
       <label for="c_name" class="">Your name</label>

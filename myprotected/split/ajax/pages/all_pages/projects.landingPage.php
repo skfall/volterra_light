@@ -45,6 +45,7 @@
 						  'Checkbox'			=>	array('type'=>'checkbox',	'field'=>''),
 						  'Название'			=>	array('type'=>'text',		'field'=>'name'),
 						  'Алиас'				=>	array('type'=>'text',		'field'=>'alias'),
+						  'Тип'					=>	array('type'=>'text',		'field'=>'type'),
 						  'Публикация'			=>	array('type'=>'block',		'field'=>'block'),
 						  'Просмотр'			=>	array('type'=>'cardView',	'field'=>'Смотреть'),
 						  'Редактирование'		=>	array('type'=>'cardEdit',	'field'=>'Редактировать'),
