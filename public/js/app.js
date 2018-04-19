@@ -91,45 +91,49 @@ var network = {
 		btn_wrapper.html(btn);
 	},
 	contactForm: function(){
-		// var post_data = $('#contact_form').serialize();
-		// this.post(RS + "ajax/", post_data, function(response){
-		// 	if (response.status == "success") {
-		// 		$('.contact_response').text(response.message);
-		// 		$('#contact_form')[0].reset();
-		// 	}
-		// }, "json");
-		var name = $('#contact_form input[name=name]').val();
-		var email = $('#contact_form input[name=email]').val();
-		var phone = $('#contact_form input[name=phone]').val();
-		var msg = $('#contact_form textarea[name=message]').val();
+		var post_data = $('#contact_form').serialize();
+		this.post(RS + "ajax", post_data, function(response){
+			if (response.status == "success") {
+				$('.contact_response').text(response.message);
+				$('#contact_form')[0].reset();
+			}else{
+				$('.contact_response').text(response.message);
+			}
+		}, "json");
+		// var name = $('#contact_form input[name=name]').val();
+		// var email = $('#contact_form input[name=email]').val();
+		// var phone = $('#contact_form input[name=phone]').val();
+		// var msg = $('#contact_form textarea[name=message]').val();
 
-		if (name && email && phone && msg) {
-			$('.contact_response').text("Message have been sent.");
-			$('#contact_form')[0].reset();
-		}else{
-			$('.contact_response').text("Enter correct data.");
-		}
+		// if (name && email && phone && msg) {
+		// 	$('.contact_response').text("Message have been sent.");
+		// 	$('#contact_form')[0].reset();
+		// }else{
+		// 	$('.contact_response').text("Enter correct data.");
+		// }
 	},
 	modalForm: function(){
-		// var post_data = $('#contact_form').serialize();
-		// this.post(RS + "ajax/", post_data, function(response){
-		// 	if (response.status == "success") {
-		// 		$('.contact_response').text(response.message);
-		// 		$('#contact_form')[0].reset();
-		// 	}
-		// }, "json");
-		var name = $('#recall_form input[name=name]').val();
-		var email = $('#recall_form input[name=email]').val();
-		var phone = $('#recall_form input[name=phone]').val();
-		var msg = $('#recall_form textarea[name=message]').val();
+		var post_data = $('#contact_form').serialize();
+		this.post(RS + "ajax", post_data, function(response){
+			if (response.status == "success") {
+				$('.contact_response').text(response.message);
+				$('#contact_form')[0].reset();
+			}else{
+				$('.contact_response').text(response.message);
+			}
+		}, "json");
+		// var name = $('#recall_form input[name=name]').val();
+		// var email = $('#recall_form input[name=email]').val();
+		// var phone = $('#recall_form input[name=phone]').val();
+		// var msg = $('#recall_form textarea[name=message]').val();
 
-		if (name && email && phone && msg) {
+		// if (name && email && phone && msg) {
 
-			$('.recall_response').text("Message have been sent.");
-			$('#recall_form')[0].reset();
-		}else{
-			$('.recall_response').text("Enter correct data.");
-		}
+		// 	$('.recall_response').text("Message have been sent.");
+		// 	$('#recall_form')[0].reset();
+		// }else{
+		// 	$('.recall_response').text("Enter correct data.");
+		// }
 	}
 };
 

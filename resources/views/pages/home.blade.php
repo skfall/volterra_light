@@ -25,8 +25,7 @@
 
 			<div class="container por">
 				<div class="section_name">
-
-					<div class="caption animated usn" data-a="fade-in">{!! $section_1[0]->section_caption !!}</div>
+					<div class="caption animated usn" data-a="fade-in">{!! str_replace("\n",'<br>',$section_1[0]->section_caption) !!} </div>
 					<div class="sub_caption animated usn" data-a="fade-in">{{ $section_1[0]->section_sub_caption }}</div>
 
 					<div class="slider_trigger">
@@ -74,7 +73,7 @@
 			<div class="container por">
 				<div class="section_name">
 					<div class="sub_caption animated usn" data-a="fade-in">{{ $section_2[0]->section_sub_caption }}</div>
-					<div class="caption animated usn" data-a="fade-in">{!! $section_2[0]->section_caption !!}</div>
+					<div class="caption animated usn" data-a="fade-in">{!! str_replace("\n",'<br>',$section_2[0]->section_caption) !!}</div>
 
 					<a class="next_home_section" href="#services">
 						<p class="rotate">services</p>
@@ -90,7 +89,7 @@
 											{{ $slide->section_content }}
 									</textarea>
 									<textarea style="display: none;" id="section_2_slide_{{ $i }}_caption">
-											{{ $slide->section_caption }}
+										{!! str_replace("\n",'<br>', $slide->section_caption) !!}
 									</textarea>
 									<textarea style="display: none;" id="section_2_slide_{{ $i }}_sub_caption">
 											{{ $slide->section_sub_caption }}
@@ -131,7 +130,7 @@
 
 			<div class="container">
 				<div class="section_name">
-					<div class="caption animated usn" data-a="fade-in">{!! $section_3[0]->section_caption !!}</div>
+					<div class="caption animated usn" data-a="fade-in">{!! str_replace("\n",'<br>', $section_3[0]->section_caption) !!}</div>
 
 					<a class="next_home_section" href="#projects">
 						<p class="rotate">projects</p>
@@ -188,7 +187,7 @@
 				<div class="row projects_title">
 					<div class="col xl3 l3 m12 s12">
 						<div class="section_name_small">
-							<div class="caption animated usn" data-a="fade-in">{!! $section_4[0]->section_caption !!}</div>
+							<div class="caption animated usn" data-a="fade-in">{!! str_replace("\n",'<br>', $section_4[0]->section_caption) !!}</div>
 						</div>
 					</div>
 					<div class="col xl9 l9 m12 s12">

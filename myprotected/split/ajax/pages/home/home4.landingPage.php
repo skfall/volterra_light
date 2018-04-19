@@ -6,6 +6,7 @@
 	
 	$cardData = $zh->getHomeFourthSection($pageTable);
 	$cardData['section_caption'] = strip_tags($cardData['section_caption']);	
+	$cardData['section_caption'] = str_replace('\\n', ' ', $cardData['section_caption']);
 	$cardItem = $cardData;
 	
 	

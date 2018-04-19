@@ -6,6 +6,7 @@
 	$totalItems = $zh->getHomeFirstSectionItems($params,true);
 	foreach ($itemsList as $key => &$section) {
 		$section['section_caption'] = strip_tags($section['section_caption']);
+		$section['section_caption'] = str_replace('\\n', ' ', $section['section_caption']);
 	}
 	$on_page = (isset($_COOKIE['global_on_page']) ? $_COOKIE['global_on_page'] : GLOBAL_ON_PAGE);
 	$pages = ceil($totalItems/$on_page);

@@ -8,7 +8,6 @@
 	// Start body content
 	
 	$cardItem = $zh->getHomeFirstSectionItem($item_id);
-	$cardItem['section_caption'] = strip_tags($cardItem['section_caption']);
 
 	$rootPath = ROOT_PATH;
 	

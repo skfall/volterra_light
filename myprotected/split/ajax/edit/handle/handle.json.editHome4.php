@@ -13,8 +13,7 @@
 	$lang_prefix = ($lpx ? $lpx."_" : ""); // empty = iw
 	$now = date("Y-m-d H:i:s", time());
 	$caption = $_POST['section_caption'];
-	$caption = str_replace(' ', ' <br>', $caption);
-	
+
 	$cardUpd = array(
 						'section_caption'			=> $caption,
 						//'section_sub_caption'			=> $_POST['section_sub_caption'],

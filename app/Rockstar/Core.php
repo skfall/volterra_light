@@ -116,6 +116,8 @@ class Core extends Helper {
 
 		$email = $this->post('email');
 		$password = $this->post('password');
+
+		
 		
 		if ($this->check_email_valid($email)) {
 			$user = App\Models\User::where('login', $email)->first();
