@@ -717,3 +717,32 @@ footer .container {width: 90%;}
 
 .dev_l {font: 11px 'RobotoL', Tahoma; color: #8b8b8b !important;}
 .dev_l:hover {color: #8b8b8b; opacity: 1;}
+
+.project_stages_head {padding-top: 50px;}
+.project_stages_head .tabs li a {color: #565656 !important; font: 26px 'RobotoB', Tahoma; text-transform: none;}
+.project_stages_head .tabs li.disabled a {opacity: 0.7;;}
+.project_stages_head .tabs .indicator {background-color: #565656; height: 4px;}
+.project_stages_head .tabs li a:focus {background-color: #fff !important;}
+.project_stages_head .tabs li a:active {background-color: #fff !important;}
+
+.stages_tabs_head_row {margin-bottom: 0;}
+.project_stages_body {background: #f9f9f9; padding-top: 43px; padding-bottom: 30px;}
+.stage_header {font: 22px 'RobotoB', Tahoma; color: #676666; margin-bottom: 20px;}
+.stage_desc {font: 16px 'RobotoR', Tahoma; color: #676666; line-height: 25px; padding-left: 0 !important;}
+.protocol_link {padding: 10px; background: #c59fc9; text-transform: uppercase; font: 16px 'RobotoB', Tahoma; color: #f9f9f9; transition-duration: 0.3s; text-decoration: none;}
+.protocol_link:hover {background: #954695;}
+.inner_tab_icon {width: 35px; height: 35px; background-size: contain; -webkit-background-size: contain; -moz-background-size: contain; -o-background-size: contain; -ms-background-size: contain; margin: 0 auto; background-repeat: no-repeat;}
+.project_stages_body .inner {padding-top: 35px;}
+.project_stages_body .inner .tabs {height: 78px;}
+.project_stages_body .inner .tab {height: 78px;}
+
+.project_stages_body .inner .tab a {box-shadow: 0 0 1px 2px #eee inset;}
+.project_stages_body .inner .tab a:focus {background-color: #fff !important;}
+.project_stages_body .inner .tab a:active {background-color: #fff !important;}
+.project_stages_body .inner .tabs .indicator {display: none;}
+.project_stages_body .inner .tab a.active {background: #999999 !important;} 
+.project_stages_body .inner .tab .photo {margin-top: 22px;}
+.project_stages_body .inner .tab .map {margin-top: 20px;}
+.project_stages_body .inner .tab .video {margin-top: 25px;}
+.project_stages_body .inner .tab .panorama {width: 60px; margin-top: 27px;}
+

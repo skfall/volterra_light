@@ -28,8 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ CSS.'remodal.css' }}">
 	<link rel="stylesheet" type="text/css" href="{{ CSS.'app.css' }}">
 	<link rel="stylesheet" type="text/css" href="{{ CSS.'fonts.css' }}">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{ CSS.'flag-icon.min.css' }}">
+
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
 	
 	@if ($config->top_script)
