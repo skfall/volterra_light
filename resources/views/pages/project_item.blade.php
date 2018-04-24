@@ -63,7 +63,6 @@
 				<div class="row">
 					<div id="stage1">
 						{{-- START --}}
-
 						<div class="stage_header">Specification</div>
 						<div class="stage_desc col s9">
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.
@@ -74,35 +73,285 @@
 						
 						<div class="clear"></div>
 						<div class="inner">
-							<ul id="tabs-swipe-demo" class="tabs">
+							<ul id="stage_1_inner_tabs" class="tabs">
 								<li class="tab col s3">
-									<a href="#test-swipe-1"><div class="inner_tab_icon photo" style="background-image: url(' {{ IMG.'card-foto_icon.svg' }}');"></div></a>
+									<a href="#stage_1_inner_tab_1"><div class="inner_tab_icon photo"></div></a>
 								</li>
 								<li class="tab col s3">
-									<a href="#test-swipe-2"><div class="inner_tab_icon map" style="background-image: url(' {{ IMG.'card-map_icon.svg' }}');"></div></a>
+									<a href="#stage_1_inner_tab_2"><div class="inner_tab_icon map"></div></a>
 								</li>
 								<li class="tab col s3">
-									<a href="#test-swipe-3"><div class="inner_tab_icon video" style="background-image: url(' {{ IMG.'card-video_icon.svg' }}');"></div></a>
+									<a href="#stage_1_inner_tab_3"><div class="inner_tab_icon video"></div></a>
 								</li>
 								<li class="tab col s3">
-									<a href="#test-swipe-4"><div class="inner_tab_icon panorama" style="background-image: url(' {{ IMG.'card-360_icon.svg' }}');"></div></a>
+									<a href="#stage_1_inner_tab_4"><div class="inner_tab_icon panorama"></div></a>
 								</li>
 							</ul>
+							
+							<div id="stage_1_inner_tab_1" class="stage_inner_tab">
+								<div class="owl-carousel stage_photos">
+									<img src="{{ IMG.'project_card_bg.jpg' }}" alt="Volterra slide" />
+									<img src="{{ IMG.'slide4.jpg' }}" alt="Volterra slide" />
+								</div>
 
-							<div id="test-swipe-1" class="col s12 blue">Test 1</div>
-							<div id="test-swipe-2" class="col s12 red">Test 2</div>
-							<div id="test-swipe-3" class="col s12 green">Test 3</div>
-							<div id="test-swipe-4" class="col s12 yellow">Test 4</div>
+							</div>
+							<div id="stage_1_inner_tab_2" class="stage_inner_tab">
+								<div id="project_map"></div>
+							</div>
+							<div id="stage_1_inner_tab_3" class="stage_inner_tab">
+								<iframe src="https://www.youtube.com/embed/qK_NeRZOdq4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+							</div>
+							<div id="stage_1_inner_tab_4" class="stage_inner_tab">
+								<iframe src="https://360player.io/p/BEGuwg/" frameborder="0" allowfullscreen="" data-token="BEGuwg"></iframe>
+							</div>
 						</div>
 
+						<div class="clear"></div>
+						<div class="stage_header">Permit documentation</div>
+						<div class="stage_desc col s9">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.
+						</div>
+
+						<div class="clear"></div>
+						<div class="owl-carousel stage_docs">
+							<a data-fancybox="gallery" href="{{ IMG.'doc_tmp.jpg '}}">
+								<div class="hover"></div>
+								<img src="{{ IMG.'doc_tmp.jpg '}}">
+							</a>
+							<a data-fancybox="gallery" href="{{ IMG.'doc_tmp.jpg '}}">
+								<div class="hover"></div>
+								<img src="{{ IMG.'doc_tmp.jpg '}}">
+							</a>
+							<a data-fancybox="gallery" href="{{ IMG.'doc_tmp.jpg '}}">
+								<div class="hover"></div>
+								<img src="{{ IMG.'doc_tmp.jpg '}}">
+							</a>
+							
+						</div>
+
+						<div class="stage_comments">
+							<div class="caption">Comments <sup class="comments_count">3</sup></div>
+							<a href="javascript:void(0);" class="leave_comment">leave a comment</a>
+
+							<div class="clear"></div>
+
+							{{-- COMMENT --}}
+							<div class="card-panel comment_item">
+								<div class="row">
+									<div class="col s1">
+										<img src="{{ IMG.'avatar.png' }}" alt="" class="circle responsive-img">
+									</div>
+									<div class="col s11">
+										<div class="name">Sergey Kaminskiy</div>
+										<div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, architecto laudantium. Reiciendis veritatis, porro consequuntur exercitationem rem, asperiores excepturi reprehenderit tempora, praesentium in sint necessitatibus illum dignissimos labore magni quod?</div>
+										<p class="date">29 January 2018</p>
+										<div class="border"></div>
+									</div>
+								</div>
+							</div>
+
+							{{-- COMMENT --}}
+							<div class="card-panel comment_item">
+								<div class="row">
+									<div class="col s1">
+										<img src="{{ IMG.'avatar.png' }}" alt="" class="circle responsive-img">
+									</div>
+									<div class="col s11">
+										<div class="name">Sergey Kaminskiy</div>
+										<div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, architecto laudantium. Reiciendis veritatis, porro consequuntur exercitationem rem, asperiores excepturi reprehenderit tempora, praesentium in sint necessitatibus illum dignissimos labore magni quod?</div>
+										<p class="date">29 January 2018</p>
+										<div class="border"></div>
+									</div>
+								</div>
+							</div>
+
+								{{-- COMMENT --}}
+							<div class="card-panel comment_item">
+								<div class="row">
+									<div class="col s1">
+										<img src="{{ IMG.'avatar.png' }}" alt="" class="circle responsive-img">
+									</div>
+									<div class="col s11">
+										<div class="name">Sergey Kaminskiy</div>
+										<div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, architecto laudantium. Reiciendis veritatis, porro consequuntur exercitationem rem, asperiores excepturi reprehenderit tempora, praesentium in sint necessitatibus illum dignissimos labore magni quod?</div>
+										<p class="date">29 January 2018</p>
+										<div class="border"></div>
+									</div>
+								</div>
+							</div>
+							
+
+						</div>
 						{{-- END --}}
 					</div>
-					<div id="stage2">Test 2</div>
+					<div id="stage2">
+						{{-- START --}}
+						<div class="stage_header">Specification</div>
+						<div class="stage_desc col s9">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.
+						</div>
+						<div class="col s3 tar">
+							<a class="protocol_link" href="javascript:void(0);">Copy of the protocol</a>
+						</div>
+						
+						<div class="clear"></div>
+						<div class="inner">
+							<ul id="stage_2_inner_tabs" class="tabs">
+								<li class="tab col s3">
+									<a href="#stage_2_inner_tab_1"><div class="inner_tab_icon photo"></div></a>
+								</li>
+								<li class="tab col s3">
+									<a href="#stage_2_inner_tab_2"><div class="inner_tab_icon map"></div></a>
+								</li>
+								<li class="tab col s3">
+									<a href="#stage_2_inner_tab_3"><div class="inner_tab_icon video"></div></a>
+								</li>
+								<li class="tab col s3">
+									<a href="#stage_2_inner_tab_4"><div class="inner_tab_icon panorama"></div></a>
+								</li>
+							</ul>
+							
+							<div id="stage_2_inner_tab_1" class="stage_inner_tab">
+								<div class="owl-carousel stage_photos">
+									<img src="{{ IMG.'slide6.jpg' }}" alt="Volterra slide" />
+									<img src="{{ IMG.'slide5.jpg' }}" alt="Volterra slide" />
+								</div>
+
+							</div>
+							<div id="stage_2_inner_tab_2" class="stage_inner_tab">
+								<div id="project_map"></div>
+							</div>
+							<div id="stage_2_inner_tab_3" class="stage_inner_tab">
+								<iframe src="https://www.youtube.com/embed/qK_NeRZOdq4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+							</div>
+							<div id="stage_2_inner_tab_4" class="stage_inner_tab">
+								<iframe src="https://360player.io/p/BEGuwg/" frameborder="0" allowfullscreen="" data-token="BEGuwg"></iframe>
+							</div>
+						</div>
+
+						<div class="clear"></div>
+						<div class="stage_header">Permit documentation</div>
+						<div class="stage_desc col s9">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.
+						</div>
+
+						<div class="clear"></div>
+						<div class="owl-carousel stage_docs">
+							<a data-fancybox="gallery" href="{{ IMG.'doc_tmp.jpg '}}">
+								<div class="hover"></div>
+								<img src="{{ IMG.'doc_tmp.jpg '}}">
+							</a>
+							
+						</div>
+
+						<div class="stage_comments">
+							<div class="caption">Comments <sup class="comments_count">3</sup></div>
+							<a href="javascript:void(0);" class="leave_comment">leave a comment</a>
+
+							<div class="clear"></div>
+
+							{{-- COMMENT --}}
+							<div class="card-panel comment_item">
+								<div class="row">
+									<div class="col s1">
+										<img src="{{ IMG.'avatar.png' }}" alt="" class="circle responsive-img">
+									</div>
+									<div class="col s11">
+										<div class="name">Sergey Kaminskiy</div>
+										<div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, architecto laudantium. Reiciendis veritatis, porro consequuntur exercitationem rem, asperiores excepturi reprehenderit tempora, praesentium in sint necessitatibus illum dignissimos labore magni quod?</div>
+										<p class="date">29 January 2018</p>
+										<div class="border"></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						{{-- END --}}
+					</div>
 					<div id="stage3">Test 3</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="same_projects_wrapper container">
+			<div class="row">
+				<div class="caption">Other projects</div>
+				<div class="owl-carousel same_projects">
+					<div class="project_item">
+						<div class="card z-depth-2 hoverable">
+							<div class="card-image waves-effect">
+								<a href="#"><img src="{{ IMG.'project3.jpg' }}" alt="Project"></a>
+							</div>
+							<div class="card-content">
+								<div class="project_card_name">FES Vilshanka</div>
+								<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away."), 143,'<br>',false)),0,1)) }}{{ mb_strlen("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.") > 143 ? '...' : "" }}</div>
+								<ul>
+									<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">Kirovohrad reg.</li>
+									<li style="background-image: url('{{ IMG.'area_ico.png' }}');">21 Ha</li>
+									<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">12.8 MW</li>
+									<li style="background-image: url('{{ IMG."solar_ico.png" }}');">Solar</li>
+								</ul>
+								<a href="#" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
+							</div>
+						</div>
+					</div>
+					<div class="project_item">
+							<div class="card z-depth-2 hoverable">
+								<div class="card-image waves-effect">
+									<a href="#"><img src="{{ IMG.'project3.jpg' }}" alt="Project"></a>
+								</div>
+								<div class="card-content">
+									<div class="project_card_name">FES Vilshanka</div>
+									<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away."), 143,'<br>',false)),0,1)) }}{{ mb_strlen("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.") > 143 ? '...' : "" }}</div>
+									<ul>
+										<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">Kirovohrad reg.</li>
+										<li style="background-image: url('{{ IMG.'area_ico.png' }}');">21 Ha</li>
+										<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">12.8 MW</li>
+										<li style="background-image: url('{{ IMG."solar_ico.png" }}');">Solar</li>
+									</ul>
+									<a href="#" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
+								</div>
+							</div>
+						</div>
+						<div class="project_item">
+								<div class="card z-depth-2 hoverable">
+									<div class="card-image waves-effect">
+										<a href="#"><img src="{{ IMG.'project3.jpg' }}" alt="Project"></a>
+									</div>
+									<div class="card-content">
+										<div class="project_card_name">FES Vilshanka</div>
+										<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away."), 143,'<br>',false)),0,1)) }}{{ mb_strlen("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.") > 143 ? '...' : "" }}</div>
+										<ul>
+											<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">Kirovohrad reg.</li>
+											<li style="background-image: url('{{ IMG.'area_ico.png' }}');">21 Ha</li>
+											<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">12.8 MW</li>
+											<li style="background-image: url('{{ IMG."solar_ico.png" }}');">Solar</li>
+										</ul>
+										<a href="#" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
+									</div>
+								</div>
+							</div>
+							<div class="project_item">
+									<div class="card z-depth-2 hoverable">
+										<div class="card-image waves-effect">
+											<a href="#"><img src="{{ IMG.'project3.jpg' }}" alt="Project"></a>
+										</div>
+										<div class="card-content">
+											<div class="project_card_name">FES Vilshanka</div>
+											<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away."), 143,'<br>',false)),0,1)) }}{{ mb_strlen("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.") > 143 ? '...' : "" }}</div>
+											<ul>
+												<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">Kirovohrad reg.</li>
+												<li style="background-image: url('{{ IMG.'area_ico.png' }}');">21 Ha</li>
+												<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">12.8 MW</li>
+												<li style="background-image: url('{{ IMG."solar_ico.png" }}');">Solar</li>
+											</ul>
+											<a href="#" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
+										</div>
+									</div>
+								</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="project_map"></div>
 @endsection

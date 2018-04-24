@@ -183,6 +183,8 @@ var app = {
 	home_owl2: {},
 	reinit: function(){
 		M.AutoInit();
+
+
 		$('#fullpage').fullpage({
 			responsiveWidth: 993,
 			afterLoad: function(anchorLink, index){
@@ -309,6 +311,25 @@ var app = {
 		    }
 		});
 
+		$('.project_stages_body .inner .stage_photos').owlCarousel({
+			items: 1,
+			nav: true,
+			navText: ["previous", "next"],
+			animateOut: 'fadeOut',
+			animateIn: 'fadeIn',
+			autoHeight: true,
+			loop: true,
+		});
+
+		$('.project_stages_body .stage_docs').owlCarousel({
+			items: 6,
+			autoHeight: true,
+			autoWidth: true
+		});
+
+		$('.same_projects').owlCarousel({
+			items: 3
+		});
 
 		$(".mask").mask("+380 (99) 999-99-99");
 
@@ -349,6 +370,27 @@ var app = {
 				$(app.sidebar).removeClass('nav_opened');
 			}
 		});
+
+		// header shadow
+		if(PAGE != 'home'){
+			var scroll_t = $(window).scrollTop();
+			if(scroll_t > 1){
+				$('header').addClass('z-depth-2');
+			}else{
+				$('header').removeClass('z-depth-2');
+			}
+		}
+		$(window).scroll(function(){
+			if(PAGE != 'home'){
+				var scroll_t = $(window).scrollTop();
+				if(scroll_t > 1){
+					$('header').addClass('z-depth-2');
+				}else{
+					$('header').removeClass('z-depth-2');
+				}
+			}
+		});
+		// end header shadow
 
 		var resize_flag = true;
 		$(window).resize(function(){

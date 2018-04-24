@@ -590,8 +590,8 @@ footer .container {width: 90%;}
 .constacts_list .email a {font: 18px 'RobotoBL', Tahoma; color: #676666;}
 .constacts_list .email {background: url('../img/cont_loc.png') left 5px no-repeat; padding-left: 40px; margin-bottom: 20px;}
 
-.volterra_form input {border: 2px solid #676666 !important; font: : 14px 'RobotoR', Tahoma; color: #676666; padding-left: 20px !important; width: calc(100% - 24px) !important; margin-bottom: 0 !important;}
-.volterra_form textarea {border: 2px solid #676666 !important; font: : 14px 'RobotoR', Tahoma; color: #676666; padding-left: 20px !important; min-height: 95px; margin-bottom: 0 !important;}
+.volterra_form input {border: 2px solid #676666 !important; font: 14px 'RobotoR', Tahoma; color: #676666; padding-left: 20px !important; width: calc(100% - 24px) !important; margin-bottom: 0 !important;}
+.volterra_form textarea {border: 2px solid #676666 !important; font: 14px 'RobotoR', Tahoma; color: #676666; padding-left: 20px !important; min-height: 95px; margin-bottom: 0 !important;}
 .volterra_form .input-field {padding-left: 0 !important; margin-bottom: 25px; margin-top: 0;}
 
 .volterra_form .input-field.col label {left: 20px !important;}
@@ -731,18 +731,74 @@ footer .container {width: 90%;}
 .stage_desc {font: 16px 'RobotoR', Tahoma; color: #676666; line-height: 25px; padding-left: 0 !important;}
 .protocol_link {padding: 10px; background: #c59fc9; text-transform: uppercase; font: 16px 'RobotoB', Tahoma; color: #f9f9f9; transition-duration: 0.3s; text-decoration: none;}
 .protocol_link:hover {background: #954695;}
-.inner_tab_icon {width: 35px; height: 35px; background-size: contain; -webkit-background-size: contain; -moz-background-size: contain; -o-background-size: contain; -ms-background-size: contain; margin: 0 auto; background-repeat: no-repeat;}
-.project_stages_body .inner {padding-top: 35px;}
+.inner_tab_icon {margin: 0 auto;}
+.project_stages_body .inner {padding-top: 35px; margin-bottom: 30px;}
 .project_stages_body .inner .tabs {height: 78px;}
 .project_stages_body .inner .tab {height: 78px;}
 
 .project_stages_body .inner .tab a {box-shadow: 0 0 1px 2px #eee inset;}
-.project_stages_body .inner .tab a:focus {background-color: #fff !important;}
-.project_stages_body .inner .tab a:active {background-color: #fff !important;}
-.project_stages_body .inner .tabs .indicator {display: none;}
-.project_stages_body .inner .tab a.active {background: #999999 !important;} 
-.project_stages_body .inner .tab .photo {margin-top: 22px;}
-.project_stages_body .inner .tab .map {margin-top: 20px;}
-.project_stages_body .inner .tab .video {margin-top: 25px;}
-.project_stages_body .inner .tab .panorama {width: 60px; margin-top: 27px;}
+.project_stages_body .inner .tab a:focus {background-color: #fff !important; box-shadow: 0 0 1px 2px #eee inset;}
+.project_stages_body .inner .tab a:active {background-color: #fff !important; box-shadow: 0 0 1px 2px #eee inset;}
+.project_stages_body .inner .indicator {display: none;}
+.project_stages_body .inner .tab a.active {background: #999999 !important; box-shadow: none;} 
 
+
+.project_stages_body .inner .tab .photo {background: url('../img/tab_ico1.png') center bottom no-repeat; width: 32px; height: 32px; margin-top: 24px;}
+.project_stages_body .inner .tab .active .photo {background-position: center top;}
+
+.project_stages_body .inner .tab .map {background: url('../img/tab_ico2.png') center bottom no-repeat; width: 37px; height: 39px; margin-top: 20px;}
+.project_stages_body .inner .tab .active .map {background-position: center top;}
+
+.project_stages_body .inner .tab .video {background: url('../img/tab_ico3.png') center bottom no-repeat; width: 42px; height: 33px; margin-top: 23px;}
+.project_stages_body .inner .tab .active .video {background-position: center top;}
+
+.project_stages_body .inner .tab .panorama {background: url('../img/tab_ico4.png') center bottom no-repeat; width: 69px; height: 31px; margin-top: 26px;}
+.project_stages_body .inner .tab .active .panorama {background-position: center top;}
+
+.project_stages_body .inner .stage_inner_tab {position: relative;}
+.project_stages_body .inner .stage_inner_tab .owl-prev {position: absolute; width: 100px; height: 100px; background: rgba(0,0,0,0.6); color: #fff; font: 16px 'RobotoR', Tahoma; text-align: center; left: 0; top: 50%; margin-top: -50px; cursor: pointer; transition-duration: 0.3s;}
+.project_stages_body .inner .stage_inner_tab .owl-next {position: absolute; width: 100px; height: 100px; background: rgba(0,0,0,0.6); color: #fff; font: 16px 'RobotoR', Tahoma; text-align: center; right: 0; top: 50%; margin-top: -50px; cursor: pointer; transition-duration: 0.3s;}
+.project_stages_body .inner .stage_inner_tab .owl-next:hover, .project_stages_body .inner .stage_inner_tab .owl-prev:hover {background: rgba(0, 0, 0, 0.8)}
+.stage_inner_tab iframe, .stage_inner_tab embed {width: 100%; height: 510px;}
+
+.project_stages_body .stage_docs {padding: 40px 0;}
+
+.project_stages_body .stage_docs .owl-item {padding: 0px;}
+.project_stages_body .stage_docs .owl-item a {position: relative; display: block; text-align: center; margin: 0 5px;}
+.project_stages_body .stage_docs .owl-item a .hover {transition-duration: 0.3s; opacity: 0; background: rgba(0,0,0,0.4) url('../img/zoom_hover.png') center no-repeat; position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 1;}
+.project_stages_body .stage_docs .owl-item a:hover .hover {opacity: 1;}
+.project_stages_body .stage_docs .owl-item a img {max-height: 240px; height: auto; width: auto; max-width: 100%; display: inline-block;}
+
+.stage_comments {border-top: 1px solid #000; padding-top: 45px;}
+.stage_comments .comment_item {background: #f9f9f9; box-shadow: none; padding-left: 0; padding-bottom: 0;}
+.stage_comments .comment_item .name {font: 18px 'RobotoB', Tahoma; color: #676666; margin-bottom: 10px;}
+.stage_comments .comment_item .comment {font: 14px 'RobotoR', Tahoma; color: #676666; margin-bottom: 20px; line-height: 20px;}
+.stage_comments .comment_item .date {font: 12px 'RobotoR', Tahoma; color: #999999; margin-bottom: 20px;}
+.stage_comments .comment_item .border {background: #dfdfdf; height: 1px;}
+
+.stage_comments .caption {font: 30px 'RobotoB', Tahoma; color: #565656; float: left;}
+.stage_comments .caption sup {font: 12px 'RobotoB', Tahoma; color: #fff; padding: 7px 10px; background: #c59fc9; border-radius: 50%; position: relative; top: -15px;}
+.stage_comments .leave_comment {font: 16px 'RobotoB', Tahoma; color: #f9f9f9; padding: 10px 20px; background: #c59fc9; float: right; transition-duration: 0.3s;}
+.stage_comments .leave_comment:hover {background: #954695;}
+
+.stage_comments .comment_item:last-child .border {display: none;}
+
+.same_projects_wrapper {padding: 70px 0;}
+
+
+.project_item .card-image {width: 100%;}
+.project_item img {width: auto !important; height: 220px; max-width: 100%; margin: 10px auto 0;}
+
+.project_item .project_card_name {font: 20px 'RobotoB', Tahoma; color: #222222; margin-bottom: 10px;}
+.project_item .project_desc {font: 14px 'RobotoL', Tahoma; color: #222; margin-bottom: 10px; min-height: 57px;}
+.project_item ul li {font: 14px 'RobotoB', Tahoma; color: #222222; margin-bottom: 10px; padding-left: 30px; background-size: contain; -webkit-background-size: contain; -moz-background-size: contain; -o-background-size: contain; -ms-background-size: contain; background-repeat: no-repeat; background-position: left center; }
+
+.project_item ul {margin-bottom: 20px;}
+.project_item a.prog_link {display: block; width: 100%; background: #282828; color: #fff; text-align: center; font: 14px 'RobotoB', Tahoma; padding: 13px 5px; text-transform: none; transition-duration: 0.3s;} 
+.project_item a.prog_link:hover {background: #8b459a;}
+.project_item a.prog_link.active {background: rgba(150, 70, 149, 1);}
+.project_item {margin-bottom: 20px;}
+
+.project_item .card {margin-left: 11px; margin-right: 11px; }
+
+.same_projects_wrapper .caption {font: 30px 'RobotoB', Tahoma; color: #565656;  margin-bottom: 30px;}
