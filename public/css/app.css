@@ -540,7 +540,7 @@ footer .container {width: 90%;}
 .project_item_wrapper .content_target li {background: url('../img/li_bg.png') left center no-repeat; padding-left: 20px; font: 16px 'RobotoR', Tahoma; color: #676666; display: grid; margin-bottom: 15px;}
 .project_item_wrapper .content_target ul {margin-bottom: 25px;}
 
-#project_map {height: 510px;}
+.project_map {height: 510px;}
 
 @media(max-width: 1450px){
   .project_card .container {width: 90%;}
@@ -559,7 +559,7 @@ footer .container {width: 90%;}
   .project_card .short_info p {margin-bottom: 15px;}
   .project_item_wrapper .content_target p {margin-bottom: 15px;}
 
-  #project_map {height: 400px;}
+  .project_map {height: 400px;}
 }
 
 @media(max-width: 600px){
@@ -569,7 +569,7 @@ footer .container {width: 90%;}
   .project_card .footer_desc .date {float: left; clear: both;}
   .project_card .proj_sep  {margin-left: 0;}
 
-  #project_map {height: 300px;}
+  .project_map {height: 300px;}
   .project_card {width: 100%;}
   .project_item_wrapper .content_target img  {margin-right: 10px; width: 100% !important; float: none;}
 }
@@ -802,3 +802,27 @@ footer .container {width: 90%;}
 .project_item .card {margin-left: 11px; margin-right: 11px; }
 
 .same_projects_wrapper .caption {font: 30px 'RobotoB', Tahoma; color: #565656;  margin-bottom: 30px;}
+
+@media(max-width: 1325px){
+	.protocol_link, .stage_comments .leave_comment {font-size: 13px; padding: 8px;}
+}
+
+@media(max-width: 1100px){
+	.protocol_link, .stage_comments .leave_comment {font-size: 11px;}
+}
+
+@media(max-width: 993px){
+	.project_item {max-width: 560px; margin: 0 auto;}
+	.stage_inner_tab iframe, .stage_inner_tab embed {height: 400px;}
+}
+
+@media(max-width: 600px) {
+	.protocol_wrapper {text-align: center;}
+	.protocol_link {margin-top: 20px; display: block;}
+	.project_stages_body .inner .stage_inner_tab .owl-prev, .project_stages_body .inner .stage_inner_tab .owl-next {width: 50px; height: 50px; margin-top: -25px; font-size: 10px;}
+	.project_stages_head .tabs li a {font-size: 18px;}
+	.stage_comments .leave_comment {float: none; display: block; clear: both; text-align: center;}
+	.stage_comments .caption {float: none; margin-bottom: 15px;}
+	.stage_inner_tab iframe, .stage_inner_tab embed {height: 300px;}
+	.project_stages_body .inner .tab a {padding: 0;}
+}

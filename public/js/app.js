@@ -328,7 +328,17 @@ var app = {
 		});
 
 		$('.same_projects').owlCarousel({
-			items: 3
+			responsive: {
+				0: {
+					items: 1,
+				},
+				993: {
+					items: 2,
+				},
+				1300: {
+					items: 3,
+				}
+			}
 		});
 
 		$(".mask").mask("+380 (99) 999-99-99");
@@ -461,7 +471,6 @@ var gmaps = {
 	project_map: function(){
 		//var lat = parseFloat(storage.home_map_selector.data('lat')) || 0;
 		//var lng = parseFloat(storage.home_map_selector.data('lng')) || 0;
-		console.log(google);
         var map = new google.maps.Map($('#project_map'), {
           zoom: 16,
           center: {lat:48.244, lng:30.876}

@@ -64,10 +64,10 @@
 					<div id="stage1">
 						{{-- START --}}
 						<div class="stage_header">Specification</div>
-						<div class="stage_desc col s9">
+						<div class="stage_desc col l9 m8 s12">
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.
 						</div>
-						<div class="col s3 tar">
+						<div class="col l3 m4 s12 tar protocol_wrapper">
 							<a class="protocol_link" href="javascript:void(0);">Copy of the protocol</a>
 						</div>
 						
@@ -96,7 +96,7 @@
 
 							</div>
 							<div id="stage_1_inner_tab_2" class="stage_inner_tab">
-								<div id="project_map"></div>
+								<div class="project_map"></div>
 							</div>
 							<div id="stage_1_inner_tab_3" class="stage_inner_tab">
 								<iframe src="https://www.youtube.com/embed/qK_NeRZOdq4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
@@ -108,7 +108,7 @@
 
 						<div class="clear"></div>
 						<div class="stage_header">Permit documentation</div>
-						<div class="stage_desc col s9">
+						<div class="stage_desc col s12">
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.
 						</div>
 
@@ -138,10 +138,10 @@
 							{{-- COMMENT --}}
 							<div class="card-panel comment_item">
 								<div class="row">
-									<div class="col s1">
+									<div class="col l1 m2 s3">
 										<img src="{{ IMG.'avatar.png' }}" alt="" class="circle responsive-img">
 									</div>
-									<div class="col s11">
+									<div class="col l11 m10 s9">
 										<div class="name">Sergey Kaminskiy</div>
 										<div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, architecto laudantium. Reiciendis veritatis, porro consequuntur exercitationem rem, asperiores excepturi reprehenderit tempora, praesentium in sint necessitatibus illum dignissimos labore magni quod?</div>
 										<p class="date">29 January 2018</p>
@@ -153,10 +153,10 @@
 							{{-- COMMENT --}}
 							<div class="card-panel comment_item">
 								<div class="row">
-									<div class="col s1">
+									<div class="col l1 m2 s3">
 										<img src="{{ IMG.'avatar.png' }}" alt="" class="circle responsive-img">
 									</div>
-									<div class="col s11">
+									<div class="col l11 m10 s9">
 										<div class="name">Sergey Kaminskiy</div>
 										<div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, architecto laudantium. Reiciendis veritatis, porro consequuntur exercitationem rem, asperiores excepturi reprehenderit tempora, praesentium in sint necessitatibus illum dignissimos labore magni quod?</div>
 										<p class="date">29 January 2018</p>
@@ -165,13 +165,14 @@
 								</div>
 							</div>
 
-								{{-- COMMENT --}}
+
+							{{-- COMMENT --}}
 							<div class="card-panel comment_item">
 								<div class="row">
-									<div class="col s1">
+									<div class="col l1 m2 s3">
 										<img src="{{ IMG.'avatar.png' }}" alt="" class="circle responsive-img">
 									</div>
-									<div class="col s11">
+									<div class="col l11 m10 s9">
 										<div class="name">Sergey Kaminskiy</div>
 										<div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, architecto laudantium. Reiciendis veritatis, porro consequuntur exercitationem rem, asperiores excepturi reprehenderit tempora, praesentium in sint necessitatibus illum dignissimos labore magni quod?</div>
 										<p class="date">29 January 2018</p>
@@ -179,6 +180,7 @@
 									</div>
 								</div>
 							</div>
+
 							
 
 						</div>
@@ -187,10 +189,10 @@
 					<div id="stage2">
 						{{-- START --}}
 						<div class="stage_header">Specification</div>
-						<div class="stage_desc col s9">
+						<div class="stage_desc col l9 m8 s12">
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.
 						</div>
-						<div class="col s3 tar">
+						<div class="col l3 m4 s12 tar protocol_wrapper">
 							<a class="protocol_link" href="javascript:void(0);">Copy of the protocol</a>
 						</div>
 						
@@ -214,12 +216,12 @@
 							<div id="stage_2_inner_tab_1" class="stage_inner_tab">
 								<div class="owl-carousel stage_photos">
 									<img src="{{ IMG.'slide6.jpg' }}" alt="Volterra slide" />
-									<img src="{{ IMG.'slide5.jpg' }}" alt="Volterra slide" />
+									<img src="{{ IMG.'slide4.jpg' }}" alt="Volterra slide" />
 								</div>
 
 							</div>
 							<div id="stage_2_inner_tab_2" class="stage_inner_tab">
-								<div id="project_map"></div>
+								<div class="project_map"></div>
 							</div>
 							<div id="stage_2_inner_tab_3" class="stage_inner_tab">
 								<iframe src="https://www.youtube.com/embed/qK_NeRZOdq4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
@@ -231,12 +233,20 @@
 
 						<div class="clear"></div>
 						<div class="stage_header">Permit documentation</div>
-						<div class="stage_desc col s9">
+						<div class="stage_desc col s12">
 							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.
 						</div>
 
 						<div class="clear"></div>
 						<div class="owl-carousel stage_docs">
+							<a data-fancybox="gallery" href="{{ IMG.'doc_tmp.jpg '}}">
+								<div class="hover"></div>
+								<img src="{{ IMG.'doc_tmp.jpg '}}">
+							</a>
+							<a data-fancybox="gallery" href="{{ IMG.'doc_tmp.jpg '}}">
+								<div class="hover"></div>
+								<img src="{{ IMG.'doc_tmp.jpg '}}">
+							</a>
 							<a data-fancybox="gallery" href="{{ IMG.'doc_tmp.jpg '}}">
 								<div class="hover"></div>
 								<img src="{{ IMG.'doc_tmp.jpg '}}">
@@ -253,10 +263,10 @@
 							{{-- COMMENT --}}
 							<div class="card-panel comment_item">
 								<div class="row">
-									<div class="col s1">
+									<div class="col l1 m2 s3">
 										<img src="{{ IMG.'avatar.png' }}" alt="" class="circle responsive-img">
 									</div>
-									<div class="col s11">
+									<div class="col l11 m10 s9">
 										<div class="name">Sergey Kaminskiy</div>
 										<div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, architecto laudantium. Reiciendis veritatis, porro consequuntur exercitationem rem, asperiores excepturi reprehenderit tempora, praesentium in sint necessitatibus illum dignissimos labore magni quod?</div>
 										<p class="date">29 January 2018</p>
@@ -265,10 +275,12 @@
 								</div>
 							</div>
 
+							
+
 						</div>
 						{{-- END --}}
 					</div>
-					<div id="stage3">Test 3</div>
+					<div id="stage3">Stage 3 content/div>
 				</div>
 			</div>
 		</div>

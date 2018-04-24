@@ -53,9 +53,9 @@
 <ul id="slide-out" class="sidenav z-depth-4">
 	<li class="first"></li>
 
-	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}">О компании</a></li>
-	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}">Услуги</a></li>
-	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}">Проекты</a></li>
+	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}">About</a></li>
+	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}">Services</a></li>
+	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}">Projects</a></li>
 	@foreach($top_nav as $nav_item)
 		@if($nav_item->alias != 'home')
 			<?php 
