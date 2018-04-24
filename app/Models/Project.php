@@ -11,5 +11,9 @@ class Project extends Model {
 
     public function type() {
     	return $this->hasOne('App\Models\ProjectTypes', 'id', 'type');
+    }
+      
+    public function stages() {
+    	return $this->hasMany('App\Models\Stage', 'project_id');
   	}
 }

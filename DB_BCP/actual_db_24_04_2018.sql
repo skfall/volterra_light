@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost
--- Время создания: Апр 20 2018 г., 00:15
--- Версия сервера: 10.1.31-MariaDB
--- Версия PHP: 7.2.4
+-- Хост: 127.0.0.1
+-- Час створення: Квт 24 2018 р., 21:10
+-- Версія сервера: 10.1.26-MariaDB
+-- Версія PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `volterra`
+-- База даних: `volterra`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_admin_menu`
+-- Структура таблиці `osc_admin_menu`
 --
 
 CREATE TABLE `osc_admin_menu` (
@@ -55,7 +55,7 @@ CREATE TABLE `osc_admin_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_admin_menu`
+-- Дамп даних таблиці `osc_admin_menu`
 --
 
 INSERT INTO `osc_admin_menu` (`id`, `type`, `parent`, `table`, `additional_fields`, `landing_settings`, `view_settings`, `edit_settings`, `create_settings`, `form_params`, `menu_params`, `cardRelations`, `assign`, `name`, `alias`, `filename`, `order_id`, `details`, `block`, `link`, `dateCreate`, `dateModify`, `adminMod`) VALUES
@@ -96,7 +96,24 @@ INSERT INTO `osc_admin_menu` (`id`, `type`, `parent`, `table`, `additional_field
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_contact_form`
+-- Структура таблиці `osc_comments`
+--
+
+CREATE TABLE `osc_comments` (
+  `id` int(11) NOT NULL,
+  `content` text,
+  `stage_id` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `block` int(11) NOT NULL DEFAULT '0',
+  `seen` int(11) NOT NULL DEFAULT '0',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `osc_contact_form`
 --
 
 CREATE TABLE `osc_contact_form` (
@@ -111,7 +128,7 @@ CREATE TABLE `osc_contact_form` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_contact_form`
+-- Дамп даних таблиці `osc_contact_form`
 --
 
 INSERT INTO `osc_contact_form` (`id`, `name`, `email`, `phone`, `message`, `created`, `modified`, `seen`) VALUES
@@ -120,7 +137,7 @@ INSERT INTO `osc_contact_form` (`id`, `name`, `email`, `phone`, `message`, `crea
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_countries`
+-- Структура таблиці `osc_countries`
 --
 
 CREATE TABLE `osc_countries` (
@@ -131,7 +148,7 @@ CREATE TABLE `osc_countries` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_dialog_files_ref`
+-- Структура таблиці `osc_dialog_files_ref`
 --
 
 CREATE TABLE `osc_dialog_files_ref` (
@@ -151,7 +168,7 @@ CREATE TABLE `osc_dialog_files_ref` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_email_logs`
+-- Структура таблиці `osc_email_logs`
 --
 
 CREATE TABLE `osc_email_logs` (
@@ -168,7 +185,7 @@ CREATE TABLE `osc_email_logs` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_languages`
+-- Структура таблиці `osc_languages`
 --
 
 CREATE TABLE `osc_languages` (
@@ -179,7 +196,7 @@ CREATE TABLE `osc_languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Дамп данных таблицы `osc_languages`
+-- Дамп даних таблиці `osc_languages`
 --
 
 INSERT INTO `osc_languages` (`id`, `name`, `alias`, `used`) VALUES
@@ -322,7 +339,7 @@ INSERT INTO `osc_languages` (`id`, `name`, `alias`, `used`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_logs`
+-- Структура таблиці `osc_logs`
 --
 
 CREATE TABLE `osc_logs` (
@@ -335,7 +352,7 @@ CREATE TABLE `osc_logs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Project logs';
 
 --
--- Дамп данных таблицы `osc_logs`
+-- Дамп даних таблиці `osc_logs`
 --
 
 INSERT INTO `osc_logs` (`id`, `date`, `type`, `description`, `userid`, `ip`) VALUES
@@ -353,7 +370,7 @@ INSERT INTO `osc_logs` (`id`, `date`, `type`, `description`, `userid`, `ip`) VAL
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_log_types`
+-- Структура таблиці `osc_log_types`
 --
 
 CREATE TABLE `osc_log_types` (
@@ -362,7 +379,7 @@ CREATE TABLE `osc_log_types` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Project log types';
 
 --
--- Дамп данных таблицы `osc_log_types`
+-- Дамп даних таблиці `osc_log_types`
 --
 
 INSERT INTO `osc_log_types` (`id`, `name`) VALUES
@@ -372,7 +389,7 @@ INSERT INTO `osc_log_types` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_message_statuses`
+-- Структура таблиці `osc_message_statuses`
 --
 
 CREATE TABLE `osc_message_statuses` (
@@ -386,7 +403,7 @@ CREATE TABLE `osc_message_statuses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Список типов сообщений';
 
 --
--- Дамп данных таблицы `osc_message_statuses`
+-- Дамп даних таблиці `osc_message_statuses`
 --
 
 INSERT INTO `osc_message_statuses` (`id`, `name`, `alias`, `details`, `dateCreate`, `dateModify`, `adminMod`) VALUES
@@ -397,7 +414,7 @@ INSERT INTO `osc_message_statuses` (`id`, `name`, `alias`, `details`, `dateCreat
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_message_types`
+-- Структура таблиці `osc_message_types`
 --
 
 CREATE TABLE `osc_message_types` (
@@ -411,7 +428,7 @@ CREATE TABLE `osc_message_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Список типов сообщений';
 
 --
--- Дамп данных таблицы `osc_message_types`
+-- Дамп даних таблиці `osc_message_types`
 --
 
 INSERT INTO `osc_message_types` (`id`, `name`, `alias`, `details`, `dateCreate`, `dateModify`, `adminMod`) VALUES
@@ -422,7 +439,7 @@ INSERT INTO `osc_message_types` (`id`, `name`, `alias`, `details`, `dateCreate`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_meta`
+-- Структура таблиці `osc_meta`
 --
 
 CREATE TABLE `osc_meta` (
@@ -434,7 +451,7 @@ CREATE TABLE `osc_meta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_meta`
+-- Дамп даних таблиці `osc_meta`
 --
 
 INSERT INTO `osc_meta` (`id`, `alias`, `meta_title`, `meta_keys`, `meta_desc`) VALUES
@@ -445,7 +462,7 @@ INSERT INTO `osc_meta` (`id`, `alias`, `meta_title`, `meta_keys`, `meta_desc`) V
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_nav`
+-- Структура таблиці `osc_nav`
 --
 
 CREATE TABLE `osc_nav` (
@@ -462,18 +479,18 @@ CREATE TABLE `osc_nav` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_nav`
+-- Дамп даних таблиці `osc_nav`
 --
 
 INSERT INTO `osc_nav` (`id`, `type`, `parent`, `alias`, `pos`, `block`, `target`, `created`, `modified`, `name`) VALUES
-(1, 0, 0, 'home', 0, 0, 0, '2018-03-31 00:00:00', '2018-04-09 15:12:07', 'Главная'),
-(5, 0, 0, 'contacts', 4, 0, 0, '2018-03-31 00:00:00', '2018-04-09 15:12:23', 'Контакты'),
+(1, 0, 0, 'home', 0, 0, 0, '2018-03-31 00:00:00', '2018-04-09 15:12:07', 'Home'),
+(5, 0, 0, 'contacts', 4, 0, 0, '2018-03-31 00:00:00', '2018-04-09 15:12:23', 'Contacts'),
 (6, 0, 0, 'invest-relations', 3, 0, 0, '2018-03-31 00:00:00', '2018-03-31 00:00:00', 'Invest relations');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_page_home_1`
+-- Структура таблиці `osc_page_home_1`
 --
 
 CREATE TABLE `osc_page_home_1` (
@@ -487,7 +504,7 @@ CREATE TABLE `osc_page_home_1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_page_home_1`
+-- Дамп даних таблиці `osc_page_home_1`
 --
 
 INSERT INTO `osc_page_home_1` (`id`, `section_caption`, `section_sub_caption`, `section_content`, `filename`, `created`, `modified`) VALUES
@@ -498,7 +515,7 @@ INSERT INTO `osc_page_home_1` (`id`, `section_caption`, `section_sub_caption`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_page_home_2`
+-- Структура таблиці `osc_page_home_2`
 --
 
 CREATE TABLE `osc_page_home_2` (
@@ -512,7 +529,7 @@ CREATE TABLE `osc_page_home_2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_page_home_2`
+-- Дамп даних таблиці `osc_page_home_2`
 --
 
 INSERT INTO `osc_page_home_2` (`id`, `section_caption`, `section_sub_caption`, `section_content`, `filename`, `created`, `modified`) VALUES
@@ -523,7 +540,7 @@ INSERT INTO `osc_page_home_2` (`id`, `section_caption`, `section_sub_caption`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_page_home_3`
+-- Структура таблиці `osc_page_home_3`
 --
 
 CREATE TABLE `osc_page_home_3` (
@@ -537,7 +554,7 @@ CREATE TABLE `osc_page_home_3` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_page_home_3`
+-- Дамп даних таблиці `osc_page_home_3`
 --
 
 INSERT INTO `osc_page_home_3` (`id`, `section_caption`, `section_sub_caption`, `section_content`, `filename`, `created`, `modified`) VALUES
@@ -546,7 +563,7 @@ INSERT INTO `osc_page_home_3` (`id`, `section_caption`, `section_sub_caption`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_page_home_4`
+-- Структура таблиці `osc_page_home_4`
 --
 
 CREATE TABLE `osc_page_home_4` (
@@ -559,7 +576,7 @@ CREATE TABLE `osc_page_home_4` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_page_home_4`
+-- Дамп даних таблиці `osc_page_home_4`
 --
 
 INSERT INTO `osc_page_home_4` (`id`, `section_caption`, `section_sub_caption`, `section_content`, `created`, `modified`) VALUES
@@ -568,7 +585,7 @@ INSERT INTO `osc_page_home_4` (`id`, `section_caption`, `section_sub_caption`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_projects`
+-- Структура таблиці `osc_projects`
 --
 
 CREATE TABLE `osc_projects` (
@@ -595,7 +612,7 @@ CREATE TABLE `osc_projects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_projects`
+-- Дамп даних таблиці `osc_projects`
 --
 
 INSERT INTO `osc_projects` (`id`, `alias`, `name`, `details`, `content`, `preview`, `card_image`, `location`, `area`, `capacity`, `pos`, `lat`, `lng`, `type`, `block`, `meta_title`, `meta_keys`, `meta_desc`, `created`, `modified`) VALUES
@@ -604,7 +621,7 @@ INSERT INTO `osc_projects` (`id`, `alias`, `name`, `details`, `content`, `previe
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_projects_types`
+-- Структура таблиці `osc_projects_types`
 --
 
 CREATE TABLE `osc_projects_types` (
@@ -615,7 +632,7 @@ CREATE TABLE `osc_projects_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_projects_types`
+-- Дамп даних таблиці `osc_projects_types`
 --
 
 INSERT INTO `osc_projects_types` (`id`, `name`, `icon`, `block`) VALUES
@@ -626,7 +643,7 @@ INSERT INTO `osc_projects_types` (`id`, `name`, `icon`, `block`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_services`
+-- Структура таблиці `osc_services`
 --
 
 CREATE TABLE `osc_services` (
@@ -643,7 +660,7 @@ CREATE TABLE `osc_services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_services`
+-- Дамп даних таблиці `osc_services`
 --
 
 INSERT INTO `osc_services` (`id`, `name`, `alias`, `pos`, `block`, `preview`, `description`, `icon`, `created`, `modified`) VALUES
@@ -657,7 +674,7 @@ INSERT INTO `osc_services` (`id`, `name`, `alias`, `pos`, `block`, `preview`, `d
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_settings`
+-- Структура таблиці `osc_settings`
 --
 
 CREATE TABLE `osc_settings` (
@@ -680,7 +697,7 @@ CREATE TABLE `osc_settings` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_settings`
+-- Дамп даних таблиці `osc_settings`
 --
 
 INSERT INTO `osc_settings` (`id`, `sitename`, `email`, `phone`, `address`, `fb_link`, `vk_link`, `tw_link`, `li_link`, `lat`, `lng`, `site_index`, `copyright`, `top_script`, `bot_script`, `modified`) VALUES
@@ -689,7 +706,7 @@ INSERT INTO `osc_settings` (`id`, `sitename`, `email`, `phone`, `address`, `fb_l
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_site_languages`
+-- Структура таблиці `osc_site_languages`
 --
 
 CREATE TABLE `osc_site_languages` (
@@ -701,7 +718,69 @@ CREATE TABLE `osc_site_languages` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_static_translations`
+-- Структура таблиці `osc_stages`
+--
+
+CREATE TABLE `osc_stages` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `pos` int(11) NOT NULL DEFAULT '0',
+  `block` int(11) NOT NULL DEFAULT '0',
+  `caption` varchar(255) DEFAULT NULL,
+  `details` text,
+  `protocol_link` varchar(255) DEFAULT NULL,
+  `lat` float NOT NULL DEFAULT '0',
+  `lng` float NOT NULL DEFAULT '0',
+  `video` text,
+  `panorama` text,
+  `project_id` int(11) NOT NULL DEFAULT '0',
+  `docs_caption` varchar(255) DEFAULT NULL,
+  `docs_details` text,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `osc_stage_docs`
+--
+
+CREATE TABLE `osc_stage_docs` (
+  `id` int(11) NOT NULL,
+  `filename` varchar(255) DEFAULT NULL,
+  `block` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) DEFAULT NULL,
+  `details` varchar(255) DEFAULT NULL,
+  `pos` int(11) NOT NULL DEFAULT '0',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `stage_id` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `osc_stage_photos`
+--
+
+CREATE TABLE `osc_stage_photos` (
+  `id` int(11) NOT NULL,
+  `filename` varchar(255) DEFAULT NULL,
+  `block` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) DEFAULT NULL,
+  `details` varchar(255) DEFAULT NULL,
+  `pos` int(11) NOT NULL DEFAULT '0',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `stage_id` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `osc_static_translations`
 --
 
 CREATE TABLE `osc_static_translations` (
@@ -714,7 +793,7 @@ CREATE TABLE `osc_static_translations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_static_translations`
+-- Дамп даних таблиці `osc_static_translations`
 --
 
 INSERT INTO `osc_static_translations` (`id`, `page`, `text`, `en_text`, `ru_text`, `fr_text`) VALUES
@@ -726,7 +805,7 @@ INSERT INTO `osc_static_translations` (`id`, `page`, `text`, `en_text`, `ru_text
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_tasks`
+-- Структура таблиці `osc_tasks`
 --
 
 CREATE TABLE `osc_tasks` (
@@ -745,7 +824,7 @@ CREATE TABLE `osc_tasks` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_task_admin_ref`
+-- Структура таблиці `osc_task_admin_ref`
 --
 
 CREATE TABLE `osc_task_admin_ref` (
@@ -758,7 +837,7 @@ CREATE TABLE `osc_task_admin_ref` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_users`
+-- Структура таблиці `osc_users`
 --
 
 CREATE TABLE `osc_users` (
@@ -776,7 +855,7 @@ CREATE TABLE `osc_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_users`
+-- Дамп даних таблиці `osc_users`
 --
 
 INSERT INTO `osc_users` (`id`, `login`, `password`, `type`, `block`, `first_name`, `last_name`, `avatar`, `user_card_id`, `created`, `modified`) VALUES
@@ -785,7 +864,7 @@ INSERT INTO `osc_users` (`id`, `login`, `password`, `type`, `block`, `first_name
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_users_chat`
+-- Структура таблиці `osc_users_chat`
 --
 
 CREATE TABLE `osc_users_chat` (
@@ -805,7 +884,7 @@ CREATE TABLE `osc_users_chat` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_users_dialogs`
+-- Структура таблиці `osc_users_dialogs`
 --
 
 CREATE TABLE `osc_users_dialogs` (
@@ -821,7 +900,7 @@ CREATE TABLE `osc_users_dialogs` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_users_types`
+-- Структура таблиці `osc_users_types`
 --
 
 CREATE TABLE `osc_users_types` (
@@ -837,7 +916,7 @@ CREATE TABLE `osc_users_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Уровни пользователей';
 
 --
--- Дамп данных таблицы `osc_users_types`
+-- Дамп даних таблиці `osc_users_types`
 --
 
 INSERT INTO `osc_users_types` (`id`, `name`, `alias`, `block`, `admin_enter`, `change_login`, `dateCreate`, `dateModify`, `adminMod`) VALUES
@@ -849,7 +928,7 @@ INSERT INTO `osc_users_types` (`id`, `name`, `alias`, `block`, `admin_enter`, `c
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_user_cards`
+-- Структура таблиці `osc_user_cards`
 --
 
 CREATE TABLE `osc_user_cards` (
@@ -867,7 +946,7 @@ CREATE TABLE `osc_user_cards` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_user_cards`
+-- Дамп даних таблиці `osc_user_cards`
 --
 
 INSERT INTO `osc_user_cards` (`id`, `user_id`, `email`, `phone`, `gender`, `reg_ip`, `last_visit_ip`, `last_visit_date`, `country_id`, `address`, `birthday`) VALUES
@@ -876,7 +955,7 @@ INSERT INTO `osc_user_cards` (`id`, `user_id`, `email`, `phone`, `gender`, `reg_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `osc_user_type_access`
+-- Структура таблиці `osc_user_type_access`
 --
 
 CREATE TABLE `osc_user_type_access` (
@@ -887,7 +966,7 @@ CREATE TABLE `osc_user_type_access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `osc_user_type_access`
+-- Дамп даних таблиці `osc_user_type_access`
 --
 
 INSERT INTO `osc_user_type_access` (`id`, `access`, `type_id`, `menu_id`) VALUES
@@ -1422,373 +1501,387 @@ INSERT INTO `osc_user_type_access` (`id`, `access`, `type_id`, `menu_id`) VALUES
 (529, 1, 1, 53);
 
 --
--- Индексы сохранённых таблиц
+-- Індекси збережених таблиць
 --
 
 --
--- Индексы таблицы `osc_admin_menu`
+-- Індекси таблиці `osc_admin_menu`
 --
 ALTER TABLE `osc_admin_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_contact_form`
+-- Індекси таблиці `osc_comments`
+--
+ALTER TABLE `osc_comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `osc_contact_form`
 --
 ALTER TABLE `osc_contact_form`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_countries`
+-- Індекси таблиці `osc_countries`
 --
 ALTER TABLE `osc_countries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_dialog_files_ref`
+-- Індекси таблиці `osc_dialog_files_ref`
 --
 ALTER TABLE `osc_dialog_files_ref`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_email_logs`
+-- Індекси таблиці `osc_email_logs`
 --
 ALTER TABLE `osc_email_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_languages`
+-- Індекси таблиці `osc_languages`
 --
 ALTER TABLE `osc_languages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_logs`
+-- Індекси таблиці `osc_logs`
 --
 ALTER TABLE `osc_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_log_types`
+-- Індекси таблиці `osc_log_types`
 --
 ALTER TABLE `osc_log_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_message_statuses`
+-- Індекси таблиці `osc_message_statuses`
 --
 ALTER TABLE `osc_message_statuses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_message_types`
+-- Індекси таблиці `osc_message_types`
 --
 ALTER TABLE `osc_message_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_meta`
+-- Індекси таблиці `osc_meta`
 --
 ALTER TABLE `osc_meta`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_nav`
+-- Індекси таблиці `osc_nav`
 --
 ALTER TABLE `osc_nav`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_page_home_1`
+-- Індекси таблиці `osc_page_home_1`
 --
 ALTER TABLE `osc_page_home_1`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_page_home_2`
+-- Індекси таблиці `osc_page_home_2`
 --
 ALTER TABLE `osc_page_home_2`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_page_home_3`
+-- Індекси таблиці `osc_page_home_3`
 --
 ALTER TABLE `osc_page_home_3`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_page_home_4`
+-- Індекси таблиці `osc_page_home_4`
 --
 ALTER TABLE `osc_page_home_4`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_projects`
+-- Індекси таблиці `osc_projects`
 --
 ALTER TABLE `osc_projects`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_projects_types`
+-- Індекси таблиці `osc_projects_types`
 --
 ALTER TABLE `osc_projects_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_services`
+-- Індекси таблиці `osc_services`
 --
 ALTER TABLE `osc_services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_settings`
+-- Індекси таблиці `osc_settings`
 --
 ALTER TABLE `osc_settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_site_languages`
+-- Індекси таблиці `osc_site_languages`
 --
 ALTER TABLE `osc_site_languages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_static_translations`
+-- Індекси таблиці `osc_stages`
+--
+ALTER TABLE `osc_stages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `osc_stage_docs`
+--
+ALTER TABLE `osc_stage_docs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `osc_stage_photos`
+--
+ALTER TABLE `osc_stage_photos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Індекси таблиці `osc_static_translations`
 --
 ALTER TABLE `osc_static_translations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_tasks`
+-- Індекси таблиці `osc_tasks`
 --
 ALTER TABLE `osc_tasks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_task_admin_ref`
+-- Індекси таблиці `osc_task_admin_ref`
 --
 ALTER TABLE `osc_task_admin_ref`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_users`
+-- Індекси таблиці `osc_users`
 --
 ALTER TABLE `osc_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_users_chat`
+-- Індекси таблиці `osc_users_chat`
 --
 ALTER TABLE `osc_users_chat`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_users_dialogs`
+-- Індекси таблиці `osc_users_dialogs`
 --
 ALTER TABLE `osc_users_dialogs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_users_types`
+-- Індекси таблиці `osc_users_types`
 --
 ALTER TABLE `osc_users_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_user_cards`
+-- Індекси таблиці `osc_user_cards`
 --
 ALTER TABLE `osc_user_cards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `osc_user_type_access`
+-- Індекси таблиці `osc_user_type_access`
 --
 ALTER TABLE `osc_user_type_access`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT для збережених таблиць
 --
 
 --
--- AUTO_INCREMENT для таблицы `osc_admin_menu`
+-- AUTO_INCREMENT для таблиці `osc_admin_menu`
 --
 ALTER TABLE `osc_admin_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
-
 --
--- AUTO_INCREMENT для таблицы `osc_contact_form`
+-- AUTO_INCREMENT для таблиці `osc_comments`
+--
+ALTER TABLE `osc_comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблиці `osc_contact_form`
 --
 ALTER TABLE `osc_contact_form`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT для таблицы `osc_countries`
+-- AUTO_INCREMENT для таблиці `osc_countries`
 --
 ALTER TABLE `osc_countries`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT для таблицы `osc_dialog_files_ref`
+-- AUTO_INCREMENT для таблиці `osc_dialog_files_ref`
 --
 ALTER TABLE `osc_dialog_files_ref`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT для таблицы `osc_email_logs`
+-- AUTO_INCREMENT для таблиці `osc_email_logs`
 --
 ALTER TABLE `osc_email_logs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT для таблицы `osc_languages`
+-- AUTO_INCREMENT для таблиці `osc_languages`
 --
 ALTER TABLE `osc_languages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
-
 --
--- AUTO_INCREMENT для таблицы `osc_logs`
+-- AUTO_INCREMENT для таблиці `osc_logs`
 --
 ALTER TABLE `osc_logs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
--- AUTO_INCREMENT для таблицы `osc_log_types`
+-- AUTO_INCREMENT для таблиці `osc_log_types`
 --
 ALTER TABLE `osc_log_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT для таблицы `osc_message_statuses`
+-- AUTO_INCREMENT для таблиці `osc_message_statuses`
 --
 ALTER TABLE `osc_message_statuses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT для таблицы `osc_message_types`
+-- AUTO_INCREMENT для таблиці `osc_message_types`
 --
 ALTER TABLE `osc_message_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT для таблицы `osc_meta`
+-- AUTO_INCREMENT для таблиці `osc_meta`
 --
 ALTER TABLE `osc_meta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
--- AUTO_INCREMENT для таблицы `osc_nav`
+-- AUTO_INCREMENT для таблиці `osc_nav`
 --
 ALTER TABLE `osc_nav`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
--- AUTO_INCREMENT для таблицы `osc_page_home_1`
+-- AUTO_INCREMENT для таблиці `osc_page_home_1`
 --
 ALTER TABLE `osc_page_home_1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT для таблицы `osc_page_home_2`
+-- AUTO_INCREMENT для таблиці `osc_page_home_2`
 --
 ALTER TABLE `osc_page_home_2`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT для таблицы `osc_page_home_3`
+-- AUTO_INCREMENT для таблиці `osc_page_home_3`
 --
 ALTER TABLE `osc_page_home_3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT для таблицы `osc_page_home_4`
+-- AUTO_INCREMENT для таблиці `osc_page_home_4`
 --
 ALTER TABLE `osc_page_home_4`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT для таблицы `osc_projects`
+-- AUTO_INCREMENT для таблиці `osc_projects`
 --
 ALTER TABLE `osc_projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT для таблицы `osc_projects_types`
+-- AUTO_INCREMENT для таблиці `osc_projects_types`
 --
 ALTER TABLE `osc_projects_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT для таблицы `osc_services`
+-- AUTO_INCREMENT для таблиці `osc_services`
 --
 ALTER TABLE `osc_services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
--- AUTO_INCREMENT для таблицы `osc_settings`
+-- AUTO_INCREMENT для таблиці `osc_settings`
 --
 ALTER TABLE `osc_settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT для таблицы `osc_site_languages`
+-- AUTO_INCREMENT для таблиці `osc_site_languages`
 --
 ALTER TABLE `osc_site_languages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT для таблицы `osc_static_translations`
+-- AUTO_INCREMENT для таблиці `osc_stages`
+--
+ALTER TABLE `osc_stages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблиці `osc_stage_docs`
+--
+ALTER TABLE `osc_stage_docs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблиці `osc_stage_photos`
+--
+ALTER TABLE `osc_stage_photos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT для таблиці `osc_static_translations`
 --
 ALTER TABLE `osc_static_translations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
--- AUTO_INCREMENT для таблицы `osc_tasks`
+-- AUTO_INCREMENT для таблиці `osc_tasks`
 --
 ALTER TABLE `osc_tasks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT для таблицы `osc_task_admin_ref`
+-- AUTO_INCREMENT для таблиці `osc_task_admin_ref`
 --
 ALTER TABLE `osc_task_admin_ref`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT для таблицы `osc_users`
+-- AUTO_INCREMENT для таблиці `osc_users`
 --
 ALTER TABLE `osc_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT для таблицы `osc_users_chat`
+-- AUTO_INCREMENT для таблиці `osc_users_chat`
 --
 ALTER TABLE `osc_users_chat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT для таблицы `osc_users_dialogs`
+-- AUTO_INCREMENT для таблиці `osc_users_dialogs`
 --
 ALTER TABLE `osc_users_dialogs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT для таблицы `osc_users_types`
+-- AUTO_INCREMENT для таблиці `osc_users_types`
 --
 ALTER TABLE `osc_users_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
--- AUTO_INCREMENT для таблицы `osc_user_cards`
+-- AUTO_INCREMENT для таблиці `osc_user_cards`
 --
 ALTER TABLE `osc_user_cards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT для таблицы `osc_user_type_access`
+-- AUTO_INCREMENT для таблиці `osc_user_type_access`
 --
 ALTER TABLE `osc_user_type_access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=530;
-COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=530;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
