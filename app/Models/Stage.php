@@ -21,7 +21,7 @@ class Stage extends Model {
     	return $this->hasMany('App\Models\StagePhoto', 'stage_id');
   	}
     
-    public function dosc() {
+    public function docs() {
     	return $this->hasMany('App\Models\StageDoc', 'stage_id');
   	}
 }

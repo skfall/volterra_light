@@ -728,7 +728,7 @@ footer .container {width: 90%;}
 .stages_tabs_head_row {margin-bottom: 0;}
 .project_stages_body {background: #f9f9f9; padding-top: 43px; padding-bottom: 30px;}
 .stage_header {font: 22px 'RobotoB', Tahoma; color: #676666; margin-bottom: 20px;}
-.stage_desc {font: 16px 'RobotoR', Tahoma; color: #676666; line-height: 25px; padding-left: 0 !important;}
+.stage_desc {font: 16px 'RobotoR', Tahoma; color: #676666; line-height: 25px; padding-left: 0 !important; margin-bottom: 20px;}
 .protocol_link {padding: 10px; background: #c59fc9; text-transform: uppercase; font: 16px 'RobotoB', Tahoma; color: #f9f9f9; transition-duration: 0.3s; text-decoration: none;}
 .protocol_link:hover {background: #954695;}
 .inner_tab_icon {margin: 0 auto;}
@@ -761,7 +761,7 @@ footer .container {width: 90%;}
 .project_stages_body .inner .stage_inner_tab .owl-next:hover, .project_stages_body .inner .stage_inner_tab .owl-prev:hover {background: rgba(0, 0, 0, 0.8)}
 .stage_inner_tab iframe, .stage_inner_tab embed {width: 100%; height: 510px;}
 
-.project_stages_body .stage_docs {padding: 40px 0;}
+.project_stages_body .stage_docs {padding: 20px 0 40px;}
 
 .project_stages_body .stage_docs .owl-item {padding: 0px;}
 .project_stages_body .stage_docs .owl-item a {position: relative; display: block; text-align: center; margin: 0 5px;}

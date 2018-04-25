@@ -71,12 +71,12 @@
 			console.log('...');
 		}
 	</script>
-	@if (isset($project) && $project->lat && $project->lng)
+	@if (isset($project))
 		<script>
 			var initProjMap = function() {
 				$.each($('.project_map'), function(i, el){
 					if(el){
-						var uluru = {lat: <?= $project->lat; ?>, lng:<?= $project->lng; ?>};
+						var uluru = {lat: $(el).data('lat'), lng: $(el).data('lng') };
 						var map = new google.maps.Map(el, {
 							zoom: 13,
 							center: uluru,

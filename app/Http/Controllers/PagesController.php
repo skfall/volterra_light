@@ -74,12 +74,14 @@ class PagesController extends AppController {
             }
         }
 
+        $stages = $project->stages()->where('block', '!=', '1')->orderBy('pos')->get();
+
         if($project->meta_title) $meta_array['meta_title'] = $this->prefix.$project->meta_title;
         if($project->meta_keys) $meta_array['meta_keys'] = $this->prefix.$project->meta_keys;
         if($project->meta_desc) $meta_array['meta_desc'] = $this->prefix.$project->meta_desc;
         $meta = collect($meta_array);
 
-        $viewmodel = compact('project', 'meta', 'page');
+        $viewmodel = compact('project', 'meta', 'page', 'stages');
         return view('pages.project_item', $viewmodel);
     }
 
