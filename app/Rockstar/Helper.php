@@ -97,7 +97,7 @@ class Helper {
         foreach ($array as $k => $v) {
             if (strlen($k)) {
                if (is_array($v)) {
-                    $o->{$k} = $this->cast_to_object($v);
+                    $o->{$k} = self::to_object($v);
                }else{
                     $o->{$k} = $v;
                }

@@ -202,6 +202,14 @@ class Core extends Helper {
 		return $project;
 	}
 
+	public function getSameProjects($project = null){
+		$response = collect(array());
+		if($project != null){
+			$response = \App\Models\Project::where([['block', '!=', '1'], ['id', '!=', $project->id], ['type', $project->type]])->orderBy('pos', 'desc')->skip(0)->take(9)->get();
+		}
+		return $response;
+	}
+
 	public function getHomePageSections($instances){
 		return [
 			$instances['1']::get() ?: [],

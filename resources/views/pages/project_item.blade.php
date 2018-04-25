@@ -50,7 +50,7 @@
 
 
 		{{-- IF STAGES --}}
-		@if(isset($stages) && $stages)
+		@if(isset($stages) && $stages->toArray())
 			<div class="project_stages_head">
 				<div class="container">
 					<div class="row stages_tabs_head_row">
@@ -251,85 +251,41 @@
 			</div>
 		@endif
 		
-		<div class="same_projects_wrapper container">
-			<div class="row">
-				<div class="caption">Other projects</div>
-				<div class="owl-carousel same_projects">
-					<div class="project_item">
-						<div class="card z-depth-2 hoverable">
-							<div class="card-image waves-effect">
-								<a href="#"><img src="{{ IMG.'project3.jpg' }}" alt="Project"></a>
-							</div>
-							<div class="card-content">
-								<div class="project_card_name">FES Vilshanka</div>
-								<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away."), 143,'<br>',false)),0,1)) }}{{ mb_strlen("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.") > 143 ? '...' : "" }}</div>
-								<ul>
-									<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">Kirovohrad reg.</li>
-									<li style="background-image: url('{{ IMG.'area_ico.png' }}');">21 Ha</li>
-									<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">12.8 MW</li>
-									<li style="background-image: url('{{ IMG."solar_ico.png" }}');">Solar</li>
-								</ul>
-								<a href="#" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
-							</div>
-						</div>
-					</div>
-					<div class="project_item">
-							<div class="card z-depth-2 hoverable">
-								<div class="card-image waves-effect">
-									<a href="#"><img src="{{ IMG.'project3.jpg' }}" alt="Project"></a>
-								</div>
-								<div class="card-content">
-									<div class="project_card_name">FES Vilshanka</div>
-									<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away."), 143,'<br>',false)),0,1)) }}{{ mb_strlen("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.") > 143 ? '...' : "" }}</div>
-									<ul>
-										<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">Kirovohrad reg.</li>
-										<li style="background-image: url('{{ IMG.'area_ico.png' }}');">21 Ha</li>
-										<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">12.8 MW</li>
-										<li style="background-image: url('{{ IMG."solar_ico.png" }}');">Solar</li>
-									</ul>
-									<a href="#" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
-								</div>
-							</div>
-						</div>
-						<div class="project_item">
+		@if (isset($same_projects) && $same_projects)
+			<div class="same_projects_wrapper container">
+				<div class="row">
+					<div class="caption">Other projects</div>
+					<div class="owl-carousel same_projects">
+						@foreach ($same_projects as $same_project)
+							{{-- SAME PROJECT --}}
+							<div class="project_item">
 								<div class="card z-depth-2 hoverable">
 									<div class="card-image waves-effect">
-										<a href="#"><img src="{{ IMG.'project3.jpg' }}" alt="Project"></a>
+										@if($same_project->preview)
+											<a href="{{ RS.LANG.'projects/'.$same_project->id.'/' }}"><img src="{{ UPLOAD.'projects/crop/600x308_'.$same_project->preview }}" alt="Project"></a>
+										@endif
 									</div>
 									<div class="card-content">
-										<div class="project_card_name">FES Vilshanka</div>
-										<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away."), 143,'<br>',false)),0,1)) }}{{ mb_strlen("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.") > 143 ? '...' : "" }}</div>
+										<div class="project_card_name">{{ $same_project->name }}</div>
+										<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags($same_project->details), 143,'<br>',false)),0,1)) }}{{ mb_strlen($same_project->details) > 143 ? '...' : "" }}</div>
 										<ul>
-											<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">Kirovohrad reg.</li>
-											<li style="background-image: url('{{ IMG.'area_ico.png' }}');">21 Ha</li>
-											<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">12.8 MW</li>
-											<li style="background-image: url('{{ IMG."solar_ico.png" }}');">Solar</li>
+											<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">{{ $same_project->location }}</li>
+											<li style="background-image: url('{{ IMG.'area_ico.png' }}');">{{ $same_project->area }}</li>
+											<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">{{ $same_project->capacity }}</li>
+											@if ($same_project->type()->first() && $same_project->type()->first()->icon && $same_project->type()->first()->name)
+												<li style="background-image: url('{{ IMG.$same_project->type()->first()->icon }}');">{{ $same_project->type()->first()->name }}</li>
+											@endif
 										</ul>
-										<a href="#" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
+										<a href="{{ RS.LANG.'projects/'.$same_project->id.'/' }}" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
 									</div>
 								</div>
 							</div>
-							<div class="project_item">
-									<div class="card z-depth-2 hoverable">
-										<div class="card-image waves-effect">
-											<a href="#"><img src="{{ IMG.'project3.jpg' }}" alt="Project"></a>
-										</div>
-										<div class="card-content">
-											<div class="project_card_name">FES Vilshanka</div>
-											<div class="project_desc">{{ implode(array_slice(explode('<br>',wordwrap(strip_tags("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away."), 143,'<br>',false)),0,1)) }}{{ mb_strlen("Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.") > 143 ? '...' : "" }}</div>
-											<ul>
-												<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">Kirovohrad reg.</li>
-												<li style="background-image: url('{{ IMG.'area_ico.png' }}');">21 Ha</li>
-												<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">12.8 MW</li>
-												<li style="background-image: url('{{ IMG."solar_ico.png" }}');">Solar</li>
-											</ul>
-											<a href="#" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
-										</div>
-									</div>
-								</div>
+						@endforeach
+					</div>
 				</div>
 			</div>
-		</div>
+		@endif
+		
 	</div>
 
 @endsection
