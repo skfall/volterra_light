@@ -67,7 +67,7 @@
 				<div class="container">
 					<div class="row">
 						@foreach($stages as $key => $stage)
-							<div id="stage_{{ $key }}">
+							<div id="stage_{{ $key }}" class="stage_tab">
 								{{-- START --}}
 								<div class="stage_header">{{ $stage->caption }}</div>
 								<div class="stage_desc col l9 m8 s12">
@@ -94,7 +94,13 @@
 
 								?>
 								<div class="inner">
-									<ul id="stage_1_inner_tabs" class="tabs">
+									<?php
+										$inner_tabs = "";
+										if($stage_tabs['photos']->toArray() || $stage_tabs['video'] || $stage_tabs['panorama'] || ($stage_tabs['map'] && $stage_tabs['map']['lat'] && $stage_tabs['map']['lng'])){
+											$inner_tabs = "tabs";
+										}
+									?>
+									<ul id="stage_1_inner_tabs" class="{{$inner_tabs}}">
 										@if($stage_tabs['photos']->toArray())
 											<li class="tab col s3">
 												<a href="#stage_{{ $key }}_inner_tab_1"><div class="inner_tab_icon photo"></div></a>

@@ -315,17 +315,36 @@ var app = {
 			items: 1,
 			nav: true,
 			navText: ["previous", "next"],
-			animateOut: 'fadeOut',
-			animateIn: 'fadeIn',
+			// animateOut: 'fadeOut',
+			// animateIn: 'fadeIn',
 			autoHeight: true,
 			loop: true,
 		});
 
-		$('.project_stages_body .stage_docs').owlCarousel({
-			items: 6,
-			autoHeight: true,
-			autoWidth: true
+		
+		$.each($('.project_stages_body .stage_docs'), function(i, el){
+			$(el).owlCarousel({
+				items: 6,
+				autoHeight: true,
+				autoWidth: true
+			});
 		});
+		$('.tabs').tabs({
+			onShow: function(tab){
+				var owl = $(tab).find('.project_stages_body .stage_docs').selector;
+				$('.project_stages_body .stage_docs').trigger('destroy.owl.carousel');
+				setTimeout(function() {
+					$(owl).owlCarousel({
+						items: 6,
+						autoHeight: true,
+						autoWidth: true
+					});
+				}, 100);
+				
+			}
+		});
+
+		
 
 		$('.same_projects').owlCarousel({
 			responsive: {
