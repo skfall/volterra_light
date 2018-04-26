@@ -175,9 +175,9 @@
 								@if ($stage_docs)
 									<div class="owl-carousel stage_docs">
 										@foreach ($stage_docs as $doc)	
-											<a data-fancybox="gallery" href="{{ UPLOAD.'projects/'.$doc->filename }}">
+											<a data-fancybox="gallery" href="{{ UPLOAD.'documents/'.$doc->filename }}">
 												<div class="hover"></div>
-												<img src="{{ UPLOAD.'projects/crop/170x240_'.$doc->filename }}">
+												<img src="{{ UPLOAD.'documents/crop/170x240_'.$doc->filename }}">
 											</a>
 										@endforeach
 									</div>

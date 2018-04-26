@@ -12,7 +12,8 @@
 			break;
 	}
 
-	
+	$table = $_POST['table'];
+
 	$id = $_POST['id'];
 
 	$path = $_POST['path'];
@@ -20,6 +21,9 @@
 	$root_path = "../../../..";
 	
 	if($path=='/split/files/documents/') $appTable = 'docs_ref';
+	if($table == 'projects' && $path=='../split/files/documents/') $appTable = 'osc_stage_docs';
+	if($table == 'projects' && $path=='../split/files/projects/') $appTable = 'osc_stage_photos';
+
 	
 	$data = array();
 

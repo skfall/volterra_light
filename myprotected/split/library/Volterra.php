@@ -256,6 +256,23 @@ class Volterra extends BasicHelp {
 			}
 		}
 
+		public function getStagesByProject($project_id){
+			$q = "SELECT M.* FROM `osc_stages` AS M WHERE M.project_id = '$project_id' ORDER BY M.id DESC";
+			$stages = $this->rs($q);
+			if($stages){
+				foreach($stages as &$stage){
+					$stage_id = $stage['id'];
+					$q = "SELECT M.* FROM `osc_stage_photos` AS M WHERE M.stage_id = '$stage_id'";
+					$stage["photos"] = $this->rs($q);
+					$q = "SELECT M.* FROM `osc_stage_docs` AS M WHERE M.stage_id = '$stage_id'";
+					$stage["docs"] = $this->rs($q);
+				}
+
+				return $stages;
+			}
+			return [];
+		}
+
 		public function getCFitem($id) {
 			$query = "
 				SELECT M.* 
