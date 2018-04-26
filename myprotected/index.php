@@ -6,7 +6,10 @@ $db = new DBManager($config);
 require 'helpers/functions.php';
 require 'helpers/helper.php';
 $helper = new Helper($db);
-define("WP_LOGIN",$helper->checkAdminLogin());
+$udata = $helper->checkAdminLogin();
+
+define("WP_LOGIN", $udata['wp_login']);
+define("UIDs", $udata['uid']);
 $path = str_replace('\\', '/', realpath(__DIR__ . '/..'));
 
 $exploded = explode('/', $path);

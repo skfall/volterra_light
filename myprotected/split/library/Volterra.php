@@ -335,6 +335,78 @@ class Volterra extends BasicHelp {
 				}
 			}
 		}
+
+		public function getCommentsItem($id) {
+			$query = "SELECT M.*, 
+				(SELECT U.first_name FROM `osc_users` AS U WHERE U.id = M.user_id LIMIT 1) as first_name,
+				(SELECT U.last_name FROM `osc_users` AS U WHERE U.id = M.user_id LIMIT 1) as last_name,
+				(SELECT S.project_id FROM `osc_stages` AS S WHERE S.id = M.stage_id LIMIT 1) as p_id,
+				(SELECT S.caption FROM `osc_stages` AS S WHERE S.id = M.stage_id LIMIT 1) as stage_caption,
+				(SELECT P.name FROM `osc_projects` AS P WHERE P.id = p_id LIMIT 1) as project_name
+				FROM [pre]comments as M 
+				WHERE `id`='$id' 
+				LIMIT 1
+			";
+			$resultMassive = $this->rs($query);
+			$result = ($resultMassive ? $resultMassive[0] : array());
+			return $result;
+		}
+
+		public function getComments($params=array(),$typeCount=false) {
+			$filter_and = "";
+			if(isset($params['filtr']['massive'])) {
+				foreach($params['filtr']['massive'] as $f_name => $f_value) {
+					if($f_value < 0) continue;
+					$filter_and .= " AND ($f_name='$f_value') ";
+				}
+			}
+		
+			if(isset($params['filtr']['filtr_search_key']) && isset($params['filtr']['filtr_search_field']) && trim($params['filtr']['filtr_search_key']) != "") {
+				$search_field = $params['filtr']['filtr_search_field'];
+				$search_key = $params['filtr']['filtr_search_key'];
+				$filter_and .= " AND ($search_field LIKE '%$search_key%') ";
+			}
+
+			$sort_field		= (isset($params['filtr']['sort_filtr']) ? $params['filtr']['sort_filtr'] : "M.id");
+			$sort_vector	= (isset($params['filtr']['order_filtr']) ? $params['filtr']['order_filtr'] : "");
+			$limit = (isset($_COOKIE['global_on_page']) ? (int)$_COOKIE['global_on_page'] : GLOBAL_ON_PAGE);
+			if($limit <= 0) $limit = GLOBAL_ON_PAGE;
+			$start = (isset($params['start']) ? ($params['start']-1)*$limit : 0);
+			if(!$typeCount) {
+				$query = "SELECT M.*, 
+						(SELECT U.first_name FROM `osc_users` AS U WHERE U.id = M.user_id LIMIT 1) as first_name,
+						(SELECT U.last_name FROM `osc_users` AS U WHERE U.id = M.user_id LIMIT 1) as last_name,
+						(SELECT S.project_id FROM `osc_stages` AS S WHERE S.id = M.stage_id LIMIT 1) as p_id,
+						(SELECT S.caption FROM `osc_stages` AS S WHERE S.id = M.stage_id LIMIT 1) as stage_caption,
+						(SELECT P.name FROM `osc_projects` AS P WHERE P.id = p_id LIMIT 1) as project_name 
+						FROM [pre]comments as M  
+						WHERE 1 $filter_and 
+						ORDER BY $sort_field $sort_vector 
+						LIMIT $start,$limit";
+				return $this->rs($query);
+				
+			}else{
+				$query = "SELECT COUNT(*)  
+						FROM [pre]comments as M  
+						WHERE 1 $filter_and 
+						LIMIT 100000";
+						
+				$result = $this->rs($query);
+				return $result[0]['COUNT(*)'];
+			}
+		}
+
+		public function getUsers(){
+			$q = "SELECT M.* FROM `osc_users` AS M";
+			return $this->rs($q);
+		}
+
+		public function getStages(){
+			$q = "SELECT M.*, 
+			(SELECT P.name FROM `osc_projects` AS P WHERE P.id = M.project_id LIMIT 1) AS project_name 
+			FROM `osc_stages` AS M";
+			return $this->rs($q);
+		}
 		
     	public function __destruct(){}
 }

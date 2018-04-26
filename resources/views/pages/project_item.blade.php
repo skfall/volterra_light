@@ -184,13 +184,13 @@
 								@endif
 								
 								<?php
-									$comments = $stage->comments()->get() ?: [];
+									$comments = $stage->comments()->where('block', '!=', 1)->get() ?: [];
 									$comments_count_show = count($comments) <= 0 ? "dn" : "";
 								?>
 								
 								<div class="stage_comments">
 									<div class="caption">Comments <sup class="comments_count {{ $comments_count_show }}">{{ count($comments) }}</sup></div>
-									<a href="javascript:void(0);" class="leave_comment">leave a comment</a>
+									{{-- <a href="javascript:void(0);" class="leave_comment">leave a comment</a> --}}
 
 									<div class="clear"></div>
 

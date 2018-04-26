@@ -967,6 +967,11 @@ class BasicHelp extends BasicPrinter
 									<div class='".($item[$columnParams['field']] ? "published" : "not-published")."'></div>
                     				<span>".($item[$columnParams['field']] ? "Yes" : "No")."</span>
 								</td>";
+							}elseif(isset($columnParams['params']['reverse2'])){
+								$result .= "<td class='publication'>
+									<div class='".($item[$columnParams['field']] ? "not-published" : "published")."'></div>
+                    				<span>".($item[$columnParams['field']] ? "Yes" : "No")."</span>
+								</td>";
 							}elseif(isset($columnParams['params']['rev_fix'])){
 								$result .= "<td class='publication'>
 									<div class='".($item[$columnParams['field']] ? "published" : "not-published")."'></div>

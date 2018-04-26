@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Час створення: Квт 24 2018 р., 21:10
+-- Час створення: Квт 26 2018 р., 23:38
 -- Версія сервера: 10.1.26-MariaDB
 -- Версія PHP: 7.1.8
 
@@ -91,7 +91,8 @@ INSERT INTO `osc_admin_menu` (`id`, `type`, `parent`, `table`, `additional_field
 (52, 1, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Все страницы', 'all_pages', 'materials-icon-slider.png', 6, 'Управление страницами', 0, '#', '2013-11-15 03:01:26', '2015-04-20 16:39:41', 1),
 (53, 1, 47, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Секция 3', 'home3', 'fa-bars', 6, 'Управление главной', 0, '#', '2013-11-15 03:01:26', '2015-04-20 16:39:41', 1),
 (54, 1, 47, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Секция 4', 'home4', 'fa-bars', 6, 'Управление главной', 0, '#', '2013-11-15 03:01:26', '2015-04-20 16:39:41', 1),
-(55, 1, 1, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Форма обратной связи', 'cf', 'fa-phone', 0, 'Форма обратной связи', 0, '#', '2013-11-15 03:03:08', '2013-11-15 15:55:43', 1);
+(55, 1, 1, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Форма обратной связи', 'cf', 'fa-phone', 0, 'Форма обратной связи', 0, '#', '2013-11-15 03:03:08', '2013-11-15 15:55:43', 1),
+(56, 1, 3, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Комментарии', 'comments', 'fa-bars', 0, 'Комментарии', 0, '#', '2013-11-15 16:01:48', '2015-08-12 15:38:40', 1);
 
 -- --------------------------------------------------------
 
@@ -104,11 +105,21 @@ CREATE TABLE `osc_comments` (
   `content` text,
   `stage_id` int(11) NOT NULL DEFAULT '0',
   `user_id` int(11) NOT NULL DEFAULT '0',
-  `block` int(11) NOT NULL DEFAULT '0',
+  `block` int(11) NOT NULL DEFAULT '1',
   `seen` int(11) NOT NULL DEFAULT '0',
   `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL
+  `modified` datetime DEFAULT NULL,
+  `is_fake` int(11) NOT NULL DEFAULT '0',
+  `author_name` varchar(255) DEFAULT NULL,
+  `author_avatar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп даних таблиці `osc_comments`
+--
+
+INSERT INTO `osc_comments` (`id`, `content`, `stage_id`, `user_id`, `block`, `seen`, `created`, `modified`, `is_fake`, `author_name`, `author_avatar`) VALUES
+(3, 'Сool stuff!', 3, 1, 0, 1, '2018-04-26 23:51:59', '2018-04-26 23:54:12', 1, 'Elon Musk', 'fkc_ava_20180426235412545.jpg');
 
 -- --------------------------------------------------------
 
@@ -365,7 +376,13 @@ INSERT INTO `osc_logs` (`id`, `date`, `type`, `description`, `userid`, `ip`) VAL
 (7, '2018-04-13 18:27:39', 1, 'Admin login: Success login.', 1, '::1'),
 (8, '2018-04-16 00:46:40', 1, 'Admin login: Success login.', 1, '::1'),
 (9, '2018-04-19 19:12:58', 1, 'Admin login: Success login.', 1, '::1'),
-(10, '2018-04-19 21:48:52', 1, 'Admin login: Success login.', 1, '::1');
+(10, '2018-04-19 21:48:52', 1, 'Admin login: Success login.', 1, '::1'),
+(11, '2018-04-26 14:27:53', 1, 'Admin login: Success login.', 1, '::1'),
+(12, '2018-04-26 22:58:48', 1, 'Admin login: Success login.', 2, '::1'),
+(13, '2018-04-26 23:00:37', 1, 'Admin login: Success login.', 2, '::1'),
+(14, '2018-04-26 23:06:46', 1, 'Admin login: Success login.', 2, '::1'),
+(15, '2018-04-26 23:16:03', 1, 'Admin login: Success login.', 3, '::1'),
+(16, '2018-04-26 23:17:59', 1, 'Admin login: Success login.', 1, '::1');
 
 -- --------------------------------------------------------
 
@@ -600,8 +617,6 @@ CREATE TABLE `osc_projects` (
   `area` varchar(255) DEFAULT NULL,
   `capacity` varchar(255) DEFAULT NULL,
   `pos` int(11) NOT NULL DEFAULT '0',
-  `lat` float NOT NULL DEFAULT '0',
-  `lng` float NOT NULL DEFAULT '0',
   `type` int(11) NOT NULL DEFAULT '1',
   `block` int(11) NOT NULL DEFAULT '0',
   `meta_title` varchar(255) DEFAULT NULL,
@@ -615,8 +630,8 @@ CREATE TABLE `osc_projects` (
 -- Дамп даних таблиці `osc_projects`
 --
 
-INSERT INTO `osc_projects` (`id`, `alias`, `name`, `details`, `content`, `preview`, `card_image`, `location`, `area`, `capacity`, `pos`, `lat`, `lng`, `type`, `block`, `meta_title`, `meta_keys`, `meta_desc`, `created`, `modified`) VALUES
-(3, 'fes-vilshanka', 'FES Vilshanka', 'Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.', '<h4>History</h4><p>In the period from 1754 to 1764, Vilshanka was part of the Novoslobodska Kozak establishment. In years later, the Bulgarian immigrants flooded the settlement. During the war of 1768-1774, Vilshanka was officially protected by the Moldavian troops.  In 19th century, Vilshanka had the status of military village and used to serve the role as one of the control points between Poland and Turkey.</p><p><img src=\"/volterra_light/split/files/summernote/1dace00044214b5ed4c9b60c8b81bdf9.jpg\" style=\"width: 571px; float: left;\" class=\"note-float-left\"></p><h4>FES Vilshanka</h4><p>In the middle of the 19th century, the settlement lost it military status. The civilian population was estimated at 2,543 residents. As no other military intervention affected the lives of people, the population was steadily increasing. The settlement grew in size and infrastructure.</p><p>By 1886, Vilshanka already had a Catholic Church, Jewish Praying House, school, wine warehouse, 8 stores, and regular weekly bazars.  During the Soviet times, in 20th century, Vilshanka has a number of large manufacturing facilities, three libraries, hospital, and other important infrastructure.<br></p><p></p>', 'si_20180410182918749.jpg', 'pci_20180419232430252.jpg', 'Кiровоградська обл.', '21 Га', '12.8 МВт', 0, 48.244, 30.876, 1, 0, '', '', '', '2018-04-08 00:00:00', '2018-04-19 23:41:45');
+INSERT INTO `osc_projects` (`id`, `alias`, `name`, `details`, `content`, `preview`, `card_image`, `location`, `area`, `capacity`, `pos`, `type`, `block`, `meta_title`, `meta_keys`, `meta_desc`, `created`, `modified`) VALUES
+(3, 'fes-vilshanka', 'FES Vilshanka', 'Vilshanka is located in Kirovograd area on the right bank of the river Sinyuha. The distance to the area’s central city is 125 kilometers. The city was founded in year 1750 with the current population of 4680 residents. The railway station is 18 kilometers away.', '<h4>History</h4><p>In the period from 1754 to 1764, Vilshanka was part of the Novoslobodska Kozak establishment. In years later, the Bulgarian immigrants flooded the settlement. During the war of 1768-1774, Vilshanka was officially protected by the Moldavian troops.  In 19th century, Vilshanka had the status of military village and used to serve the role as one of the control points between Poland and Turkey.</p><p><img src=\"/volterra_light/split/files/summernote/1dace00044214b5ed4c9b60c8b81bdf9.jpg\" style=\"width: 571px; float: left;\" class=\"note-float-left\"></p><h4>FES Vilshanka</h4><p>In the middle of the 19th century, the settlement lost it military status. The civilian population was estimated at 2,543 residents. As no other military intervention affected the lives of people, the population was steadily increasing. The settlement grew in size and infrastructure.</p><p>By 1886, Vilshanka already had a Catholic Church, Jewish Praying House, school, wine warehouse, 8 stores, and regular weekly bazars.  During the Soviet times, in 20th century, Vilshanka has a number of large manufacturing facilities, three libraries, hospital, and other important infrastructure.<br></p><p></p>', 'si_20180410182918749.jpg', 'pci_20180419232430252.jpg', 'Кiровоградська обл.', '21 Га', '12.8 МВт', 0, 1, 0, '', '', '', '2018-04-08 00:00:00', '2018-04-27 00:37:44');
 
 -- --------------------------------------------------------
 
@@ -638,7 +653,9 @@ CREATE TABLE `osc_projects_types` (
 INSERT INTO `osc_projects_types` (`id`, `name`, `icon`, `block`) VALUES
 (1, 'Solar', 'solar_ico.png', 0),
 (2, 'Wind', 'wind_ico.png', 0),
-(3, 'Hydro', 'gidro_ico.png', 0);
+(3, 'Hydro', 'gidro_ico.png', 0),
+(4, 'Bio', 'bio_ico.png', 0),
+(5, 'Recycle', 'recycle_ico.png', 0);
 
 -- --------------------------------------------------------
 
@@ -669,7 +686,7 @@ INSERT INTO `osc_services` (`id`, `name`, `alias`, `pos`, `block`, `preview`, `d
 (7, 'Construction supervision and quality control', 'construction-supervision-and-quality-control', 0, 0, NULL, '', 'si_20180413024032396.png', '2018-04-08 00:00:00', '2018-04-19 20:38:52'),
 (8, 'Legal and technical due diligence ', 'legal-and-technical-due-diligence', 0, 0, NULL, '', 'si_20180413024046500.png', '2018-04-08 00:00:00', '2018-04-19 20:39:05'),
 (9, 'Local activity support for multinational developers and investors', 'local-activity-support-for-multinational-developers-and-investors', 0, 0, NULL, '', 'si_20180413024105918.png', '2018-04-08 00:00:00', '2018-04-19 20:39:02'),
-(10, 'Full scope Project management in renewable energy sector', 'full-scope-project-management-in-renewable-energy-sector', 0, 0, NULL, '', 'si_20180413024118502.png', '2018-04-08 00:00:00', '2018-04-19 20:38:57');
+(10, 'Full scope Project management in renewable energy sector', 'full-scope-project-management-in-renewable-energy-sector', 0, 0, NULL, '', 'si_20180413024118502.png', '2018-04-08 00:00:00', '2018-04-26 19:52:08');
 
 -- --------------------------------------------------------
 
@@ -741,6 +758,15 @@ CREATE TABLE `osc_stages` (
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп даних таблиці `osc_stages`
+--
+
+INSERT INTO `osc_stages` (`id`, `name`, `alias`, `pos`, `block`, `caption`, `details`, `protocol_link`, `lat`, `lng`, `video`, `panorama`, `project_id`, `docs_caption`, `docs_details`, `created`, `modified`) VALUES
+(1, 'Vilshanka 1', 'vilshanka-1', 0, 1, '', '', '', 0, 0, '', '', 3, '', '', '2018-04-27 00:37:44', '2018-04-27 00:37:44'),
+(2, 'Vilshanka 2', 'vilshanka-2', 0, 1, '', '', '', 0, 0, '', '', 3, '', '', '2018-04-27 00:37:44', '2018-04-27 00:37:44'),
+(3, 'Vilshanka 3', 'vilshanka-3', 1, 1, 'Specification 1', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.', 's1_proto20180426234521256.docx', 48.244, 30.876, '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/uQRyg4i4T9o\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>', '<iframe src=\"https://360player.io/p/BEGuwg/\" frameborder=\"0\" allowfullscreen=\"\" data-token=\"BEGuwg\"></iframe>', 3, 'Permit documentation', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat nemo mollitia quam perferendis magnam! Voluptatem enim dolorem labore, et eveniet numquam sequi saepe. Laboriosam nemo totam a pariatur exercitationem nesciunt.', '2018-04-27 00:37:44', '2018-04-27 00:37:44');
+
 -- --------------------------------------------------------
 
 --
@@ -759,6 +785,16 @@ CREATE TABLE `osc_stage_docs` (
   `stage_id` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп даних таблиці `osc_stage_docs`
+--
+
+INSERT INTO `osc_stage_docs` (`id`, `filename`, `block`, `name`, `details`, `pos`, `created`, `modified`, `stage_id`) VALUES
+(6, 's1_doc20180426172809888.jpeg', 0, NULL, NULL, 0, '2018-04-26 17:28:09', '2018-04-26 17:28:09', 0),
+(7, 's1_doc20180426173524317.jpeg', 0, NULL, NULL, 0, '2018-04-26 17:35:24', '2018-04-26 17:35:24', 0),
+(14, 's1_doc20180426234522272.jpg', 0, NULL, NULL, 0, '2018-04-26 23:45:22', '2018-04-26 23:45:22', 3),
+(15, 's1_doc20180426234535563.jpg', 0, NULL, NULL, 0, '2018-04-26 23:45:35', '2018-04-26 23:45:35', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -776,6 +812,15 @@ CREATE TABLE `osc_stage_photos` (
   `modified` datetime DEFAULT NULL,
   `stage_id` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп даних таблиці `osc_stage_photos`
+--
+
+INSERT INTO `osc_stage_photos` (`id`, `filename`, `block`, `name`, `details`, `pos`, `created`, `modified`, `stage_id`) VALUES
+(16, 's1_photo20180426234521270.jpg', 0, NULL, NULL, 0, '2018-04-26 23:45:21', '2018-04-26 23:45:21', 3),
+(17, 's1_photo20180426234521339.jpg', 0, NULL, NULL, 0, '2018-04-26 23:45:21', '2018-04-26 23:45:21', 3),
+(18, 's1_photo20180426234521894.jpg', 0, NULL, NULL, 0, '2018-04-26 23:45:22', '2018-04-26 23:45:22', 3);
 
 -- --------------------------------------------------------
 
@@ -950,7 +995,7 @@ CREATE TABLE `osc_user_cards` (
 --
 
 INSERT INTO `osc_user_cards` (`id`, `user_id`, `email`, `phone`, `gender`, `reg_ip`, `last_visit_ip`, `last_visit_date`, `country_id`, `address`, `birthday`) VALUES
-(1, 1, NULL, '', 1, NULL, NULL, NULL, 0, NULL, '2018-04-17 00:00:00');
+(1, 1, NULL, '', 1, NULL, NULL, NULL, 0, NULL, '1970-01-01 03:00:00');
 
 -- --------------------------------------------------------
 
@@ -1716,12 +1761,12 @@ ALTER TABLE `osc_user_type_access`
 -- AUTO_INCREMENT для таблиці `osc_admin_menu`
 --
 ALTER TABLE `osc_admin_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT для таблиці `osc_comments`
 --
 ALTER TABLE `osc_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблиці `osc_contact_form`
 --
@@ -1751,7 +1796,7 @@ ALTER TABLE `osc_languages`
 -- AUTO_INCREMENT для таблиці `osc_logs`
 --
 ALTER TABLE `osc_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT для таблиці `osc_log_types`
 --
@@ -1801,12 +1846,12 @@ ALTER TABLE `osc_page_home_4`
 -- AUTO_INCREMENT для таблиці `osc_projects`
 --
 ALTER TABLE `osc_projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT для таблиці `osc_projects_types`
 --
 ALTER TABLE `osc_projects_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT для таблиці `osc_services`
 --
@@ -1826,17 +1871,17 @@ ALTER TABLE `osc_site_languages`
 -- AUTO_INCREMENT для таблиці `osc_stages`
 --
 ALTER TABLE `osc_stages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT для таблиці `osc_stage_docs`
 --
 ALTER TABLE `osc_stage_docs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT для таблиці `osc_stage_photos`
 --
 ALTER TABLE `osc_stage_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT для таблиці `osc_static_translations`
 --
@@ -1856,7 +1901,7 @@ ALTER TABLE `osc_task_admin_ref`
 -- AUTO_INCREMENT для таблиці `osc_users`
 --
 ALTER TABLE `osc_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблиці `osc_users_chat`
 --
@@ -1876,7 +1921,7 @@ ALTER TABLE `osc_users_types`
 -- AUTO_INCREMENT для таблиці `osc_user_cards`
 --
 ALTER TABLE `osc_user_cards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблиці `osc_user_type_access`
 --
