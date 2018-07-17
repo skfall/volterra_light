@@ -99,6 +99,7 @@ class AppController extends BaseController {
             );
         }
 
+
         // Set view model
     	$viewmodel = array(
     		'config' => $this->config,
@@ -109,7 +110,7 @@ class AppController extends BaseController {
     	);
 
     	if (Config::get('app.multilang')) {
-    		$viewmodel['languages'] = array_keys(Config::get('app.locales'));
+    		$viewmodel['languages'] = Config::get('app.locales');
     	}
 
     	view()->share($viewmodel);

@@ -79,11 +79,13 @@ return [
     */
 
     'RS' => '/volterra_light/',
-    'multilang' => false,
-    'locale' => 'ru',
+    'multilang' => true,
+    'locale' => 'en',
     'routeLang' => '',
     'locales' => [
-      'ru' => ['title' => 'ru', 'name' => 'Russian', 'prefix'=>''],
+      'en' => ['title' => 'en', 'link_alias' => '', 'name' => 'English', 'prefix'=>''],
+      'ru' => ['title' => 'ru', 'link_alias' => 'ru', 'name' => 'Русский', 'prefix'=>'ru_'],
+      'uk' => ['title' => 'uk', 'link_alias' => 'uk', 'name' => 'Українська', 'prefix'=>'uk_'],
     ],
 
     /*
@@ -97,7 +99,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'ru',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------

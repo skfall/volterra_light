@@ -22,8 +22,8 @@ var network = {
 		});
 	},
 	change_lang: function(lang, curr_page){
-		network.post(RS + "ajax/", { action: 'change_lang', lang: lang, curr_page: curr_page }, function(response){
-			if (response.status == "success") {
+		network.post(RS + "ajax", { action: 'change_lang', lang: lang, curr_page: curr_page }, function(response){
+			if (response.status == "success") {				
 				document.location.href = response.new_destination;
 			}
 		}, "json");

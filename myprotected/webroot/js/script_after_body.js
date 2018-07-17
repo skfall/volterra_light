@@ -1053,7 +1053,8 @@ function sendSummernoteFiles(files, editor) {
 			var r = JSON.parse(response);
         	if (r.status == "success") {
         		for(var i in r.files){
-        			$(editor).summernote('insertImage', RS + 'split/files/summernote/' + r.files[i]);
+        			$(editor).summernote('insertImage', 'http://volterra.energy/split/files/summernote/' + r.files[i]);
+        			console.log(RS + 'http://volterra.energy/split/files/summernote/' + r.files[i]);
         		}
         		$.notify(r.message, "success");
         	}else{

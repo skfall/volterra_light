@@ -826,3 +826,9 @@ footer .container {width: 90%;}
 	.stage_inner_tab iframe, .stage_inner_tab embed {height: 300px;}
 	.project_stages_body .inner .tab a {padding: 0;}
 }
+
+.top_nav .language_selector {position: relative; display: inline-block;}
+.top_nav .language_selector a.active {display: block;}
+.top_nav .language_selector a {padding: 0; display: none;}
+.top_nav .language_selector:hover a {display: block !important;}
+.top_nav .language_selector .langs_holder {position: absolute; left: 0; top: 0; z-index: 9999999;}

@@ -22,6 +22,21 @@
 						@endif						
 					@endforeach
 					<li class="recall_btn not_anchor"><a href="javascript:void(0);" onclick="app.openRecall()" ><img src="{{ IMG.'phone_icon.svg' }}" alt="Recall" class="recall_white"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark"></a></li>	
+					<li class="language_selector">
+						<div class="langs_holder">
+							<a href="active"></a>
+							@foreach ($languages as $language)
+								<?php 
+									$active = "";
+									if($language['link_alias'] == LANG){
+										$active = "active";
+									}
+								?>
+								<a href="javascript:void(0);" class="{{ $active }}" onclick="network.change_lang('{{ $language['link_alias'] }}', '{{ request()->path() }}');" >{{ ucfirst($language['title']) }}</a>
+								
+							@endforeach
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>

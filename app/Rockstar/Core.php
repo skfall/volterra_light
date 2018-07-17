@@ -38,10 +38,19 @@ class Core extends Helper {
 		if ($new_location == "") $new_location = "/";
 		if ($new_location != "/") $new_location .= "/";
 
+
+		// LOCALHOST
+		if($new_locale != ''){
+			$new_location = '/volterra_light'.$new_location;
+		}else{
+			$new_location = '/volterra_light/'.ltrim($new_location, '/');
+		}
+
+
 		App::setLocale($new_locale);
 		$response['status'] = "success";
 		$response['new_destination'] = $new_location;
-
+		
 		return $response;
 	}
 
