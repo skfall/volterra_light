@@ -24,17 +24,20 @@
 					<li class="recall_btn not_anchor"><a href="javascript:void(0);" onclick="app.openRecall()" ><img src="{{ IMG.'phone_icon.svg' }}" alt="Recall" class="recall_white"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark"></a></li>	
 					<li class="language_selector">
 						<div class="langs_holder">
-							<a href="active"></a>
-							@foreach ($languages as $language)
-								<?php 
-									$active = "";
-									if($language['link_alias'] == LANG){
-										$active = "active";
-									}
-								?>
-								<a href="javascript:void(0);" class="{{ $active }}" onclick="network.change_lang('{{ $language['link_alias'] }}', '{{ request()->path() }}');" >{{ ucfirst($language['title']) }}</a>
-								
-							@endforeach
+							<?php 
+								$current_language = ucfirst(LANG);
+								if(!$current_language) $current_language = ucfirst(DEF_LANG);	
+								$current_language = str_replace("/", '', $current_language);
+							?>
+							<a href="javascript:void(0);" class="active">{{ $current_language }}</a>
+							<div class="available_languages">
+								@foreach ($languages as $language)
+									<?php 
+										if($language['title'] == strtolower($current_language)) continue;
+									?>
+									<a href="javascript:void(0);" class="{{ $active }}" onclick="network.change_lang('{{ $language['link_alias'] }}', '{{ request()->path() }}');" >{{ ucfirst($language['title']) }}</a>
+								@endforeach
+							</div>
 						</div>
 					</li>
 				</ul>
@@ -57,6 +60,15 @@
 </header>
 
 <div class="recall_btn mob_recall_btn"><a href="javascript:void(0);" onclick="app.openRecall()"><img src="{{ IMG.'phone_icon2.svg' }}" alt="Recall" class="recall_dark_mob"></a></div>	
+<div class="mob_langs">
+	@foreach ($languages as $language)
+		<?php 
+			$active = "";
+			if($language['title'] == strtolower($current_language)) $active = "active"; 
+		?>
+		<a href="javascript:void(0);" class="{{ $active }}" onclick="network.change_lang('{{ $language['link_alias'] }}', '{{ request()->path() }}');" >{{ ucfirst($language['title']) }}</a>
+	@endforeach
+</div>
 <div class="mob_menu_btn">
 	<div id="menu_toogle_btn" onclick="app.open_mobile_nav(this);">
 		<span></span>
