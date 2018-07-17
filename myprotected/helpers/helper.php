@@ -6,7 +6,8 @@ class Helper {
 	}
         
     public function checkAdminLogin(){
-        $wp_login = false;
+		$wp_login = false;
+		$uid = 0;
         if(isset($_COOKIE['user_id']) && $_COOKIE['user_id'] != null && trim($_COOKIE['user_id']) !== "" && $_COOKIE['user_id']){
             $query = "SELECT M.*, 
             			M.type as userGroupName, 
@@ -28,13 +29,14 @@ class Helper {
             	$userData['userGroupBlock']==0 && 
             	$userData['userGroupAdminEnter']==1
             ){
-            	$wp_login = true;
+				$wp_login = true;
+				$uid = $userData['id'];
             }else{
 				// echo "<pre>"; print_r($_COOKIE); echo "</pre>"; exit();
 				}
         }
 		
-        return $wp_login;
+        return ["wp_login" => $wp_login, "uid" => $uid];
     }
 
 	public function getAdminMenuSql($parent=0) {

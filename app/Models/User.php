@@ -12,4 +12,8 @@ class User extends Model {
     public function card() {
     	return $this->hasOne('App\Models\UserCard', 'id');
   	}
+    
+    public function comments() {
+    	return $this->hasMany('App\Models\Comment', 'user_id');
+  	}
 }

@@ -155,10 +155,10 @@ class Core extends Helper {
 		$phone = $this->post('phone');
 		$message = $this->post('message');
 
-		if ($name && mb_strlen($name) > 2) {
+		if (mb_strlen($name) >= 2) {
 			if ($this->check_email_valid($email)) {
 				if ($this->check_phone($phone)) {
-					if ($name && mb_strlen($name) > 10) {
+					if ($message && mb_strlen($message) > 10) {
 						$contact_item = new App\Models\ContactForm();
 						$contact_item->name = $name;
 						$contact_item->email = $email;
@@ -172,44 +172,21 @@ class Core extends Helper {
 
 					}else{
 						$response["reason"] = 'message';
-						$response["name"] = 'Message is too short.';
+						$response["message"] = 'Message is too short.';
 					}
 				}else{
 					$response["reason"] = 'phone';
-					$response["name"] = 'Enter correct phone.';
+					$response["message"] = 'Enter correct phone.';
 				}
 			}else{
 				$response["reason"] = 'email';
-				$response["name"] = 'Enter correct email.';
+				$response["message"] = 'Enter correct email.';
 			}
 		}else{
 			$response["reason"] = 'name';
-			$response["name"] = 'Enter correct name.';
+			$response["message"] = 'Enter correct name.';
 		}
 		
-		if ($this->check_email_valid($email)) {
-			$user = App\Models\User::where('login', $email)->first();
-			if ($user) {
-				if ($user->password == md5($password)) {
-					$card = $user->card()->first();
-					$card->last_visit_ip = $_SERVER["REMOTE_ADDR"];
-					$card->last_visit_date = $this->now;
-					$card->save();
-
-					session()->put('online', $user->id);
-					$response["status"] = "success";
-				}else{
-					$response["reason"] = 'password';
-					$response["message"] = 'Wrong password.';
-				}	
-			}else{
-				$response["reason"] = 'user_not_found';
-				$response["message"] = 'User with this email was not found.';
-			}
-		}else{
-			$response["reason"] = 'email';
-			$response["message"] = 'Email is not valid.';
-		}
 
 		return $response;
 	}
@@ -223,6 +200,14 @@ class Core extends Helper {
 		$id = (int)$id;
 		$project = \App\Models\Project::where(['block' => 0, 'id' => $id])->first();
 		return $project;
+	}
+
+	public function getSameProjects($project = null){
+		$response = collect(array());
+		if($project != null){
+			$response = \App\Models\Project::where([['block', '!=', '1'], ['id', '!=', $project->id], ['type', $project->type]])->orderBy('pos', 'desc')->skip(0)->take(9)->get();
+		}
+		return $response;
 	}
 
 	public function getHomePageSections($instances){

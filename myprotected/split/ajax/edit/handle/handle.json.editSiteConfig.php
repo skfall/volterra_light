@@ -20,9 +20,12 @@
 	
 	$cardUpd = array(
 					'sitename'		=> $_POST['sitename'],
-					'site_index'			=> $_POST['site_index'][0],
+					'site_index'	=> $_POST['site_index'][0],
 					'email'		=> $_POST['email'],
 					'phone'		=> $_POST['phone'],
+					'address'		=> $_POST['address'],
+					'lat'		=> (float)str_replace(',', '.', $_POST['lat']),
+					'lng'		=> (float)str_replace(',', '.', $_POST['lng']),
 					
 					'copyright'		=> $_POST['copyright'],
 					

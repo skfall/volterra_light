@@ -199,6 +199,7 @@
 
 				<div class="row projects_wrapper">
 					@forelse($projects as $project)
+
 						<div class="col xl4 l4 m12 s12 project_home_item">
 							<div class="card z-depth-2 hoverable">
 								<div class="card-image waves-effect">
@@ -213,9 +214,11 @@
 										<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">{{ $project->location }}</li>
 										<li style="background-image: url('{{ IMG.'area_ico.png' }}');">{{ $project->area }}</li>
 										<li style="background-image: url('{{ IMG.'capacity_ico.png' }}');">{{ $project->capacity }}</li>
-										<li style="background-image: url('{{ IMG.'wind_ico.png' }}');">Wind</li>
+										@if ($project->type()->first() && $project->type()->first()->icon && $project->type()->first()->name)
+											<li style="background-image: url('{{ IMG.$project->type()->first()->icon }}');">{{ $project->type()->first()->name }}</li>
+										@endif
 									</ul>
-									<a href="{{ RS.LANG.'projects/'.$project->id.'/' }}" class="hoverable waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
+									<a href="{{ RS.LANG.'projects/'.$project->id.'/' }}" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
 								</div>
 							</div>
 						</div>

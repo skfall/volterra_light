@@ -32,8 +32,7 @@ class BasicHelp extends BasicPrinter
 		
 		// Return Landing page header
 		
-		public function getLandingHeader($params=array(), $lpx='-1')
-		{
+		public function getLandingHeader($params=array(), $lpx='-1'){
 			$parent		= $params['parent'];
 			$alias		= $params['alias'];
 			$id			= $params['id'];
@@ -67,6 +66,12 @@ class BasicHelp extends BasicPrinter
 					case 'homesection4':
 					{
 						$result .= "";
+						break;
+					}
+					case 'cf': {
+						$result .= "
+						<button class='rzh r-z-h-s-delete nonactive first-actives' alt='r-z-h-s-delete' type='button' title='$nonactiveMsg' 
+						id='delete-checked-button' onclick=\"show_is_delete_items('$appTable');\"></button>";
 						break;
 					}
 					case 'tasks':
@@ -962,6 +967,11 @@ class BasicHelp extends BasicPrinter
 									<div class='".($item[$columnParams['field']] ? "published" : "not-published")."'></div>
                     				<span>".($item[$columnParams['field']] ? "Yes" : "No")."</span>
 								</td>";
+							}elseif(isset($columnParams['params']['reverse2'])){
+								$result .= "<td class='publication'>
+									<div class='".($item[$columnParams['field']] ? "not-published" : "published")."'></div>
+                    				<span>".($item[$columnParams['field']] ? "Yes" : "No")."</span>
+								</td>";
 							}elseif(isset($columnParams['params']['rev_fix'])){
 								$result .= "<td class='publication'>
 									<div class='".($item[$columnParams['field']] ? "published" : "not-published")."'></div>
@@ -1305,11 +1315,19 @@ class BasicHelp extends BasicPrinter
 			{
 				$rowCnt++;
 				$trClass = ($rowCnt%2==1 ? "trcolor" : "");
-		
-				$result .= " 
+				if($tmp['type'] == "header"){
+					$result .= " 
+					<tr class='$trClass'>
+						<td class='fieldName' colspan='2' style='font-weight: 700; font-size: 20px;'>$header</td>
+					";
+					continue;
+				}else{
+					$result .= " 
 					<tr class='$trClass'>
 						<td class='fieldName'>$header</td>
 					";
+				}
+				
 		
 				switch($tmp['type'])
 				{
@@ -1361,6 +1379,19 @@ class BasicHelp extends BasicPrinter
 						break;
 					
 					}
+					// case 'header':
+					// {
+					// 	if ($tmp['params'] && $tmp['params']['val']) {
+					// 		$val = $tmp['params']['val'];
+					// 		$result .= "<td><div>".$params['cardItem'][$tmp['field']]."</div></td>";
+					// 	}else{
+					// 		$result .= "<td><div>empty</div></td>";
+					// 	}
+
+						
+					// 	break;
+					
+					// }
 					case 'date':
 					{
 						$result .= "<td>".$this->deformat_long_date($params['cardItem'][$tmp['field']])."</td>";
@@ -1626,6 +1657,10 @@ class BasicHelp extends BasicPrinter
 						
 						break;
 					}
+					case 'text':
+						$value = (isset($tmp['params']['value']) ? $tmp['params']['value'] : "");
+						$result .= $this->print_txt($value);
+						break;
 					case 'input':
 					{
 						$inputType = (isset($tmp['params']['type']) ? $tmp['params']['type'] : "text");

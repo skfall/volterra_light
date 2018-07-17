@@ -17,7 +17,11 @@
 					 'Название сайта'		=>	array( 'type'=>'text', 		'field'=>'sitename', 		'params'=>array() ),
 
 					 'Email'		=>	array( 'type'=>'text', 		'field'=>'email', 		'params'=>array() ),
-					 'Телефон'		=>	array( 'type'=>'text', 		'field'=>'phone', 		'params'=>array() ),
+					 'Телефоны'		=>	array( 'type'=>'text', 		'field'=>'phone', 		'params'=>array() ),
+					 'Адрес'		=>	array( 'type'=>'text', 		'field'=>'address', 		'params'=>array() ),
+
+					 'MAP LAT'		=>	array( 'type'=>'text', 		'field'=>'lat', 		'params'=>array() ),
+					 'MAP LNG'		=>	array( 'type'=>'text', 		'field'=>'lng', 		'params'=>array() ),
 					 
 					 'Индексация сайта в поисковых системах'		=>	array( 'type'=>'text', 		'field'=>'site_index', 		'params'=>array( 'replace'=>array('0'=>'Нет', '1'=>'Да') ) ),
 					 

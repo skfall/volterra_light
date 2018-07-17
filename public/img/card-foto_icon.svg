@@ -1,0 +1,15 @@
+<svg id="Location" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #999;
+      }
+    </style>
+  </defs>
+  <title>card-foto_icon</title>
+  <g>
+    <path class="cls-1" d="M0,3.92v32H32v-32Zm29,3v20H3v-20Zm-26,26v-3H29v3Z" transform="translate(0 -3.92)"/>
+    <path class="cls-1" d="M8.14,22.42H24.86a.64.64,0,0,0,.64-.64.63.63,0,0,0-.14-.38h0l-3.86-5.14h0A.63.63,0,0,0,21,16a.64.64,0,0,0-.45.19L18.43,18.3l-4.69-4.69a.64.64,0,0,0-.45-.19.63.63,0,0,0-.52.29h0L7.61,21.42h0a.62.62,0,0,0-.12.35A.64.64,0,0,0,8.14,22.42Z" transform="translate(0 -3.92)"/>
+    <circle class="cls-1" cx="18.43" cy="8.21" r="1.93"/>
+  </g>
+</svg>
