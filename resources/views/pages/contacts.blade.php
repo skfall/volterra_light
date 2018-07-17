@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col xl6 l6 m6 s9 push-xl6 push-l6 push-m6 push-s3 right_contacts_part">
 				<div class="contacts_header">
-					Our contacts
+					{{ $t->find(10)->text }}
 				</div>
 				<div class="cont_sep"></div>
 				<div class="clear"></div>
@@ -30,7 +30,7 @@
 				</ul>
 				<div class="clear"></div>
 				<div class="contacts_header">
-					Write to us
+					{{ $t->find(11)->text }}
 				</div>
 				<div class="cont_sep"></div>
 				<div class="clear"></div>
@@ -39,26 +39,26 @@
 					<input type="hidden" name="action" value="contact_form">
 					<div class="input-field col s12">
 						<input id="c_name" type="text" name="name">
-						<label for="c_name" class="">Your name</label>
+						<label for="c_name" class="">{{ $t->find(12)->text }}</label>
 					</div>
 
 					<div class="input-field col s12">
 						<input id="c_email" type="email" name="email">
-						<label for="c_email" class="">Email address</label>
+						<label for="c_email" class="">{{ $t->find(13)->text }}</label>
 					</div>
 
 					<div class="input-field col s12">
 						<input id="c_phone" class="mask" type="text" name="phone">
-						<label for="c_phone" class="">Phone number</label>
+						<label for="c_phone" class="">{{ $t->find(14)->text }}</label>
 					</div>
 
 					<div class="input-field col s12">
 						<textarea id="c_message" class="materialize-textarea" name="message"></textarea>
-          				<label for="c_message">Message</label>
+          				<label for="c_message">{{ $t->find(15)->text }}</label>
 					</div>
 					
 					<div class="input-field col s12">
-						<a href="javascript:void(0);" onclick="network.contactForm();" class="hoverable waves-effect waves-light prog_link valign-wrapper waves-nav">Send</a>
+						<a href="javascript:void(0);" onclick="network.contactForm();" class="hoverable waves-effect waves-light prog_link valign-wrapper waves-nav">{{ $t->find(16)->text }}</a>
 					</div>
 
 					<p class="contact_response tac"></p>

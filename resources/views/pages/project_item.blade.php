@@ -10,12 +10,12 @@
 				<div class="row">
 					<div class="col xl8 l8 m10 s10 project_description z-depth-1">
 						<div class="back_link">
-							<a href="{{ RS.'#projects' }}">back to projects list</a>
+							<a href="{{ RS.'#projects' }}">{{ $t->find(17)->text }}</a>
 						</div>
 					<div class="project_name">{{ $project->name }}</div>
 						<div class="proj_sep"></div>
 						<div class="clear"></div>
-						<div class="sub_title">About project</div>
+						<div class="sub_title">{{ $t->find(18)->text }}</div>
 						<ul class="features">
 							<li style="background-image: url('{{ IMG.'loc_ico.png' }}');">{{ $project->location }}</li>
 							<li style="background-image: url('{{ IMG.'area_ico.png' }}');">{{ $project->area }}</li>
@@ -56,7 +56,7 @@
 					<div class="row stages_tabs_head_row">
 						<ul class="tabs">
 							@foreach($stages as $key => $stage)
-								<li class="tab col s4"><a href="#stage_{{ $key }}" class="active">Stage {{ $key + 1 }}</a></li>
+								<li class="tab col s4"><a href="#stage_{{ $key }}" class="active">{{ $t->find(19)->text }} {{ $key + 1 }}</a></li>
 							@endforeach
 						</ul>
 					</div>
@@ -75,7 +75,7 @@
 								</div>
 								<div class="col l3 m4 s12 tar protocol_wrapper">
 									@if($stage->protocol_link)
-										<a class="protocol_link" target="_blank" href="{{ UPLOAD.'projects/'.$stage->protocol_link }}">Copy of the protocol</a>
+										<a class="protocol_link" target="_blank" href="{{ UPLOAD.'projects/'.$stage->protocol_link }}">{{ $t->find(20)->text }}</a>
 									@endif
 								</div>
 								
@@ -189,7 +189,7 @@
 								?>
 								
 								<div class="stage_comments">
-									<div class="caption">Comments <sup class="comments_count {{ $comments_count_show }}">{{ count($comments) }}</sup></div>
+									<div class="caption">{{ $t->find(21)->text }} <sup class="comments_count {{ $comments_count_show }}">{{ count($comments) }}</sup></div>
 									{{-- <a href="javascript:void(0);" class="leave_comment">leave a comment</a> --}}
 
 									<div class="clear"></div>
@@ -236,7 +236,7 @@
 										<div class="card-panel comment_item">
 											<div class="row">
 												<div class="col 12">
-													<div class="name">No comments yet</div>
+													<div class="name">{{ $t->find(22)->text }}</div>
 													<div class="border"></div>
 												</div>
 											</div>
@@ -254,7 +254,7 @@
 		@if (isset($same_projects) && $same_projects)
 			<div class="same_projects_wrapper container">
 				<div class="row">
-					<div class="caption">Other projects</div>
+					<div class="caption">{{ $t->find(23)->text }}</div>
 					<div class="owl-carousel same_projects">
 						@foreach ($same_projects as $same_project)
 							{{-- SAME PROJECT --}}
@@ -276,7 +276,7 @@
 												<li style="background-image: url('{{ IMG.$same_project->type()->first()->icon }}');">{{ $same_project->type()->first()->name }}</li>
 											@endif
 										</ul>
-										<a href="{{ RS.LANG.'projects/'.$same_project->id.'/' }}" class="waves-effect waves-light prog_link valign-wrapper waves-nav">Details</a>
+										<a href="{{ RS.LANG.'projects/'.$same_project->id.'/' }}" class="waves-effect waves-light prog_link valign-wrapper waves-nav">{{ $t->find(24)->text }}</a>
 									</div>
 								</div>
 							</div>

@@ -42,7 +42,7 @@
 					</div>
 
 					<a class="next_home_section" href="#about">
-						<p class="rotate">about</p>
+						<p class="rotate">{{ $t->find(4)->text }}</p>
 					</a>
 				</div>
 
@@ -76,7 +76,7 @@
 					<div class="caption animated usn" data-a="fade-in">{!! str_replace("\n",'<br>',$section_2[0]->section_caption) !!}</div>
 
 					<a class="next_home_section" href="#services">
-						<p class="rotate">services</p>
+						<p class="rotate">{{ $t->find(5)->text }}</p>
 					</a>
 				</div>
 
@@ -133,7 +133,7 @@
 					<div class="caption animated usn" data-a="fade-in">{!! str_replace("\n",'<br>', $section_3[0]->section_caption) !!}</div>
 
 					<a class="next_home_section" href="#projects">
-						<p class="rotate">projects</p>
+						<p class="rotate">{{ $t->find(6)->text }}</p>
 					</a>
 				</div>
 			</div>

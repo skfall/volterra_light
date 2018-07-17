@@ -9,9 +9,9 @@
 
 			<div class="col xl8 l8 m9 s9 tar">
 				<ul class="top_nav">
-					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}" class="valign-wrapper">About</a></li>
-					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}" class="valign-wrapper">Services</a></li>
-					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}" class="valign-wrapper">Projects</a></li>
+					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}" class="valign-wrapper">{{ $t->find(1)->text }}</a></li>
+					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}" class="valign-wrapper">{{ $t->find(2)->text }}</a></li>
+					<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}" class="valign-wrapper">{{ $t->find(3)->text }}</a></li>
 					@foreach($top_nav as $nav_item)
 						@if($nav_item->alias != 'home')
 							<?php 
@@ -80,9 +80,9 @@
 <ul id="slide-out" class="sidenav z-depth-4">
 	<li class="first"></li>
 
-	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}">About</a></li>
-	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}">Services</a></li>
-	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}">Projects</a></li>
+	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}">{{ $t->find(1)->text }}</a></li>
+	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}">{{ $t->find(2)->text }}</a></li>
+	<li class="waves-effect waves-nav"><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}">{{ $t->find(3)->text }}</a></li>
 	@foreach($top_nav as $nav_item)
 		@if($nav_item->alias != 'home')
 			<?php 

@@ -40,8 +40,8 @@ class AppController extends BaseController {
         $this->locale = Config::get('app.locale');
         $this->locale_array = config('app.locales')[$this->locale];
         $this->prefix = $this->locale_array['prefix'];      
-        $this->config = Models\Config::first(['osc_settings.*', $this->prefix.'copyright as copyright']);
-        $this->nav = Models\Nav::where('block', '!=', 1)->orderBy('pos')->get(['osc_nav.*', $this->prefix.'name as name']);
+        $this->config = Models\Config::first();
+        $this->nav = Models\Nav::where('block', '!=', 1)->orderBy('pos')->get();
         $this->top_nav = $this->nav->where('type', 0);
         $this->core = new Core();
         $this->helper = new Helper();
@@ -99,7 +99,6 @@ class AppController extends BaseController {
             );
         }
 
-
         // Set view model
     	$viewmodel = array(
     		'config' => $this->config,
@@ -110,9 +109,10 @@ class AppController extends BaseController {
     	);
 
     	if (Config::get('app.multilang')) {
-    		$viewmodel['languages'] = Config::get('app.locales');
-    	}
-
+            $viewmodel['languages'] = Config::get('app.locales');
+            $viewmodel['t'] = Models\Translations::get();
+        }
+        
     	view()->share($viewmodel);
     }
 

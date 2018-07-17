@@ -8,9 +8,9 @@
       </div>
       <div class="col xl9 l9 m9 s12 footer_nav_wrapper">
         <ul class="footer_nav">
-          <li class=""><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}">About</a></li>
-          <li class=""><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}">Services</a></li>
-          <li class=""><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}">Projects</a></li>
+          <li class=""><a href="{{ PAGE == 'home' ? '#about' : RS.LANG.'#about' }}">{{ $t->find(1)->text }}</a></li>
+          <li class=""><a href="{{ PAGE == 'home' ? '#services' : RS.LANG.'#services' }}">{{ $t->find(2)->text }}</a></li>
+          <li class=""><a href="{{ PAGE == 'home' ? '#projects' : RS.LANG.'#projects' }}">{{ $t->find(3)->text }}</a></li>
           @foreach($top_nav as $nav_item)
             @if($nav_item->alias != 'home')
               <?php 
