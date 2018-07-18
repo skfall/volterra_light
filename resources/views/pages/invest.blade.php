@@ -28,7 +28,7 @@
 
 					
 						<div class="input-field col s12">
-							<a href="javascript:void(0);" class="hoverable waves-effect waves-light prog_link valign-wrapper waves-nav" onclick="app.fake_login();">{{ $t->find(9)->text }}</a>
+							<a href="javascript:void(0);" class="hoverable waves-effect waves-light prog_link valign-wrapper waves-nav" onclick="app.fake_login('{{ $t->find(28)->text }}');">{{ $t->find(9)->text }}</a>
 						</div>
 
 						<p class="ir_response"></p>

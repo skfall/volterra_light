@@ -129,10 +129,7 @@ class BasicHelp extends BasicPrinter
 					}
 					case 'languages': {
 						$result .= "
-						    <button class='rzh r-z-h-s-create' alt='r-z-h-s-create' type='button' onclick=\"loadPage('$parent','$alias',$id,0,'cardCreate',{});\" title='Создать'>Создать &nbsp;&nbsp;&nbsp;<span>+</span></button>
-		            		
-		            	    <button class='rzh r-z-h-s-delete nonactive first-actives' alt='r-z-h-s-delete' type='button' title='$nonactiveMsg' 
-		            	    		id='delete-checked-button' onclick=\"show_is_delete_items('$appTable');\"></button>
+	
 		            	    
 		            	    <button class='rzh r-z-h-s-close nonactive first-actives' alt='r-z-h-s-close' type='button' title='$nonactiveMsg'
 		            	    		id='disactivate-checked-button' onclick=\"disactivate_items('$appTable');\"></button>

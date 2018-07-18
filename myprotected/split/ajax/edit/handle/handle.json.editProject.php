@@ -14,22 +14,26 @@
 	$lang_prefix = ($lpx ? $lpx."_" : ""); // empty = iw
 	$now = date("Y-m-d H:i:s", time());
 	
+
 	$cardUpd = array(
-		'name'			=> $_POST['name'],
-		'alias'			=> $_POST['alias'],
-		'details'			=> $_POST['details'],
-		'content'			=> $_POST['content'],
+		$lang_prefix.'name'			=> $_POST['name'],
+
+		$lang_prefix.'details'			=> $_POST['details'],
+		$lang_prefix.'content'			=> $_POST['content'],
 		'pos'			=> (int)$_POST['pos'],
 		'block'			=> $_POST['block'][0],
-		'meta_title'			=> $_POST['meta_title'],
-		'meta_keys'			=> $_POST['meta_keys'],
-		'meta_desc'			=> $_POST['meta_desc'],
-		'capacity'			=> $_POST['capacity'],
-		'location'			=> $_POST['location'],
-		'area'			=> $_POST['area'],
+		$lang_prefix.'meta_title'			=> $_POST['meta_title'],
+		$lang_prefix.'meta_keys'			=> $_POST['meta_keys'],
+		$lang_prefix.'meta_desc'			=> $_POST['meta_desc'],
+		$lang_prefix.'capacity'			=> $_POST['capacity'],
+		$lang_prefix.'location'			=> $_POST['location'],
+		$lang_prefix.'area'			=> $_POST['area'],
 		'type'			=> $_POST['type'],
 		'modified'	=> $now
 	);
+
+	if(!$lpx) $cardUpd['alias'] = $_POST['alias'];
+
 
 	
 					
@@ -120,16 +124,16 @@
 		// STAGE 1
 		$stage_1_id = (int)$_POST["stage_1_id"];
 		$stage_1 = [
-			'caption' => $_POST['s1_caption'],
-			'details' => $_POST['s1_details'],
+			$lang_prefix.'caption' => $_POST['s1_caption'],
+			$lang_prefix.'details' => $_POST['s1_details'],
 			'pos' 	=> (int)$_POST['s1_pos'],
 			'block'	=> $_POST['s1_block'][0],
 			'lat'	=> (float)str_replace(',', '.', $_POST['s1_lat']),
 			'lng'	=> (float)str_replace(',', '.', $_POST['s1_lng']),
 			'video' 	=> $_POST['s1_video'],
 			'panorama' => $_POST['s1_panorama'],
-			'docs_caption' => $_POST['s1_docs_caption'],
-			'docs_details' => $_POST['s1_docs_details'],
+			$lang_prefix.'docs_caption' => $_POST['s1_docs_caption'],
+			$lang_prefix.'docs_details' => $_POST['s1_docs_details'],
 			'project_id' => $item_id,
 			'created' => $now,
 			'modified' => $now					
@@ -226,16 +230,16 @@
 		// STAGE 2
 		$stage_2_id = (int)$_POST["stage_2_id"];
 		$stage_2 = [
-			'caption' => $_POST['s2_caption'],
-			'details' => $_POST['s2_details'],
+			$lang_prefix.'caption' => $_POST['s2_caption'],
+			$lang_prefix.'details' => $_POST['s2_details'],
 			'pos' 	=> (int)$_POST['s2_pos'],
 			'block'	=> $_POST['s2_block'][0],
 			'lat'	=> (float)str_replace(',', '.', $_POST['s2_lat']),
 			'lng'	=> (float)str_replace(',', '.', $_POST['s2_lng']),
 			'video' 	=> $_POST['s2_video'],
 			'panorama' => $_POST['s2_panorama'],
-			'docs_caption' => $_POST['s2_docs_caption'],
-			'docs_details' => $_POST['s2_docs_details'],
+			$lang_prefix.'docs_caption' => $_POST['s2_docs_caption'],
+			$lang_prefix.'docs_details' => $_POST['s2_docs_details'],
 			'project_id' => $item_id,
 			'created' => $now,
 			'modified' => $now					
@@ -329,16 +333,16 @@
 		// STAGE 3
 		$stage_3_id = (int)$_POST["stage_3_id"];
 		$stage_3 = [
-			'caption' => $_POST['s3_caption'],
-			'details' => $_POST['s3_details'],
+			$lang_prefix.'caption' => $_POST['s3_caption'],
+			$lang_prefix.'details' => $_POST['s3_details'],
 			'pos' 	=> (int)$_POST['s3_pos'],
 			'block'	=> $_POST['s3_block'][0],
 			'lat'	=> (float)str_replace(',', '.', $_POST['s3_lat']),
 			'lng'	=> (float)str_replace(',', '.', $_POST['s3_lng']),
 			'video' 	=> $_POST['s3_video'],
 			'panorama' => $_POST['s3_panorama'],
-			'docs_caption' => $_POST['s3_docs_caption'],
-			'docs_details' => $_POST['s3_docs_details'],
+			$lang_prefix.'docs_caption' => $_POST['s3_docs_caption'],
+			$lang_prefix.'docs_details' => $_POST['s3_docs_details'],
 			'project_id' => $item_id,
 			'created' => $now,
 			'modified' => $now					

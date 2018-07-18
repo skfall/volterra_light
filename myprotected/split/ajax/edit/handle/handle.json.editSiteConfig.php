@@ -23,11 +23,11 @@
 					'site_index'	=> $_POST['site_index'][0],
 					'email'		=> $_POST['email'],
 					'phone'		=> $_POST['phone'],
-					'address'		=> $_POST['address'],
+					$lang_prefix.'address'		=> $_POST['address'],
 					'lat'		=> (float)str_replace(',', '.', $_POST['lat']),
 					'lng'		=> (float)str_replace(',', '.', $_POST['lng']),
 					
-					'copyright'		=> $_POST['copyright'],
+					$lang_prefix.'copyright'		=> $_POST['copyright'],
 					
 
 					'top_script'		=> $_POST['top_script'],

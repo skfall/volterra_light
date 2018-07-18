@@ -27,6 +27,9 @@
 	}
 	$params['filtr'] = $prmFiltr;
 	
+	// lpx - LANG PREFIX
+	$lpx = (isset($params['lpx']) ? $params['lpx'] : ""); // empty = ru
+	
 	$appTable = "services"; // Main table
 	
 	$moduleFile = $alias.".".$actionType.".php";

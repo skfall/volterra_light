@@ -100,11 +100,11 @@
 									<?php 
 										$text = "";
 										if ($i == 0) {
-											$text = "Who we are";
+											$text = $t->find(25)->text;
 										}else if($i == 1){
-											$text = "Our strategy";
+											$text = $t->find(26)->text;
 										}else if($i == 2){
-											$text = "Out mission";
+											$text = $t->find(27)->text;
 										}
 									?>
 									<li class="dot usn active" data-slide="{{$i + 1}}" onclick="app.changeHomeSlide2(this, 'section_2_slide_{{ $i }}_caption', 'section_2_slide_{{ $i }}_sub_caption', 'section_2_slide_{{ $i }}_content')">{{ $text }}</li>

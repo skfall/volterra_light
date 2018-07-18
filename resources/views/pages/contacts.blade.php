@@ -37,6 +37,7 @@
 
 				<form action="#" id="contact_form" class="volterra_form" method="POST">
 					<input type="hidden" name="action" value="contact_form">
+					<input type="hidden" name="lang" value="<?= LANG ?>">
 					<div class="input-field col s12">
 						<input id="c_name" type="text" name="name">
 						<label for="c_name" class="">{{ $t->find(12)->text }}</label>

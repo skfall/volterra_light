@@ -93,9 +93,9 @@ class AppController extends BaseController {
         if ($meta) {
             $meta = $meta->toArray();
             $meta_array = array(
-                'meta_title' => $meta[$this->prefix.'meta_title'],
-                'meta_keys' => $meta[$this->prefix.'meta_keys'],
-                'meta_desc' => $meta[$this->prefix.'meta_desc']
+                'meta_title' => $meta['meta_title'],
+                'meta_keys' => $meta['meta_keys'],
+                'meta_desc' => $meta['meta_desc']
             );
         }
 

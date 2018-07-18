@@ -6,10 +6,13 @@
 	$data['headContent'] = $zh->getCardEditHeader($headParams);
 	
 	// Start body content
-	
-	$cardItem = $zh->getProjectItem($item_id);
 
-	$stages = $zh->getStagesByProject($item_id);
+	$langs = $zh->getAvailableLangs();
+	$lpx_name = strtoupper($lpx ? $lpx."_" : DEF_LANG);
+	
+	$cardItem = $zh->getProjectItem($item_id, $lpx);
+
+	$stages = $zh->getStagesByProject($item_id, $lpx);
 
 	$stage_1_id = 0;
 	$stage_2_id = 0;
@@ -55,10 +58,14 @@
 
 	$rootPath = ROOT_PATH;
 	
+	$disabled = "d";
+	if($lpx) $disabled = "disabled";
+
 	$cardTmp = array(
+					'LPX'		=>	array( 'type'=>'hidden',	'field'=>'lpx', 'value'=>$lpx ),
 					 'Карточка проекта'	=>	array( 'type'=>'header'),
 					 'Название'				=>	array( 'type'=>'input', 		'field'=>'name', 		'params'=>array( 'size'=>50, 'hold'=>'Название', 'onchange' => 'change_alias();' ) ),
-					 'Алиас'				=>	array( 'type'=>'input', 		'field'=>'alias', 		'params'=>array( 'size'=>50, 'hold'=>'Алиас' ) ),
+					 'Алиас'				=>	array( 'type'=>'input', 		'field'=>'alias', 		'params'=>array( 'size'=>50, 'hold'=>'Алиас', $disabled => '1' ) ),
 					 'clear-1'				=>	array( 'type'=>'clear' ),
 					 'Описание'				=>	array( 'type'=>'area', 		'field'=>'details', 		'params'=>array( 'size'=>100, 'hold'=>'Описание' ) ),
 					 'clear-2'				=>	array( 'type'=>'clear' ),
@@ -150,7 +157,8 @@
 					 'stage3_id'					=>	array( 'type'=>'hidden', 		'field'=>'stage_3_id', 		'params'=>array( 'val'=>$stage_3_id ) ),
 					 );
 
-	$cardEditFormParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath, 'actionName'=>"editProject", 'ajaxFolder'=>'edit', 'appTable'=>$appTable );
+
+	$cardEditFormParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath, 'actionName'=>"editProject", 'ajaxFolder'=>'edit', 'appTable'=>$appTable, 'lpx'=>$lpx, 'headParams'=>$headParams, 'langs'=>$langs );
 	
 	$cardEditFormStr = $zh->getCardEditForm($cardEditFormParams);
 	

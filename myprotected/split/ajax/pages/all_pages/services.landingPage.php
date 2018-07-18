@@ -46,12 +46,12 @@
 						  'Название'			=>	array('type'=>'text',		'field'=>'name'),
 						  'Алиас'			=>	array('type'=>'text',		'field'=>'alias'),
 						  'Публикация'			=>	array('type'=>'block',		'field'=>'block'),
-						  'Просмотр'			=>	array('type'=>'cardView',	'field'=>'Смотреть'),
-						  'Редактирование'		=>	array('type'=>'cardEdit',	'field'=>'Редактировать'),
+						  'Просмотр'			=>	array('type'=>'cardView',	'field'=>'Смотреть', 'lpx'=>true),
+						  'Редактирование'		=>	array('type'=>'cardEdit',	'field'=>'Редактировать', 'lpx'=>true),
 						  'ID'					=>	array('type'=>'text',		'field'=>'id')
 						  );
 	
-	$tableParams = array( 'itemsList'=>$itemsList, 'tableColumns'=>$tableColumns, 'headParams'=>$headParams );
+	$tableParams = array( 'itemsList'=>$itemsList, 'tableColumns'=>$tableColumns, 'headParams'=>$headParams , 'lpx'=>$lpx);
 	
 	$tableStr = $zh->getItemsTable($tableParams);
 	

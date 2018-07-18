@@ -2090,6 +2090,7 @@ input[name="fl_name_banner"] {background: #eee;}
 input[name="fl_name_top_img"] {background: #eee;}
 input[name="fl_name_bot_img"] {background: #eee;}
 input[name="page"] {background: #eee;}
+input[name="remark"] {background: #eee;}
 input[readonly] {background: #eee; color: #eee;}
 pre{ padding:15px; margin:15px; border:5px solid #FFF; background:#EEE; }
 .dashboard{ padding:15px; }
@@ -2143,3 +2144,5 @@ pre{ padding:15px; margin:15px; border:5px solid #FFF; background:#EEE; }
 
 .summernote {width: 100% !important;}
 .note-toolbar.panel-heading {z-index: 99; width: calc(100% - 5px) !important;}
+
+#save-alias[disabled] {background: #eee;}

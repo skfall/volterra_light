@@ -949,12 +949,16 @@ function loadPage(parent,alias,id,item_id,action_type,params)
 	
 	function change_alias()
 	{
+		
+		if($('#save-alias').prop('disabled')) return;
 		if ($('#save-name').length) {
 			var str = $('#save-name').val().toLowerCase();
 		}else{
 			var str = $('#save-first_name').val().toLowerCase();
 		}
 		
+
+
 		str = str.replace(/а/g,'a');
 		str = str.replace(/б/g,'b');
 		str = str.replace(/в/g,'v');

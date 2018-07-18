@@ -7,7 +7,7 @@
 	
 	// Start body content
 	
-	$cardItem = $zh->getServiceItem($item_id);
+	$cardItem = $zh->getServiceItem($item_id, $lpx);
 
 	$rootPath = ROOT_PATH;
 	

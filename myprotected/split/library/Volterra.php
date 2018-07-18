@@ -169,9 +169,11 @@ class Volterra extends BasicHelp {
 			return $result;
 		}
 
-		public function getServiceItem($id) {
+		public function getServiceItem($id, $lpx) 
+		{
+			$lpx = ($lpx ? $lpx."_" : "");
 			$query = "
-				SELECT M.* 
+				SELECT M.*, ".$lpx."name as name, ".$lpx."description as description 
 				FROM [pre]services as M 
 				WHERE `id`='$id' 
 				LIMIT 1
@@ -226,9 +228,19 @@ class Volterra extends BasicHelp {
 			return $this->rs($q);
 		}
 
-		public function getProjectItem($id) {
+		public function getProjectItem($id, $lpx) {
+			$lpx = ($lpx ? $lpx."_" : "");
 			$query = "
-				SELECT M.*, (SELECT name FROM osc_projects_types WHERE id = M.type LIMIT 1) AS type, (SELECT id FROM osc_projects_types WHERE id = M.type LIMIT 1) AS type_id     
+				SELECT M.*, (SELECT ".$lpx."name FROM osc_projects_types WHERE id = M.type LIMIT 1) AS type, (SELECT id FROM osc_projects_types WHERE id = M.type LIMIT 1) AS type_id  , 
+				".$lpx."name as name,   
+				".$lpx."details as details,   
+				".$lpx."content as content,   
+				".$lpx."location as location,   
+				".$lpx."area as area,   
+				".$lpx."capacity as capacity,   
+				".$lpx."meta_title as meta_title,
+				".$lpx."meta_keys as meta_keys,   
+				".$lpx."meta_desc as meta_desc 
 				FROM [pre]projects as M 
 				WHERE `id`='$id' 
 				LIMIT 1
@@ -279,8 +291,14 @@ class Volterra extends BasicHelp {
 			}
 		}
 
-		public function getStagesByProject($project_id){
-			$q = "SELECT M.* FROM `osc_stages` AS M WHERE M.project_id = '$project_id' ORDER BY M.id DESC";
+		public function getStagesByProject($project_id, $lpx){
+			$lpx = ($lpx ? $lpx."_" : "");
+			$q = "
+				SELECT M.*, ".$lpx."name as name, ".$lpx."caption as caption, ".$lpx."details as details, ".$lpx."docs_caption as docs_caption, ".$lpx."docs_details as docs_details
+				FROM `osc_stages` AS M 
+				WHERE M.project_id = '$project_id' 
+				ORDER BY M.id DESC
+			";
 			$stages = $this->rs($q);
 			if($stages){
 				foreach($stages as &$stage){

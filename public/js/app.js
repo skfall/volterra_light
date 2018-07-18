@@ -142,8 +142,8 @@ var app = {
 		var inst = $('[data-remodal-id=recall_modal]').remodal();
 		inst.open();
 	},
-	fake_login: function(){
-		var msg = "Login is not available now. Please contact support.";
+	fake_login: function(message){
+		var msg = message || "Login is not available now. Please contact support.";
 		$('.ir_response').text(msg);
 		
 	},

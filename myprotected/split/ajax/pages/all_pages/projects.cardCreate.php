@@ -7,7 +7,7 @@
 	
 	// Start body content
 	
-	$cardItem = $zh->getProjectItem($item_id);
+	$cardItem = $zh->getProjectItem($item_id, $lpx);
 	$projectTypes = $zh->getProjectTypes();
 	$empty_type = array(
 		"id" => 0,

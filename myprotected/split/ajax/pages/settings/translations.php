@@ -1,8 +1,8 @@
 <?php 
 	require_once "../../../../require.base.php";
-	require_once "../../../library/Volterra.php";
+	require_once "../../../library/settings.class.php";
 	
-	$zh = new Volterra($dbh);
+	$zh = new settingsHelp($dbh);
 	
 	$data = array('status'=>"error",'message'=>"Tech error",'headContent'=>"",'bodyContent'=>"",'filter'=>array('f1'=>0,'f2'=>0,'f3'=>0));
 
@@ -28,9 +28,9 @@
 	$params['filtr'] = $prmFiltr;
 
 	// lpx - LANG PREFIX
-	$lpx = (isset($params['lpx']) ? $params['lpx'] : ""); // empty = ru
+	$lpx = (isset($params['lpx']) ? $params['lpx'] : ""); // empty = en
 	
-	$appTable = "projects"; // Main table
+	$appTable = "static_translations"; // Main table
 	
 	$moduleFile = $alias.".".$actionType.".php";
 	

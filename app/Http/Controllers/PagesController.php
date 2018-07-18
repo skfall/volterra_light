@@ -57,7 +57,7 @@ class PagesController extends AppController {
         $page = "project_item";
 
         $meta_array = array(
-            'meta_title' => "Volterra | ".$this->prefix.$project->name,
+            'meta_title' => "Volterra | ".$project->name,
             'meta_keys' => "",
             'meta_desc' => ""
         );
@@ -67,9 +67,9 @@ class PagesController extends AppController {
             if ($meta){
                 $meta = $meta->toArray();
                 $meta_array = array(
-                    'meta_title' => $meta[$this->prefix.'meta_title'],
-                    'meta_keys' => $meta[$this->prefix.'meta_keys'],
-                    'meta_desc' => $meta[$this->prefix.'meta_desc']
+                    'meta_title' => $meta['meta_title'],
+                    'meta_keys' => $meta['meta_keys'],
+                    'meta_desc' => $meta['meta_desc']
                 );
             }
         }
@@ -77,9 +77,9 @@ class PagesController extends AppController {
         $stages = $project->stages()->where('block', '!=', '1')->orderBy('pos')->get();
         $same_projects = $this->core->getSameProjects($project)->ToArray() ? $this->core->getSameProjects($project) : [];
 
-        if($project->meta_title) $meta_array['meta_title'] = $this->prefix.$project->meta_title;
-        if($project->meta_keys) $meta_array['meta_keys'] = $this->prefix.$project->meta_keys;
-        if($project->meta_desc) $meta_array['meta_desc'] = $this->prefix.$project->meta_desc;
+        if($project->meta_title) $meta_array['meta_title'] = $project->meta_title;
+        if($project->meta_keys) $meta_array['meta_keys'] = $project->meta_keys;
+        if($project->meta_desc) $meta_array['meta_desc'] = $project->meta_desc;
         $meta = collect($meta_array);
 
         $viewmodel = compact('project', 'meta', 'page', 'stages', 'same_projects');

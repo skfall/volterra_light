@@ -14,7 +14,7 @@
 
 	$cardTmp = array(
 
-
+					'LPX'		=>	array( 'type'=>'hidden',	'field'=>'lpx', 'value'=>$lpx ),
 					 'Управление сайтом'	=>	array( 'type'=>'header'),
 					 'Название сайта'		=>	array( 'type'=>'input', 	'field'=>'sitename', 			'params'=>array( 'size'=>35, 'hold'=>'Название сайта') ),
 

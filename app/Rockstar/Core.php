@@ -155,14 +155,16 @@ class Core extends Helper {
 		return $response;
 	}
 
-
-		// test
 	public function contact_form(){
 		$response = array('status' => 'failed', 'reason' => '', 'message' => '');
 		$email = $this->post('email');
 		$name = $this->post('name');
 		$phone = $this->post('phone');
 		$message = $this->post('message');
+
+		$response_translations = App\Models\Translations::where('page', 'all')->get();
+		$language = str_replace('/', '', $this->post('lang'));
+		define('PREFIX', $language ? $language."_" : "");
 
 		if (mb_strlen($name) >= 2) {
 			if ($this->check_email_valid($email)) {
@@ -176,24 +178,24 @@ class Core extends Helper {
 
 						if ($contact_item->save()) {
 							$response['status'] = "success";
-							$response['message'] = "Message have been sent.";
+							$response['message'] = $response_translations->find(33)->text;
 						}
 
 					}else{
 						$response["reason"] = 'message';
-						$response["message"] = 'Message is too short.';
+						$response["message"] = $response_translations->find(32)->text;
 					}
 				}else{
 					$response["reason"] = 'phone';
-					$response["message"] = 'Enter correct phone.';
+					$response["message"] = $response_translations->find(31)->text;
 				}
 			}else{
 				$response["reason"] = 'email';
-				$response["message"] = 'Enter correct email.';
+				$response["message"] = $response_translations->find(30)->text;
 			}
 		}else{
 			$response["reason"] = 'name';
-			$response["message"] = 'Enter correct name.';
+			$response["message"] = $response_translations->find(29)->text;
 		}
 		
 

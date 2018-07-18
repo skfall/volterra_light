@@ -7,9 +7,10 @@
 	
 	// Start body content
 	
-	$cardItem = $zh->getProjectItem($item_id);
+	$cardItem = $zh->getProjectItem($item_id, $lpx);
+	$langs = $zh->getAvailableLangs();
 
-	$stages = $zh->getStagesByProject($item_id);
+	$stages = $zh->getStagesByProject($item_id, $lpx);
 
 	$stage_1_id = 0;
 	$stage_2_id = 0;
@@ -120,7 +121,7 @@
 
 
 
-	$cardViewTableParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath );
+	$cardViewTableParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath , 'lpx'=>$lpx, 'headParams'=>$headParams, 'langs'=>$langs );
 	
 	$cardViewTableStr = $zh->getCardViewTable($cardViewTableParams);
 	
