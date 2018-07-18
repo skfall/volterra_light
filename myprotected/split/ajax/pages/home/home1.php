@@ -26,6 +26,9 @@
 		$prmFiltr = array();
 	}
 	$params['filtr'] = $prmFiltr;
+
+	// lpx - LANG PREFIX
+	$lpx = (isset($params['lpx']) ? $params['lpx'] : ""); // empty = ru
 	
 	$appTable = "page_home_1"; // Main table
 	

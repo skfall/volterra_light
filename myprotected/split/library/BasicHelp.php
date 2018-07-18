@@ -1293,8 +1293,15 @@ class BasicHelp extends BasicPrinter
 				$_item_id 	= $params['headParams']['item_id'];
 				$result = "<div class='tabsManager'>";
 				$result .= "<ul>";
+
+				$curr_def_lang = DEF_LANG;
+				if(DEF_LANG == 'en') $curr_def_lang = "ENGLISH"; 
+				if(DEF_LANG == 'ru') $curr_def_lang = "RUSSIAN"; 
+				if(DEF_LANG == 'uk') $curr_def_lang = "UKRAINIAN"; 
+				if(DEF_LANG == 'de') $curr_def_lang = "GERMAN"; 
+
 				$result .= "<li class='".(!$lpx ? "active" : "")."' onclick=\"playSound();\">
-								<button type='button' onclick=\"loadPage('$_parent','$_alias',$_id,$_item_id,'cardView',{lpx:''});\">".DEF_LANG."</button>
+								<button type='button' onclick=\"loadPage('$_parent','$_alias',$_id,$_item_id,'cardView',{lpx:''});\">".$curr_def_lang."</button>
 							</li>";
 				foreach($langs as $lang){
 					$result .= "<li class='".($lpx==$lang['alias'] ? "active" : "")."' onclick=\"playSound();\">
@@ -1529,11 +1536,16 @@ class BasicHelp extends BasicPrinter
 			$clickUpdate = "cardEdit";
 			if(isset($params['lpx']))
 			{
+
+				$_landing_edit 	= $params['headParams']['_landing_edit'];
 				$tabsManager = true;
 				$lpx = $params['lpx']; // empty = en
 				$langs = $params['langs']; // langs list
 				
 				$clickUpdate = (isset($params['clickUpdate']) ? $params['clickUpdate'] : "cardEdit");
+				if($_landing_edit){
+					$clickUpdate = "landingPage";
+				}
 			}
 			$result = "";
 			if($tabsManager)
@@ -1544,8 +1556,16 @@ class BasicHelp extends BasicPrinter
 				$_item_id 	= $params['headParams']['item_id'];
 				$result = "<div class='tabsManager'>";
 				$result .= "<ul>";
+
+				$curr_def_lang = DEF_LANG;
+				if(DEF_LANG == 'en') $curr_def_lang = "ENGLISH"; 
+				if(DEF_LANG == 'ru') $curr_def_lang = "RUSSIAN"; 
+				if(DEF_LANG == 'uk') $curr_def_lang = "UKRAINIAN"; 
+				if(DEF_LANG == 'de') $curr_def_lang = "GERMAN"; 
+
+
 				$result .= "<li class='".(!$lpx ? "active" : "")."' onclick=\"playSound();\">
-								<button type='button' onclick=\"loadPage('$_parent','$_alias',$_id,$_item_id,'".$clickUpdate."',{lpx:''});\">".DEF_LANG."</button>
+								<button type='button' onclick=\"loadPage('$_parent','$_alias',$_id,$_item_id,'".$clickUpdate."',{lpx:''});\">".$curr_def_lang."</button>
 							</li>";
 				foreach($langs as $lang){
 					$result .= "<li class='".($lpx==$lang['alias'] ? "active" : "")."' onclick=\"playSound();\">

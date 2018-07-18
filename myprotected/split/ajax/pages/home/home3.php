@@ -26,6 +26,9 @@
 	}
 	$params['filtr'] = $prmFiltr;
 	$pageTable = "osc_page_home_3"; // Page table
+
+	// lpx - LANG PREFIX
+	$lpx = (isset($params['lpx']) ? $params['lpx'] : ""); // empty = ru
 	
 
 	$appTable = "slides"; // Main table

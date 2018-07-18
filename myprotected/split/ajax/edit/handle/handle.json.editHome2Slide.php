@@ -15,9 +15,9 @@
 	$caption = $_POST['section_caption'];
 	
 	$cardUpd = array(
-						'section_caption'			=> $caption,
-						'section_sub_caption'			=> $_POST['section_sub_caption'],
-						'section_content'			=> $_POST['section_content'],
+		$lang_prefix.'section_caption'			=> $caption,
+		$lang_prefix.'section_sub_caption'			=> $_POST['section_sub_caption'],
+		$lang_prefix.'section_content'			=> $_POST['section_content'],
 						'modified'	=> $now
 					);
 					

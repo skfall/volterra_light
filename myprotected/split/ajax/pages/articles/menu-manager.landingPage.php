@@ -1,7 +1,7 @@
 <?php 
 	// Start header content
 
-	$headParams = array( 'parent'=>$parent, 'alias'=>$alias, 'id'=>$id, 'appTable'=>$appTable, 'type'=>'menuLandingHeader' ); // 
+	$headParams = array( 'parent'=>$parent, 'alias'=>$alias, 'id'=>$id, 'appTable'=>$appTable, 'type'=>'menuLandingHeader', 'lpx' => 'ru'); // 
 	
 	$data['headContent'] = $zh->getLandingHeader($headParams);
 	
@@ -44,7 +44,6 @@
 	if(isset($_COOKIE['filter-1']) && $_COOKIE['filter-1']) $data['filter']['f1'] = 1;
 	if(isset($_COOKIE['filter-2']) && $_COOKIE['filter-2']) $data['filter']['f2'] = 1;
 	if(isset($_COOKIE['filter-3']) && $_COOKIE['filter-3']) $data['filter']['f3'] = 1;
-	
 	// Filter arrays
 
 	$filter1_options = array( 'By ID'=>'M.id', 'By Name'=>'M.name' );
@@ -82,7 +81,7 @@
 						  'ID'					=>	array('type'=>'text',		'field'=>'id')
 						  );
 	
-	$tableParams = array( 'itemsList'=>$itemsList, 'tableColumns'=>$tableColumns, 'headParams'=>$headParams );
+	$tableParams = array( 'itemsList'=>$itemsList, 'tableColumns'=>$tableColumns, 'headParams'=>$headParams , 'lpx'=>$lpx );
 	
 	$tableStr = $zh->getItemsTable($tableParams);
 	

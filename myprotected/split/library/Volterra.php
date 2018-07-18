@@ -22,9 +22,29 @@ class Volterra extends BasicHelp {
 		} 
 
 
-		public function getHomeFirstSectionItem($id) {
+		public function getAllLangs(){
+			$q = "
+				SELECT * FROM [pre]languages WHERE `used` = 0 LIMIT 1000 
+			";
+			return $this->rs($q);
+		}
+		public function getAvailableLangs(){
+				$query = "
+					SELECT L.name, L.alias, M.block, M.id 
+					FROM [pre]site_languages AS M 
+					LEFT JOIN [pre]languages AS L ON L.id = M.lang_id 
+					WHERE 1 $filter_and AND L.alias != '".DEF_LANG."'
+					ORDER BY M.id
+					LIMIT 1000
+				";
+						
+				return $this->rs($query);
+		}
+
+		public function getHomeFirstSectionItem($id, $lpx) {
+			$lpx = ($lpx ? $lpx."_" : "");
 			$query = "
-				SELECT M.* 
+				SELECT M.*, ".$lpx."section_caption as section_caption, ".$lpx."section_sub_caption as section_sub_caption, ".$lpx."section_content as section_content 
 				FROM [pre]page_home_1 as M 
 				WHERE `id`='$id' 
 				LIMIT 1
@@ -73,9 +93,10 @@ class Volterra extends BasicHelp {
 			}
 		}
 
-		public function getHomeSecondSectionItem($id) {
+		public function getHomeSecondSectionItem($id, $lpx) {
+			$lpx = ($lpx ? $lpx."_" : "");
 			$query = "
-				SELECT M.* 
+				SELECT M.*, ".$lpx."section_caption as section_caption, ".$lpx."section_sub_caption as section_sub_caption, ".$lpx."section_content as section_content 
 				FROM [pre]page_home_2 as M 
 				WHERE `id`='$id' 
 				LIMIT 1
@@ -124,9 +145,10 @@ class Volterra extends BasicHelp {
 			}
 		}
 
-		public function getHomeThirdSection(){
+		public function getHomeThirdSection($t, $lpx){
+			$lpx = ($lpx ? $lpx."_" : "");
 			$q = "
-				SELECT M.* 
+				SELECT M.*, ".$lpx."section_caption as section_caption, ".$lpx."section_sub_caption as section_sub_caption, ".$lpx."section_content as section_content 
 				FROM `osc_page_home_3` AS M 
 				WHERE M.id = 1 
 				LIMIT 1
@@ -135,9 +157,10 @@ class Volterra extends BasicHelp {
 			return $result;
 		}
 
-		public function getHomeFourthSection(){
+		public function getHomeFourthSection($t = "", $lpx){
+			$lpx = ($lpx ? $lpx."_" : "");
 			$q = "
-				SELECT M.* 
+				SELECT M.*, ".$lpx."section_caption as section_caption, ".$lpx."section_sub_caption as section_sub_caption, ".$lpx."section_content as section_content 
 				FROM `osc_page_home_4` AS M 
 				WHERE M.id = 1 
 				LIMIT 1

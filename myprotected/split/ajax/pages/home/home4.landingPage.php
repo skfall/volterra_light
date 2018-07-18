@@ -1,15 +1,16 @@
 <?php 
 	// Start header content
-	$headParams = array( 'parent'=>$parent, 'alias'=>$alias, 'id'=>$id, 'appTable'=>$appTable, 'type' => 'homesection3' );
+	$headParams = array( 'parent'=>$parent, 'alias'=>$alias, 'id'=>$id, 'appTable'=>$appTable, 'type' => 'homesection3' , 'item_id' => 1, '_landing_edit' => '1' );
 	$data['headContent'] = $zh->getLandingHeader($headParams);
 	// GET PAGE DATA
 	
-	$cardData = $zh->getHomeFourthSection($pageTable);
+	$cardData = $zh->getHomeFourthSection($pageTable, $lpx);
 	$cardData['section_caption'] = strip_tags($cardData['section_caption']);	
 	$cardData['section_caption'] = str_replace('\\n', ' ', $cardData['section_caption']);
 	$cardItem = $cardData;
 	
-	
+	$langs = $zh->getAvailableLangs();
+	$lpx_name = strtoupper($lpx ? $lpx."_" : DEF_LANG);
 	
 	// Get page items
 	
@@ -92,12 +93,14 @@
 	<h3 class='new-line'>Редактирование секции <b>#4</b></h3>
 	";
 	$cardTmp = array(
+		'LPX'		=>	array( 'type'=>'hidden',	'field'=>'lpx', 'value'=>$lpx ),
 		'Заголовок'		=>	array( 'type'=>'area', 'field'=>'section_caption', 	'params'=>array( 'size'=>100, 'hold'=>'Заголовок' ) ),
 		'Контент'		=>	array( 'type'=>'summernote', 'field'=>'section_content', 	'params'=>array( 'size'=>100, 'hold'=>'Контент' ) ),
 			 
 			 );
+
 	
-		$cardEditFormParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath, 'actionName'=>"editHome4", 'ajaxFolder'=>'edit', 'appTable'=>$pageTable );
+		$cardEditFormParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath, 'actionName'=>"editHome4", 'ajaxFolder'=>'edit', 'appTable'=>$pageTable , 'lpx'=>$lpx, 'headParams'=>$headParams, 'langs'=>$langs);
 		
 		$cardEditFormStr = $zh->getCardEditForm($cardEditFormParams, true);
 		

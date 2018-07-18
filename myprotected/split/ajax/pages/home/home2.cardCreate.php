@@ -7,7 +7,7 @@
 	
 	// Start body content
 	
-	$cardItem = $zh->getHomeSecondSectionItem($item_id);
+	$cardItem = $zh->getHomeSecondSectionItem($item_id, $lpx);
 
 	$rootPath = ROOT_PATH;
 	

@@ -6,12 +6,17 @@
 	$data['headContent'] = $zh->getCardEditHeader($headParams);
 	
 	// Start body content
+
+	$langs = $zh->getAvailableLangs();
+	$lpx_name = strtoupper($lpx ? $lpx."_" : DEF_LANG);
+
 	
-	$cardItem = $zh->getHomeFirstSectionItem($item_id);
+	$cardItem = $zh->getHomeFirstSectionItem($item_id, $lpx);
 
 	$rootPath = ROOT_PATH;
 	
 	$cardTmp = array(
+					'LPX'		=>	array( 'type'=>'hidden',	'field'=>'lpx', 'value'=>$lpx ),
 					 'Заголовок'				=>	array( 'type'=>'area', 		'field'=>'section_caption', 		'params'=>array( 'size'=>100, 'hold'=>'Заголовок' ) ),
 					 'Подзаголовок'				=>	array( 'type'=>'input', 		'field'=>'section_sub_caption', 		'params'=>array( 'size'=>100, 'hold'=>'Подзаголовок' ) ),
 					 'clear-1'				=>	array( 'type'=>'clear' ),
@@ -20,7 +25,7 @@
 					 'Изображение'			=>	array( 'type'=>'image_mono','field'=>'filename', 		'params'=>array( 'path'=>RSF."/split/files/home_slides/", 'appTable'=>$appTable, 'id'=>$item_id ) ),
 					 );
 
-	$cardEditFormParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath, 'actionName'=>"editHome1Slide", 'ajaxFolder'=>'edit', 'appTable'=>$appTable );
+	$cardEditFormParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath, 'actionName'=>"editHome1Slide", 'ajaxFolder'=>'edit', 'appTable'=>$appTable, 'lpx'=>$lpx, 'headParams'=>$headParams, 'langs'=>$langs );
 	
 	$cardEditFormStr = $zh->getCardEditForm($cardEditFormParams);
 	

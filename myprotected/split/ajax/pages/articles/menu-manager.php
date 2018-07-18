@@ -31,6 +31,7 @@
 	$lpx = (isset($params['lpx']) ? $params['lpx'] : ""); // empty = ru
 
 
+
 	$appTable = "nav"; // Main table
 	
 	$moduleFile = $alias.".".$actionType.".php";

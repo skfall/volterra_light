@@ -9,7 +9,7 @@ error_reporting(0);
 //********************
 //** GLOBAL DEFINES
 //********************
-define("DEF_LANG","ru"); 
+define("DEF_LANG","en"); 
 // iw - Hebrew, 	ID = 52 (Israel)
 // ru - Russian, 	ID = 94
 // en - English, 	ID = 1

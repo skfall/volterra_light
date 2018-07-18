@@ -438,6 +438,7 @@ function selectEventType(el){
 }
 function loadPage(parent,alias,id,item_id,action_type,params)
 {
+
 	playSound();
 	paf_but_sem = 0;
 	$.cookie('ajaxID',id);

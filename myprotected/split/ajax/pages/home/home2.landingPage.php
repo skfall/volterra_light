@@ -45,8 +45,8 @@
 	$tableColumns = array(
 						  'Checkbox'			=>	array('type'=>'checkbox',	'field'=>''),
 						  'Заголовок'			=>	array('type'=>'text',		'field'=>'section_caption'),
-						  'Просмотр'			=>	array('type'=>'cardView',	'field'=>'Смотреть'),
-						  'Редактирование'		=>	array('type'=>'cardEdit',	'field'=>'Редактировать'),
+						  'Просмотр'			=>	array('type'=>'cardView',	'field'=>'Смотреть', 'lpx'=>true),
+						  'Редактирование'		=>	array('type'=>'cardEdit',	'field'=>'Редактировать', 'lpx'=>true),
 						  'ID'					=>	array('type'=>'text',		'field'=>'id')
 						  );
 	
@@ -56,7 +56,7 @@
 	
 	// START PAGINATION
 	
-	$pagiParams = array( 'headParams'=>$headParams, 'start_page'=>$start_page, 'pages'=>$pages, 'on_page'=>$on_page );
+	$pagiParams = array( 'headParams'=>$headParams, 'start_page'=>$start_page, 'pages'=>$pages, 'on_page'=>$on_page , 'lpx'=>$lpx);
 	
 	$pagiStr = $zh->getLandingPagination($pagiParams);
 	

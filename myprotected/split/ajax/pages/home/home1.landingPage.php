@@ -45,12 +45,12 @@
 	$tableColumns = array(
 						  'Checkbox'			=>	array('type'=>'checkbox',	'field'=>''),
 						  'Заголовок'				=>	array('type'=>'text',		'field'=>'section_caption'),
-						  'Просмотр'			=>	array('type'=>'cardView',	'field'=>'Смотреть'),
-						  'Редактирование'		=>	array('type'=>'cardEdit',	'field'=>'Редактировать'),
+						  'Просмотр'			=>	array('type'=>'cardView',	'field'=>'Смотреть', 'lpx'=>true),
+						  'Редактирование'		=>	array('type'=>'cardEdit',	'field'=>'Редактировать', 'lpx'=>true),
 						  'ID'					=>	array('type'=>'text',		'field'=>'id')
 						  );
 	
-	$tableParams = array( 'itemsList'=>$itemsList, 'tableColumns'=>$tableColumns, 'headParams'=>$headParams );
+	$tableParams = array( 'itemsList'=>$itemsList, 'tableColumns'=>$tableColumns, 'headParams'=>$headParams , 'lpx'=>$lpx);
 	
 	$tableStr = $zh->getItemsTable($tableParams);
 	

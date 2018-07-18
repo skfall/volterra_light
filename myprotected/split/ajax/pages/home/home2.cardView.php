@@ -7,7 +7,8 @@
 	
 	// Start body content
 	
-	$cardItem = $zh->getHomeSecondSectionItem($item_id);
+	$cardItem = $zh->getHomeSecondSectionItem($item_id, $lpx);
+	$langs = $zh->getAvailableLangs();
 
 	$rootPath = ROOT_PATH;
 	
@@ -22,7 +23,7 @@
 
 
 
-	$cardViewTableParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath );
+	$cardViewTableParams = array( 'cardItem'=>$cardItem, 'cardTmp'=>$cardTmp, 'rootPath'=>$rootPath, 'lpx'=>$lpx, 'headParams'=>$headParams, 'langs'=>$langs );
 	
 	$cardViewTableStr = $zh->getCardViewTable($cardViewTableParams);
 	
