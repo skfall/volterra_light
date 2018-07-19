@@ -859,3 +859,12 @@ footer .container {width: 90%;}
 }
 
 
+@media(max-width: 600px){
+	.mob_langs {right: 110px;}
+}
+
+@media(max-width: 370px){
+	.mob_langs {right: 90px;}
+	.mob_menu_btn {right: 20px;}
+	.mob_recall_btn {right: 60px;}
+}
